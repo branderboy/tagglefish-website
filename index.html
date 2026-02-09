@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaggleFish | Digital Systems</title>
+    <title>TaggleFish | Local Business Marketing Agency</title>
     
     <!-- TAILWIND CSS (Styling) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,6 +45,22 @@
     </style>
 </head>
 <body class="text-lg">
+    <!-- NOSCRIPT SEO SUPPORT -->
+    <noscript>
+        <h1>TaggleFish | Local Business Marketing Agency — Website, SEO & Lead Automation</h1>
+        <p>Local business marketing agency. Website, local SEO, Google Maps ranking, and lead automation for contractors, dispensaries, and restaurants. $2,999 one-time system.</p>
+        <p>
+            <a href="#contractors">HVAC marketing company</a> |
+            <a href="#drywall-marketing">drywall contractor marketing</a> |
+            <a href="#painting-marketing">painting contractor marketing</a> |
+            <a href="#flooring-marketing">flooring company marketing</a> |
+            <a href="#landscaping-marketing">landscaping marketing agency</a> |
+            <a href="#cannabis">dispensary SEO</a> |
+            <a href="#restaurants">restaurant marketing</a> |
+            <a href="#deal">$2,999 lifetime deal</a>
+        </p>
+    </noscript>
+
     <div class="grid-lines">
         <div class="grid-line"></div>
         <div class="grid-line hidden md:block"></div>
@@ -57,8 +73,115 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        // --- STRIPE CONFIGURATION ---
+        // --- CONFIGURATION ---
         const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_replace_this_with_your_link";
+        const API_ENDPOINT = "/.netlify/functions/send-email"; // Backend function for Resend
+
+        // --- SEO DATA ---
+        const SEO_DATA = {
+            'home': {
+                title: "TaggleFish | Local Business Marketing Agency — Website, SEO & Lead Automation",
+                desc: "Local business marketing agency. Website, local SEO, Google Maps ranking, and lead automation for contractors, dispensaries, and restaurants. $2,999 one-time system.",
+                url: "https://tagglefish.com/",
+                schema: {
+                    "@context": "https://schema.org",
+                    "@type": "ProfessionalService",
+                    "name": "TaggleFish",
+                    "description": "Marketing agency specializing in websites, local SEO, and lead automation for contractors, dispensaries, and restaurants.",
+                    "url": "https://tagglefish.com",
+                    "address": { "@type": "PostalAddress", "addressLocality": "Washington", "addressRegion": "DC", "addressCountry": "US" },
+                    "email": "hello@tagglefish.com",
+                    "priceRange": "$2,999 one-time",
+                    "areaServed": "US",
+                    "serviceType": ["Local SEO", "Website Design", "Lead Generation", "Google Business Profile Optimization", "Lead Automation"],
+                    "knowsAbout": ["HVAC Marketing", "Cannabis Marketing", "Restaurant Marketing", "Contractor SEO", "Drywall Contractor Marketing", "Painting Contractor Marketing", "Flooring Company Marketing", "Landscaping Marketing"]
+                }
+            },
+            'contractors': {
+                title: "HVAC & Contractor Marketing | TaggleFish — Websites, SEO & Lead Gen for Trades",
+                desc: "HVAC & contractor marketing company. Website, local SEO, Google Maps ranking, and instant lead response — $2,999 one-time setup. Stop losing jobs.",
+                url: "https://tagglefish.com/contractors/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "HVAC & Contractor Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for HVAC, plumbing, and electrical contractors.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'drywall-marketing': {
+                title: "Drywall Contractor Marketing | TaggleFish — Websites, SEO & Lead Gen for Drywall Companies",
+                desc: "Drywall contractor marketing company. We build websites, rank you on Google Maps, and automate lead response — $2,999 one-time. Built by someone who runs a drywall company.",
+                url: "https://tagglefish.com/drywall-marketing/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Drywall Contractor Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for drywall contractors.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'painting-marketing': {
+                title: "Painting Contractor Marketing | TaggleFish — Get More Painting Jobs Without Chasing Referrals",
+                desc: "Painting contractor marketing agency. Stop relying on word-of-mouth. Get found on Google, respond instantly to leads, and book more painting jobs. $2,999 one-time system.",
+                url: "https://tagglefish.com/painting-marketing/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Painting Contractor Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for painting contractors.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'flooring-marketing': {
+                title: "Flooring Company Marketing | TaggleFish — Websites, SEO & Lead Gen for Flooring Contractors",
+                desc: "Flooring company marketing agency. Compete with the big box stores on Google. Website, local SEO, and lead automation for flooring contractors. $2,999 one-time.",
+                url: "https://tagglefish.com/flooring-marketing/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Flooring Company Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for flooring contractors.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'landscaping-marketing': {
+                title: "Landscaping Marketing Agency | TaggleFish — Get More Customers Without Monthly Ad Spend",
+                desc: "Landscaping marketing agency. Fill your schedule year-round with a website, Google Maps ranking, and instant lead response. $2,999 one-time — not $3-5K/month.",
+                url: "https://tagglefish.com/landscaping-marketing/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Landscaping Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for landscaping companies.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'cannabis': {
+                title: "Dispensary SEO & Cannabis Marketing | TaggleFish — Rank Without Ads",
+                desc: "Dispensary SEO company. Can't run ads? We rank your dispensary on Google Maps and build a site that converts. One-time $2,999 system.",
+                url: "https://tagglefish.com/cannabis/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Dispensary SEO & Cannabis Marketing", "description": "Website, local SEO, and Google Maps ranking for cannabis dispensaries. Organic-only growth since ads are banned.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'restaurants': {
+                title: "Restaurant Marketing Agency | TaggleFish — Direct Orders, No 30% Commissions",
+                desc: "Restaurant marketing agency. Stop paying 30% to DoorDash. Get direct orders through Google with a site, local SEO, and lead automation. $2,999 setup.",
+                url: "https://tagglefish.com/restaurants/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Restaurant Marketing", "description": "Website with direct ordering, local SEO, and Google Maps ranking for restaurants.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'services': {
+                title: "Services | TaggleFish — Website, SEO, Lead Response & Dashboard for Local Business",
+                desc: "Local business marketing services: website setup, Google Business Profile optimization, automated lead response, and live dashboard. All-in-one system.",
+                url: "https://tagglefish.com/services/",
+                schema: [
+                    { "@context": "https://schema.org", "@type": "Service", "name": "ReadySite", "description": "Fast, mobile-optimized website built for local service businesses.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish" } },
+                    { "@context": "https://schema.org", "@type": "Service", "name": "LocalFind", "description": "Google Business Profile optimization and local SEO for Google Maps ranking.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish" } },
+                    { "@context": "https://schema.org", "@type": "Service", "name": "FirstReply", "description": "Missed call text-back and automated lead response system.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish" } },
+                    { "@context": "https://schema.org", "@type": "Service", "name": "ClearView", "description": "Live dashboard showing rankings, leads, and response metrics.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish" } },
+                    { "@context": "https://schema.org", "@type": "Service", "name": "SiteCare", "description": "Ongoing website support and maintenance.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish" } }
+                ]
+            },
+            'deal': {
+                title: "Lifetime Deal — $2,999 Complete Local Marketing System | TaggleFish",
+                desc: "Complete local marketing system for $2,999 one-time. Website + SEO + lead response + dashboard. Other agencies charge $2,500-$12,000/month.",
+                url: "https://tagglefish.com/deal/",
+                schema: { "@context": "https://schema.org", "@type": "Offer", "name": "TaggleFish Lifetime Deal", "description": "Complete local marketing system: website, SEO, lead response, and dashboard.", "price": "2999", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "seller": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" } }
+            },
+            'how-it-works': {
+                title: "How It Works | TaggleFish — The Local Customer Acquisition System",
+                desc: "How the TaggleFish system works: website, local SEO, automated lead response, and live dashboard. Built for contractors, dispensaries, and restaurants.",
+                url: "https://tagglefish.com/how-it-works/",
+                schema: null
+            },
+            'about': {
+                title: "About TaggleFish | Built for the Bottom of the Funnel",
+                desc: "TaggleFish is a local business marketing agency built by someone who runs a contracting company. We know the trades because we're in the trades.",
+                url: "https://tagglefish.com/about/",
+                schema: null
+            },
+            'privacy': {
+                title: "Privacy Policy | TaggleFish",
+                desc: "Our privacy policy outlining how we handle your data.",
+                url: "https://tagglefish.com/privacy/",
+                schema: null
+            },
+            'terms': {
+                title: "Terms of Service | TaggleFish",
+                desc: "Terms and conditions for using TaggleFish services.",
+                url: "https://tagglefish.com/terms/",
+                schema: null
+            }
+        };
 
         // --- ICONS ---
         const Icons = {
@@ -79,7 +202,9 @@
             Users: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
             Package: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22v-8"/></svg>,
             ChevronDown: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>,
-            Loader: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin"><path d="M21 12a9 9 0 1 1-6.219-8.56" /></svg>
+            Loader: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin"><path d="M21 12a9 9 0 1 1-6.219-8.56" /></svg>,
+            Plus: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>,
+            Minus: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/></svg>
         };
 
         // --- COMPONENTS ---
@@ -184,6 +309,45 @@
             </div>
         );
 
+        const FAQItem = ({ question, answer }) => {
+            const [isOpen, setIsOpen] = useState(false);
+            return (
+                <div className="border-b border-slate-800">
+                    <button onClick={() => setIsOpen(!isOpen)} className="w-full py-6 flex items-center justify-between text-left group">
+                        <span className="text-xl font-bold text-white group-hover:text-teal-400 transition-colors">{question}</span>
+                        {isOpen ? <Icons.Minus className="text-rose-500 w-6 h-6" /> : <Icons.Plus className="text-teal-500 w-6 h-6" />}
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                        <p className="text-slate-300 text-lg leading-relaxed">{answer}</p>
+                    </div>
+                </div>
+            );
+        };
+
+        const FAQSection = () => (
+            <div className="max-w-4xl mx-auto mt-20">
+                <SectionHeader subtitle="FAQ" title="COMMON QUESTIONS" align="center" light />
+                <div className="space-y-2">
+                    <FAQItem 
+                        question="Do you work with anyone?" 
+                        answer="No. We protect our clients by only partnering with one business per specific market area. If we're already working with a plumber in Arlington, we won't take another." 
+                    />
+                    <FAQItem 
+                        question="How long does it take to launch?" 
+                        answer="We can have your new high-converting website and lead system live in about 14 days." 
+                    />
+                    <FAQItem 
+                        question="Do I own the website?" 
+                        answer="Yes. Unlike other agencies that hold your site hostage, you own the asset once the build is paid for." 
+                    />
+                    <FAQItem 
+                        question="Is there a long-term contract?" 
+                        answer="No. The build is a one-time fee. The ongoing support and hosting is month-to-month. You can cancel anytime." 
+                    />
+                </div>
+            </div>
+        );
+
         // --- PAGE SECTIONS ---
 
         const Homepage = () => (
@@ -216,6 +380,13 @@
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-6">
                                         <LinkButton href="#deal" variant="primary">Claim Your Lifetime Deal</LinkButton>
+                                    </div>
+                                    <div className="mt-8 flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+                                       <a href="#contractors" className="hover:text-rose-500">HVAC marketing company</a>
+                                       <span className="text-slate-600">|</span>
+                                       <a href="#drywall-marketing" className="hover:text-rose-500">drywall contractor marketing</a>
+                                       <span className="text-slate-600">|</span>
+                                       <a href="#painting-marketing" className="hover:text-rose-500">painting contractor marketing</a>
                                     </div>
                                 </FadeIn>
                             </div>
@@ -322,6 +493,9 @@
                                 </a>
                             ))}
                         </div>
+                        <div className="mt-12 text-center text-sm font-bold uppercase tracking-widest text-slate-500">
+                           Also serving: <a href="#landscaping-marketing" className="hover:text-rose-500 mx-2">landscaping marketing agency</a> | <a href="#flooring-marketing" className="hover:text-rose-500 mx-2">flooring company marketing</a>
+                        </div>
                     </Container>
                 </Section>
                 
@@ -364,6 +538,11 @@
                     </div>
                   </Container>
                 </Section>
+                <Section bg="dark" className="py-20">
+                    <Container>
+                        <FAQSection />
+                    </Container>
+                </Section>
             </div>
         );
 
@@ -378,41 +557,11 @@
 
                         <div className="grid lg:grid-cols-2 gap-8 mb-20">
                             {[
-                                {
-                                    name: "ReadySite",
-                                    cat: "WEBSITE SETUP",
-                                    desc: "If customers don’t understand your site in 5 seconds, they leave.",
-                                    points: ["What you do is immediately clear", "It works properly on phones", "Calling or contacting you is obvious"],
-                                    note: "This is the starting point. Nothing else works without it."
-                                },
-                                {
-                                    name: "LocalFind",
-                                    cat: "SHOW UP IN LOCAL SEARCH",
-                                    desc: "People search for services near them. If you don’t show up, the job goes to someone else.",
-                                    points: ["You show up on Google and Maps", "Your site matches what Google shows", "You compete in your local area"],
-                                    note: "This is how customers find you."
-                                },
-                                {
-                                    name: "FirstReply",
-                                    cat: "INSTANT LEAD RESPONSE",
-                                    desc: "The first business to respond usually wins.",
-                                    points: ["Instant replies to new leads", "Missed calls that turn into follow-ups", "Automatic responses so jobs don’t die"],
-                                    note: "This stops money from slipping through the cracks."
-                                },
-                                {
-                                    name: "ClearView",
-                                    cat: "SEE WHAT’S WORKING",
-                                    desc: "If you don’t know what’s working, you can’t fix what’s not.",
-                                    points: ["Where you rank locally", "How many leads came in", "How fast they were answered"],
-                                    note: "No confusing reports. Just the basics that matter."
-                                },
-                                {
-                                    name: "SiteCare",
-                                    cat: "ONGOING SUPPORT",
-                                    desc: "Things need upkeep.",
-                                    points: ["Small updates", "Fixes", "Help when something breaks"],
-                                    note: "So nothing quietly falls apart."
-                                }
+                                { name: "ReadySite", cat: "WEBSITE SETUP", desc: "If customers don’t understand your site in 5 seconds, they leave.", points: ["What you do is immediately clear", "It works properly on phones", "Calling or contacting you is obvious"], note: "This is the starting point. Nothing else works without it." },
+                                { name: "LocalFind", cat: "SHOW UP IN LOCAL SEARCH", desc: "People search for services near them. If you don’t show up, the job goes to someone else.", points: ["You show up on Google and Maps", "Your site matches what Google shows", "You compete in your local area"], note: "This is how customers find you." },
+                                { name: "FirstReply", cat: "INSTANT LEAD RESPONSE", desc: "The first business to respond usually wins.", points: ["Instant replies to new leads", "Missed calls that turn into follow-ups", "Automatic responses so jobs don’t die"], note: "This stops money from slipping through the cracks." },
+                                { name: "ClearView", cat: "SEE WHAT’S WORKING", desc: "If you don’t know what’s working, you can’t fix what’s not.", points: ["Where you rank locally", "How many leads came in", "How fast they were answered"], note: "No confusing reports. Just the basics that matter." },
+                                { name: "SiteCare", cat: "ONGOING SUPPORT", desc: "Things need upkeep.", points: ["Small updates", "Fixes", "Help when something breaks"], note: "So nothing quietly falls apart." }
                             ].map((service, i) => (
                                 <div key={i} className="bg-slate-900 border border-slate-800 p-10 hover:border-teal-500 transition-colors group">
                                     <div className="text-xs font-bold text-teal-500 uppercase tracking-widest mb-2">{service.cat}</div>
@@ -501,7 +650,7 @@
             </div>
         );
 
-        const IndustryPage = ({ title, heroTitle, heroDesc, navigate, icon: Icon, color, content }) => (
+        const IndustryPage = ({ title, heroTitle, heroDesc, navigate, icon: Icon, color, content, links }) => (
             <div className="bg-slate-950 min-h-screen text-white pt-40 pb-20">
                 <Container>
                     <FadeIn>
@@ -524,6 +673,16 @@
                                         <p className="text-slate-300 text-lg leading-relaxed">{content.solution}</p>
                                     </div>
                                 </div>
+                                {links && (
+                                    <div className="mt-12 pt-8 border-t border-slate-800 text-sm font-bold uppercase tracking-widest text-slate-500">
+                                        {links.map((link, i) => (
+                                            <span key={i}>
+                                                <a href={link.href} className="hover:text-rose-500">{link.text}</a>
+                                                {i < links.length - 1 && <span className="text-slate-700 mx-3">|</span>}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </FadeIn>
@@ -576,18 +735,29 @@
                                  <h3 className="text-2xl font-black text-white mb-8 uppercase">What We Install</h3>
                                  <div className="space-y-8">
                                     {[
-                                        { title: "Website That Converts", price: "$1,200", desc: "Built so Google can rank it and customers can contact you." },
-                                        { title: "Local Search Visibility", price: "$600", desc: "So you show up when people search for your service." },
-                                        { title: "Lead Response + Follow-Up", price: "$450", desc: "Instant replies and follow-up so jobs don’t die." },
-                                        { title: "Visibility and Control", price: "$350", desc: "See rankings, leads, and response speed without guessing." },
-                                        { title: "Support", price: "$99", desc: "Edits, fixes, and help when needed." }
+                                        { title: "Website That Converts", price: "$1,800", desc: "Built so Google can rank it and customers can contact you." },
+                                        { title: "Local Search Visibility", price: "$850", desc: "So you show up when people search for your service." },
+                                        { title: "Lead Response + Follow-Up", price: "$750", desc: "Instant replies and follow-up so jobs don’t die." },
+                                        { title: "Visibility and Control", price: "$550", desc: "See rankings, leads, and response speed without guessing." },
+                                        { 
+                                            title: "Support & Strategy", 
+                                            price: "$249/mo", 
+                                            desc: (
+                                                <ul className="list-disc pl-4 mt-2 space-y-1 opacity-80 leading-relaxed">
+                                                    <li>Ongoing changes to SEO strategy based on rankings, competition, and search behavior</li>
+                                                    <li>Website updates and page adjustments as services, offers, or priorities change</li>
+                                                    <li>Technical fixes, content edits, and structural updates as needed</li>
+                                                    <li>Monitoring and corrections so visibility and lead flow don’t degrade over time</li>
+                                                </ul>
+                                            )
+                                        }
                                     ].map((item, i) => (
                                         <div key={i} className="flex justify-between items-start border-b border-slate-800 pb-4 last:border-0 last:pb-0">
                                             <div>
                                                 <div className="font-bold text-white uppercase tracking-wide text-sm">{item.title}</div>
                                                 <div className="text-xs text-slate-300 mt-1">{item.desc}</div>
                                             </div>
-                                            <div className="text-slate-100 font-mono text-sm shrink-0">{item.price}</div>
+                                            <div className="text-slate-100 font-mono text-sm shrink-0 ml-4">{item.price}</div>
                                         </div>
                                     ))}
                                  </div>
@@ -597,11 +767,11 @@
                         <div className="max-w-3xl mx-auto bg-slate-900 border border-teal-500/30 p-12 text-center relative overflow-hidden">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-rose-500"></div>
                             <h3 className="text-xl font-bold text-slate-200 uppercase tracking-widest mb-2">Total If Paid Separately</h3>
-                            <div className="text-3xl font-black text-slate-300 line-through mb-12">$2,699</div>
+                            <div className="text-3xl font-black text-slate-300 line-through mb-12">$3,950</div>
                             
                             <h3 className="text-2xl font-bold text-white uppercase tracking-widest mb-4">Our Offer</h3>
-                            <div className="text-6xl md:text-8xl font-black text-white mb-2">$2,450</div>
-                            <div className="text-teal-400 font-bold uppercase tracking-wide mb-8">+ Support: $99/mo</div>
+                            <div className="text-6xl md:text-8xl font-black text-white mb-2">$2,999</div>
+                            <div className="text-teal-400 font-bold uppercase tracking-wide mb-8">+ Support: $249/mo</div>
                             
                             <p className="text-slate-200 mb-10 max-w-md mx-auto">We install everything together so nothing breaks. No add-ons. No piecing things together.</p>
                             
@@ -691,141 +861,70 @@
           </div>
         );
 
-        const ReachUs = () => {
-            const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-            const [status, setStatus] = useState('idle');
+        const PrivacyPolicy = () => (
+            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+                <Container>
+                    <FadeIn>
+                        <SectionHeader light subtitle="Legal" title="PRIVACY POLICY" />
+                        <div className="prose prose-invert prose-lg max-w-3xl">
+                            <h3>1. Introduction</h3>
+                            <p>Welcome to TaggleFish. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
 
-            const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-            
-            const handleSubmit = () => {
-                setStatus('submitting');
-                setTimeout(() => {
-                    setStatus('success');
-                    console.log("Contact Form Submitted:", formData);
-                }, 1500);
-            };
+                            <h3>2. Data We Collect</h3>
+                            <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:</p>
+                            <ul>
+                                <li>Identity Data includes first name, last name, username or similar identifier.</li>
+                                <li>Contact Data includes billing address, delivery address, email address and telephone numbers.</li>
+                                <li>Financial Data includes bank account and payment card details (processed securely via Stripe).</li>
+                            </ul>
 
-            return (
-                <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
-                    <Container>
-                        <FadeIn>
-                            <SectionHeader light subtitle="Contact" title="REACH US" />
-                            <div className="grid lg:grid-cols-2 gap-20">
-                                <div>
-                                    <h3 className="text-2xl font-black text-white mb-8 uppercase">Direct Line</h3>
-                                    <p className="text-lg text-slate-200 mb-12">
-                                        Have a question before you secure your deal? Need to discuss a partnership? We're here.
-                                    </p>
-                                    
-                                    <div className="space-y-8">
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-teal-500">
-                                                <Icons.Mail className="w-6 h-6" />
-                                            </div>
-                                            <div>
-                                                <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1">Email</div>
-                                                <div className="text-xl font-bold text-white">hello@tagglefish.com</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-rose-500">
-                                                <Icons.MapPin className="w-6 h-6" />
-                                            </div>
-                                            <div>
-                                                <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1">HQ</div>
-                                                <div className="text-xl font-bold text-white">Washington, DC</div>
-                                                <div className="text-sm text-slate-300">Serving clients nationwide</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <h3>3. How We Use Your Data</h3>
+                            <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+                            <ul>
+                                <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
+                                <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+                                <li>Where we need to comply with a legal or regulatory obligation.</li>
+                            </ul>
 
-                                <div className="bg-slate-900 p-10 border border-slate-800">
-                                    <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-widest">Send a Message</h3>
-                                    {status === 'success' ? (
-                                        <div className="text-center py-12">
-                                            <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                                                <Icons.CheckCircle className="w-8 h-8" />
-                                            </div>
-                                            <h3 className="text-2xl font-black text-white mb-2">Message Sent</h3>
-                                            <p className="text-slate-200">We'll get back to you shortly.</p>
-                                            <Button variant="outline" className="mt-8" onClick={() => setStatus('idle')}>Send Another</Button>
-                                        </div>
-                                    ) : (
-                                        <div className="space-y-6">
-                                            <div>
-                                                <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
-                                                <input name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" />
-                                            </div>
-                                            <div>
-                                                <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
-                                                <input name="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" />
-                                            </div>
-                                            <div>
-                                                <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
-                                                <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" />
-                                            </div>
-                                            <Button variant="secondary" className="w-full" onClick={handleSubmit} isLoading={status === 'submitting'}>Send Message</Button>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        </FadeIn>
-                    </Container>
-                </div>
-            );
-        };
-
-        const Apply = () => {
-            const [step, setStep] = useState(1);
-            const [formData, setFormData] = useState({ business: '', website: '', challenge: '' });
-            const [isSubmitting, setIsSubmitting] = useState(false);
-
-            const handleChange = (e) => {
-                setFormData({ ...formData, [e.target.name]: e.target.value });
-            };
-
-            const handleFinalSubmit = () => {
-                setIsSubmitting(true);
-                // Simulate processing time
-                setTimeout(() => {
-                    setIsSubmitting(false);
-                    console.log("Form Captured:", formData);
-                    // Redirect to Stripe Payment
-                    window.location.href = STRIPE_PAYMENT_LINK;
-                }, 1500);
-            };
-
-            return (
-                <div className="bg-slate-950 min-h-screen pt-32 pb-20">
-                    <Container>
-                        <div className="max-w-3xl mx-auto bg-white p-12 md:p-20 relative z-10 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
-                            <div className="text-center mb-12">
-                                <h2 className="text-4xl font-black text-slate-900 uppercase mb-4">Start Generating Revenue on Autopilot.</h2>
-                                <p className="text-slate-600 text-lg leading-relaxed">
-                                    Turn local search traffic into booked jobs without adding to your workload. Let's build your custom acquisition system today.
-                                </p>
-                            </div>
-                            <div className="border-t-4 border-rose-500 pt-8">
-                                {step === 1 && (
-                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Business Name</label><input name="business" value={formData.business} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="Enter name..." /></div>
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Website</label><input name="website" value={formData.website} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="https://" /></div>
-                                        <div className="pt-8 text-right"><Button onClick={() => setStep(2)} variant="dark">Next Step</Button></div>
-                                    </div>
-                                )}
-                                {step === 2 && (
-                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Biggest Challenge</label><textarea name="challenge" value={formData.challenge} onChange={handleChange} rows="3" className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="What's holding you back?" /></div>
-                                        <div className="pt-8 flex justify-between"><button onClick={() => setStep(1)} className="text-slate-400 font-bold uppercase text-xs">Back</button><Button onClick={handleFinalSubmit} variant="dark" isLoading={isSubmitting}>Proceed to Payment</Button></div>
-                                    </div>
-                                )}
-                            </div>
+                            <h3>4. Data Security</h3>
+                            <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.</p>
+                            
+                            <p>For questions, contact <a href="mailto:hello@tagglefish.com" className="text-rose-500">hello@tagglefish.com</a>.</p>
                         </div>
-                    </Container>
-                </div>
-            );
-        };
+                    </FadeIn>
+                </Container>
+            </div>
+        );
+
+        const TermsOfService = () => (
+            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+                <Container>
+                    <FadeIn>
+                        <SectionHeader light subtitle="Legal" title="TERMS OF SERVICE" />
+                        <div className="prose prose-invert prose-lg max-w-3xl">
+                            <h3>1. Terms</h3>
+                            <p>By accessing the website at https://tagglefish.com, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
+
+                            <h3>2. Use License</h3>
+                            <p>Permission is granted to temporarily download one copy of the materials (information or software) on TaggleFish's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                            <ul>
+                                <li>modify or copy the materials;</li>
+                                <li>use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
+                                <li>attempt to decompile or reverse engineer any software contained on TaggleFish's website;</li>
+                                <li>remove any copyright or other proprietary notations from the materials; or</li>
+                                <li>transfer the materials to another person or "mirror" the materials on any other server.</li>
+                            </ul>
+
+                            <h3>3. Disclaimer</h3>
+                            <p>The materials on TaggleFish's website are provided on an 'as is' basis. TaggleFish makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+
+                            <h3>4. Limitations</h3>
+                            <p>In no event shall TaggleFish or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TaggleFish's website.</p>
+                        </div>
+                    </FadeIn>
+                </Container>
+            </div>
+        );
 
         const ContactModal = ({ isOpen, onClose }) => {
             if (!isOpen) return null;
@@ -837,7 +936,9 @@
             
             const handleSubmit = () => {
                 setStatus('submitting');
+                // Simulate backend call
                 setTimeout(() => {
+                    // In real app: fetch('/.netlify/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'contact'}) })
                     setStatus('success');
                     console.log("Contact Form Submitted:", formData);
                 }, 1500);
@@ -922,10 +1023,122 @@
             );
         };
 
+        const Apply = () => {
+            const [step, setStep] = useState(1);
+            const [formData, setFormData] = useState({ business: '', website: '', challenge: '' });
+            const [isSubmitting, setIsSubmitting] = useState(false);
+
+            const handleChange = (e) => {
+                setFormData({ ...formData, [e.target.name]: e.target.value });
+            };
+
+            const handleFinalSubmit = () => {
+                setIsSubmitting(true);
+                // Simulate processing time
+                setTimeout(() => {
+                    // In real app: fetch('/.netlify/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'apply'}) })
+                    setIsSubmitting(false);
+                    console.log("Form Captured:", formData);
+                    // Redirect to Stripe Payment
+                    window.location.href = STRIPE_PAYMENT_LINK;
+                }, 1500);
+            };
+
+            return (
+                <div className="bg-slate-950 min-h-screen pt-32 pb-20">
+                    <Container>
+                        <div className="max-w-3xl mx-auto bg-white p-12 md:p-20 relative z-10 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+                            <div className="text-center mb-12">
+                                <h2 className="text-4xl font-black text-slate-900 uppercase mb-4">Start Generating Revenue on Autopilot.</h2>
+                                <p className="text-slate-600 text-lg leading-relaxed">
+                                    Turn local search traffic into booked jobs without adding to your workload. Let's build your custom acquisition system today.
+                                </p>
+                            </div>
+                            <div className="border-t-4 border-rose-500 pt-8">
+                                {step === 1 && (
+                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Business Name</label><input name="business" value={formData.business} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="Enter name..." /></div>
+                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Website</label><input name="website" value={formData.website} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="https://" /></div>
+                                        <div className="pt-8 text-right"><Button onClick={() => setStep(2)} variant="dark">Next Step</Button></div>
+                                    </div>
+                                )}
+                                {step === 2 && (
+                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Biggest Challenge</label><textarea name="challenge" value={formData.challenge} onChange={handleChange} rows="3" className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="What's holding you back?" /></div>
+                                        <div className="pt-8 flex justify-between"><button onClick={() => setStep(1)} className="text-slate-400 font-bold uppercase text-xs">Back</button><Button onClick={handleFinalSubmit} variant="dark" isLoading={isSubmitting}>Proceed to Payment</Button></div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </Container>
+                </div>
+            );
+        };
+
         const App = () => {
             const [page, setPage] = useState('home');
             const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
             const [isContactOpen, setIsContactOpen] = useState(false);
+            
+            // Handle SEO updates
+            useEffect(() => {
+                const data = SEO_DATA[page] || SEO_DATA['home'];
+                document.title = data.title;
+                
+                // Helper to update meta tags
+                const updateMeta = (name, content) => {
+                    let element = document.querySelector(`meta[name="${name}"]`);
+                    if (!element) {
+                        element = document.createElement('meta');
+                        element.setAttribute('name', name);
+                        document.head.appendChild(element);
+                    }
+                    element.setAttribute('content', content);
+                };
+
+                const updateOgMeta = (property, content) => {
+                    let element = document.querySelector(`meta[property="${property}"]`);
+                    if (!element) {
+                        element = document.createElement('meta');
+                        element.setAttribute('property', property);
+                        document.head.appendChild(element);
+                    }
+                    element.setAttribute('content', content);
+                };
+
+                // Update Description
+                updateMeta('description', data.desc);
+
+                // Update OG Tags
+                updateOgMeta('og:title', data.title);
+                updateOgMeta('og:description', data.desc);
+                updateOgMeta('og:url', data.url);
+                updateOgMeta('og:type', 'website');
+                updateOgMeta('og:site_name', 'TaggleFish');
+
+                // Update Canonical
+                let link = document.querySelector('link[rel="canonical"]');
+                if (!link) {
+                    link = document.createElement('link');
+                    link.setAttribute('rel', 'canonical');
+                    document.head.appendChild(link);
+                }
+                link.setAttribute('href', data.url);
+
+                // Update JSON-LD Schema
+                let script = document.querySelector('script[type="application/ld+json"]');
+                if (!script) {
+                    script = document.createElement('script');
+                    script.setAttribute('type', 'application/ld+json');
+                    document.head.appendChild(script);
+                }
+                if (data.schema) {
+                    script.textContent = JSON.stringify(data.schema);
+                } else {
+                    script.textContent = '';
+                }
+
+            }, [page]);
             
             // Hash Routing Listener
             useEffect(() => {
@@ -952,6 +1165,12 @@
                             heroTitle="You Can’t Run Ads. So You Better Rank."
                             heroDesc="When ads are restricted, organic search isn't optional. It's your entire growth engine."
                             content={{ reality: "People near you are searching “dispensary near me” right now. They click one of the top results. If it’s not you, it’s your competitor.", solution: "We help cannabis businesses rank locally, convert demand, and build direct customer relationships instead of renting them from platforms." }}
+                            links={[
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" },
+                                { text: "restaurant marketing", href: "#restaurants" },
+                                { text: "our services", href: "#services" }
+                            ]}
                         />
                     );
                     case 'contractors': return (
@@ -960,6 +1179,14 @@
                             heroTitle="Losing Jobs Because You’re Busy Doing Jobs."
                             heroDesc="Homeowners call the first contractor who answers. If you’re on a ladder or under a sink, that job is gone."
                             content={{ reality: "You’re great at your trade, but you can't always answer the phone. 78% of customers hire the first contractor who responds.", solution: "We build systems that get you found and respond instantly so you never lose work because you were working." }}
+                            links={[
+                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
+                                { text: "painting contractor marketing", href: "#painting-marketing" },
+                                { text: "flooring company marketing", href: "#flooring-marketing" },
+                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" }
+                            ]}
                         />
                     );
                     case 'restaurants': return (
@@ -968,6 +1195,72 @@
                             heroTitle="Stop Paying 30% for Customers Who Were Already Looking for You."
                             heroDesc="Third-party platforms insert themselves between you and your customer, then charge you for it."
                             content={{ reality: "You’re giving away margin to platforms that didn’t earn it. A customer searches “thai food near me” and finds you on DoorDash.", solution: "We help diners find you directly through Google search and Maps, so orders and reservations come to you, not through a middleman." }}
+                            links={[
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" },
+                                { text: "dispensary SEO", href: "#cannabis" },
+                                { text: "our services", href: "#services" }
+                            ]}
+                        />
+                    );
+                    case 'drywall-marketing': return (
+                        <IndustryPage
+                            title="Drywall" icon={Icons.Wrench} color="text-blue-400"
+                            heroTitle="Stop Depending on GC Referrals."
+                            heroDesc="Get your own leads directly from homeowners searching for drywall repair and installation."
+                            content={{ reality: "Relying on word-of-mouth keeps your schedule unpredictable. You need a system that brings in work consistently.", solution: "We build websites that rank for 'drywall repair near me' and automate the lead follow-up so you book more jobs." }}
+                            links={[
+                                { text: "painting contractor marketing", href: "#painting-marketing" },
+                                { text: "HVAC marketing company", href: "#contractors" },
+                                { text: "flooring company marketing", href: "#flooring-marketing" },
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" }
+                            ]}
+                        />
+                    );
+                    case 'painting-marketing': return (
+                        <IndustryPage
+                            title="Painting" icon={Icons.Wrench} color="text-blue-400"
+                            heroTitle="Get More Painting Jobs Without Chasing Referrals."
+                            heroDesc="Stop relying on word-of-mouth. Get found on Google, respond instantly to leads, and book more painting jobs."
+                            content={{ reality: "Homeowners search online before calling a painter. If you don't show up in the map pack, you don't get the call.", solution: "We position you as the top local painter and ensure every lead gets an instant text back, securing the job before they call the next guy." }}
+                            links={[
+                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
+                                { text: "contractor lead generation", href: "#contractors" },
+                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" }
+                            ]}
+                        />
+                    );
+                    case 'flooring-marketing': return (
+                        <IndustryPage
+                            title="Flooring" icon={Icons.Wrench} color="text-blue-400"
+                            heroTitle="Compete with the Big Box Stores on Google."
+                            heroDesc="Local homeowners want local experts, not big chains. We make sure they find you first."
+                            content={{ reality: "Big box stores dominate paid ads. You can't outspend them, but you can outrank them locally with the right strategy.", solution: "We optimize your local presence so you show up for 'flooring installation' searches in your specific service area." }}
+                            links={[
+                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
+                                { text: "painting contractor marketing", href: "#painting-marketing" },
+                                { text: "contractor lead generation", href: "#contractors" },
+                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
+                                { text: "$2,999 lifetime deal", href: "#deal" }
+                            ]}
+                        />
+                    );
+                    case 'landscaping-marketing': return (
+                        <IndustryPage
+                            title="Landscaping" icon={Icons.Leaf} color="text-green-400"
+                            heroTitle="Get More Customers Without Monthly Ad Spend."
+                            heroDesc="Fill your schedule year-round with a website, Google Maps ranking, and instant lead response."
+                            content={{ reality: "Landscaping is competitive. If you don't answer the phone, the homeowner calls the next company on the list immediately.", solution: "Our system captures missed calls and texts back instantly, booking appointments while you're out on a job." }}
+                            links={[
+                                { text: "HVAC marketing company", href: "#contractors" },
+                                { text: "painting contractor marketing", href: "#painting-marketing" },
+                                { text: "restaurant marketing", href: "#restaurants" },
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" }
+                            ]}
                         />
                     );
                     case 'how-it-works': return <HowItWorks />;
@@ -975,7 +1268,9 @@
                     case 'apply': return <Apply />;
                     case 'deal': return <DealPage />;
                     case 'services': return <ServicesPage />;
-                    case 'reach-us': return <ReachUs />;
+                    case 'reach-us': return <ReachUs />; 
+                    case 'privacy': return <PrivacyPolicy />;
+                    case 'terms': return <TermsOfService />;
                     default: return <Homepage />;
                 }
             };
@@ -999,6 +1294,10 @@
                                         <a href="#services" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Overview</a>
                                         <a href="#cannabis" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Cannabis</a>
                                         <a href="#contractors" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Contractors</a>
+                                        <a href="#drywall-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Drywall</a>
+                                        <a href="#painting-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Painting</a>
+                                        <a href="#flooring-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Flooring</a>
+                                        <a href="#landscaping-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Landscaping</a>
                                         <a href="#restaurants" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 transition-colors block">Restaurants</a>
                                     </div>
                                 </div>
@@ -1022,6 +1321,10 @@
                            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">All Services</a>
                            <a href="#cannabis" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Cannabis</a>
                            <a href="#contractors" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Contractors</a>
+                           <a href="#drywall-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Drywall</a>
+                           <a href="#painting-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Painting</a>
+                           <a href="#flooring-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Flooring</a>
+                           <a href="#landscaping-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Landscaping</a>
                            <a href="#restaurants" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Restaurants</a>
                            <div className="h-px w-12 bg-slate-800 my-2"></div>
                            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">How It Works</a>
@@ -1044,6 +1347,10 @@
                                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">Contact</div>
                                  <div className="text-xl font-bold">hello@tagglefish.com</div>
                               </div>
+                           </div>
+                           <div className="mt-12 flex gap-8 text-sm text-slate-500 font-bold uppercase tracking-widest border-t border-slate-900 pt-8">
+                                <a href="#privacy" className="hover:text-rose-500">Privacy Policy</a>
+                                <a href="#terms" className="hover:text-rose-500">Terms of Service</a>
                            </div>
                         </Container>
                     </footer>
