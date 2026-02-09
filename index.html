@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaggleFish | Digital Systems</title>
-    
+    <title>TaggleFish | Local Business Lead Generation & Digital Systems</title>
+    <meta name="description" content="TaggleFish helps local businesses get found in search, respond instantly to leads, and stop losing jobs to competitors. Website builds, local SEO, lead automation, and real-time dashboards.">
+    <meta name="theme-color" content="#020617">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23020617'/><text x='50' y='68' font-size='54' font-weight='900' font-family='sans-serif' fill='white' text-anchor='middle'>TF</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TaggleFish | Local Business Lead Generation & Digital Systems">
+    <meta property="og:description" content="More calls. Faster responses. Fewer missed jobs. We help local businesses capture demand that already exists.">
+    <meta property="og:site_name" content="TaggleFish">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TaggleFish | Local Business Lead Generation">
+    <meta name="twitter:description" content="More calls. Faster responses. Fewer missed jobs. Digital systems for local businesses.">
+
     <!-- TAILWIND CSS (Styling) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- REACT & BABEL (Logic) -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- FONTS -->
@@ -63,7 +77,7 @@
         // --- ICONS ---
         const Icons = {
             Menu: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>,
-            X: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 18 12"/></svg>,
+            X: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>,
             ArrowRight: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>,
             CheckCircle: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>,
             Leaf: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>,
@@ -694,10 +708,23 @@
         const ReachUs = () => {
             const [formData, setFormData] = useState({ name: '', email: '', message: '' });
             const [status, setStatus] = useState('idle');
+            const [errors, setErrors] = useState({});
 
             const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-            
+
+            const validate = () => {
+                const errs = {};
+                if (!formData.name.trim()) errs.name = 'Name is required';
+                if (!formData.email.trim()) errs.email = 'Email is required';
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errs.email = 'Enter a valid email';
+                if (!formData.message.trim()) errs.message = 'Message is required';
+                return errs;
+            };
+
             const handleSubmit = () => {
+                const errs = validate();
+                setErrors(errs);
+                if (Object.keys(errs).length > 0) return;
                 setStatus('submitting');
                 setTimeout(() => {
                     setStatus('success');
@@ -716,7 +743,7 @@
                                     <p className="text-lg text-slate-200 mb-12">
                                         Have a question before you secure your deal? Need to discuss a partnership? We're here.
                                     </p>
-                                    
+
                                     <div className="space-y-8">
                                         <div className="flex items-center gap-6">
                                             <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-teal-500">
@@ -749,21 +776,24 @@
                                             </div>
                                             <h3 className="text-2xl font-black text-white mb-2">Message Sent</h3>
                                             <p className="text-slate-200">We'll get back to you shortly.</p>
-                                            <Button variant="outline" className="mt-8" onClick={() => setStatus('idle')}>Send Another</Button>
+                                            <Button variant="outline" className="mt-8" onClick={() => { setStatus('idle'); setErrors({}); setFormData({ name: '', email: '', message: '' }); }}>Send Another</Button>
                                         </div>
                                     ) : (
                                         <div className="space-y-6">
                                             <div>
-                                                <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
-                                                <input name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" />
+                                                <label htmlFor="reach-name" className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
+                                                <input id="reach-name" name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" required />
+                                                {errors.name && <p className="text-rose-500 text-xs mt-1">{errors.name}</p>}
                                             </div>
                                             <div>
-                                                <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
-                                                <input name="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" />
+                                                <label htmlFor="reach-email" className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
+                                                <input id="reach-email" name="email" type="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" required />
+                                                {errors.email && <p className="text-rose-500 text-xs mt-1">{errors.email}</p>}
                                             </div>
                                             <div>
-                                                <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
-                                                <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" />
+                                                <label htmlFor="reach-message" className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
+                                                <textarea id="reach-message" name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" required />
+                                                {errors.message && <p className="text-rose-500 text-xs mt-1">{errors.message}</p>}
                                             </div>
                                             <Button variant="secondary" className="w-full" onClick={handleSubmit} isLoading={status === 'submitting'}>Send Message</Button>
                                         </div>
@@ -780,18 +810,30 @@
             const [step, setStep] = useState(1);
             const [formData, setFormData] = useState({ business: '', website: '', challenge: '' });
             const [isSubmitting, setIsSubmitting] = useState(false);
+            const [errors, setErrors] = useState({});
 
             const handleChange = (e) => {
                 setFormData({ ...formData, [e.target.name]: e.target.value });
             };
 
+            const validateStep1 = () => {
+                const errs = {};
+                if (!formData.business.trim()) errs.business = 'Business name is required';
+                return errs;
+            };
+
+            const handleNext = () => {
+                const errs = validateStep1();
+                setErrors(errs);
+                if (Object.keys(errs).length > 0) return;
+                setStep(2);
+            };
+
             const handleFinalSubmit = () => {
                 setIsSubmitting(true);
-                // Simulate processing time
                 setTimeout(() => {
                     setIsSubmitting(false);
                     console.log("Form Captured:", formData);
-                    // Redirect to Stripe Payment
                     window.location.href = STRIPE_PAYMENT_LINK;
                 }, 1500);
             };
@@ -806,18 +848,33 @@
                                     Turn local search traffic into booked jobs without adding to your workload. Let's build your custom acquisition system today.
                                 </p>
                             </div>
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className={`flex items-center justify-center w-8 h-8 text-sm font-bold ${step >= 1 ? 'bg-rose-500 text-white' : 'bg-slate-200 text-slate-500'}`}>1</div>
+                                <div className={`flex-1 h-0.5 ${step >= 2 ? 'bg-rose-500' : 'bg-slate-200'}`}></div>
+                                <div className={`flex items-center justify-center w-8 h-8 text-sm font-bold ${step >= 2 ? 'bg-rose-500 text-white' : 'bg-slate-200 text-slate-500'}`}>2</div>
+                            </div>
                             <div className="border-t-4 border-rose-500 pt-8">
                                 {step === 1 && (
-                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Business Name</label><input name="business" value={formData.business} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="Enter name..." /></div>
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Website</label><input name="website" value={formData.website} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="https://" /></div>
-                                        <div className="pt-8 text-right"><Button onClick={() => setStep(2)} variant="dark">Next Step</Button></div>
+                                    <div className="space-y-8">
+                                        <div>
+                                            <label htmlFor="apply-business" className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Business Name</label>
+                                            <input id="apply-business" name="business" value={formData.business} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="Enter name..." required />
+                                            {errors.business && <p className="text-rose-500 text-xs mt-2">{errors.business}</p>}
+                                        </div>
+                                        <div>
+                                            <label htmlFor="apply-website" className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Website</label>
+                                            <input id="apply-website" name="website" value={formData.website} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="https://" />
+                                        </div>
+                                        <div className="pt-8 text-right"><Button onClick={handleNext} variant="dark">Next Step</Button></div>
                                     </div>
                                 )}
                                 {step === 2 && (
-                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Biggest Challenge</label><textarea name="challenge" value={formData.challenge} onChange={handleChange} rows="3" className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="What's holding you back?" /></div>
-                                        <div className="pt-8 flex justify-between"><button onClick={() => setStep(1)} className="text-slate-400 font-bold uppercase text-xs">Back</button><Button onClick={handleFinalSubmit} variant="dark" isLoading={isSubmitting}>Proceed to Payment</Button></div>
+                                    <div className="space-y-8">
+                                        <div>
+                                            <label htmlFor="apply-challenge" className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Biggest Challenge</label>
+                                            <textarea id="apply-challenge" name="challenge" value={formData.challenge} onChange={handleChange} rows="3" className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="What's holding you back?" />
+                                        </div>
+                                        <div className="pt-8 flex justify-between"><button onClick={() => setStep(1)} className="text-slate-400 font-bold uppercase text-xs hover:text-slate-600 transition-colors">Back</button><Button onClick={handleFinalSubmit} variant="dark" isLoading={isSubmitting}>Proceed to Payment</Button></div>
                                     </div>
                                 )}
                             </div>
@@ -828,14 +885,25 @@
         };
 
         const ContactModal = ({ isOpen, onClose }) => {
-            if (!isOpen) return null;
-            
             const [formData, setFormData] = useState({ name: '', email: '', message: '' });
             const [status, setStatus] = useState('idle');
+            const [errors, setErrors] = useState({});
 
             const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-            
+
+            const validate = () => {
+                const errs = {};
+                if (!formData.name.trim()) errs.name = 'Name is required';
+                if (!formData.email.trim()) errs.email = 'Email is required';
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errs.email = 'Enter a valid email';
+                if (!formData.message.trim()) errs.message = 'Message is required';
+                return errs;
+            };
+
             const handleSubmit = () => {
+                const errs = validate();
+                setErrors(errs);
+                if (Object.keys(errs).length > 0) return;
                 setStatus('submitting');
                 setTimeout(() => {
                     setStatus('success');
@@ -843,17 +911,27 @@
                 }, 1500);
             };
 
+            useEffect(() => {
+                if (!isOpen) {
+                    setFormData({ name: '', email: '', message: '' });
+                    setStatus('idle');
+                    setErrors({});
+                }
+            }, [isOpen]);
+
+            if (!isOpen) return null;
+
             return (
-                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Contact us">
                     {/* Backdrop */}
                     <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-sm" onClick={onClose}></div>
-                    
+
                     {/* Modal Content */}
                     <div className="relative bg-slate-900 border border-slate-800 w-full max-w-5xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
-                        <button onClick={onClose} className="absolute top-6 right-6 text-slate-400 hover:text-white z-10">
+                        <button onClick={onClose} className="absolute top-6 right-6 text-slate-400 hover:text-white z-10" aria-label="Close dialog">
                             <Icons.X />
                         </button>
-                        
+
                         <div className="grid lg:grid-cols-2">
                             <div className="p-12 bg-slate-950">
                                 <div className="inline-flex items-center gap-2 mb-8 text-rose-500 font-bold uppercase tracking-widest text-xs">
@@ -863,7 +941,7 @@
                                 <p className="text-lg text-slate-200 mb-12">
                                     Have a question before you secure your deal? Need to discuss a partnership? We're here.
                                 </p>
-                                
+
                                 <div className="space-y-8">
                                     <div className="flex items-center gap-6">
                                         <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-teal-500">
@@ -901,16 +979,19 @@
                                 ) : (
                                     <div className="space-y-6">
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
-                                            <input name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" />
+                                            <label htmlFor="modal-name" className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
+                                            <input id="modal-name" name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" required />
+                                            {errors.name && <p className="text-rose-500 text-xs mt-1">{errors.name}</p>}
                                         </div>
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
-                                            <input name="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" />
+                                            <label htmlFor="modal-email" className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
+                                            <input id="modal-email" name="email" type="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" required />
+                                            {errors.email && <p className="text-rose-500 text-xs mt-1">{errors.email}</p>}
                                         </div>
                                         <div>
-                                            <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
-                                            <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" />
+                                            <label htmlFor="modal-message" className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
+                                            <textarea id="modal-message" name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" required />
+                                            {errors.message && <p className="text-rose-500 text-xs mt-1">{errors.message}</p>}
                                         </div>
                                         <Button variant="secondary" className="w-full" onClick={handleSubmit} isLoading={status === 'submitting'}>Send Message</Button>
                                     </div>
@@ -976,24 +1057,38 @@
                     case 'deal': return <DealPage />;
                     case 'services': return <ServicesPage />;
                     case 'reach-us': return <ReachUs />;
-                    default: return <Homepage />;
+                    default: return (
+                        <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20 flex items-center">
+                            <Container>
+                                <FadeIn>
+                                    <div className="text-center">
+                                        <div className="text-[12rem] font-black text-slate-800 leading-none select-none">404</div>
+                                        <h1 className="text-3xl font-black text-white uppercase mb-4 mt-4">Page Not Found</h1>
+                                        <p className="text-slate-300 text-lg mb-10 max-w-md mx-auto">The page you're looking for doesn't exist or has been moved.</p>
+                                        <LinkButton href="#home" variant="primary">Back to Home</LinkButton>
+                                    </div>
+                                </FadeIn>
+                            </Container>
+                        </div>
+                    );
                 }
             };
 
             return (
                 <div className="font-sans antialiased selection:bg-rose-500 selection:text-white bg-slate-950">
-                    <nav className="fixed w-full z-50 py-6 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md text-white">
+                    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-rose-600 focus:text-white focus:px-4 focus:py-2 focus:font-bold focus:text-sm">Skip to content</a>
+                    <nav className="fixed w-full z-50 py-6 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md text-white" role="navigation" aria-label="Main navigation">
                         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
-                            <a href="#home" className="text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2">
-                                <div className="w-8 h-8 bg-white text-slate-950 flex items-center justify-center rounded-sm font-bold">TF</div>
+                            <a href="#home" className="text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2" aria-label="TaggleFish - Go to homepage">
+                                <div className="w-8 h-8 bg-white text-slate-950 flex items-center justify-center rounded-sm font-bold" aria-hidden="true">TF</div>
                                 TAGGLEFISH.
                             </a>
                             <div className="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
                                 <a href="#home" className="hover:text-rose-500 transition-colors">Home</a>
                                 
                                 <div className="relative group">
-                                    <button className="flex items-center gap-1 hover:text-rose-500 transition-colors py-6">
-                                        Services <Icons.ChevronDown className="w-4 h-4" />
+                                    <button className="flex items-center gap-1 hover:text-rose-500 transition-colors py-6" aria-haspopup="true">
+                                        Services <Icons.ChevronDown className="w-4 h-4" aria-hidden="true" />
                                     </button>
                                     <div className="absolute top-full left-0 w-56 bg-slate-900 border border-slate-800 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 flex flex-col">
                                         <a href="#services" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Overview</a>
@@ -1010,7 +1105,7 @@
                                 
                                 <LinkButton href="#apply" variant="primary" className="py-2 px-6 text-xs">Get in Touch</LinkButton>
                             </div>
-                            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden">{mobileMenuOpen ? <Icons.X /> : <Icons.Menu />}</button>
+                            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden" aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen}>{mobileMenuOpen ? <Icons.X /> : <Icons.Menu />}</button>
                         </div>
                     </nav>
                     
@@ -1034,16 +1129,38 @@
 
                     <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
 
-                    <main>{renderPage()}</main>
+                    <main id="main-content">{renderPage()}</main>
 
-                    <footer className="bg-black text-white py-20 border-t border-slate-900 relative z-10">
+                    <footer className="bg-black text-white py-20 border-t border-slate-900 relative z-10" role="contentinfo">
                         <Container>
-                           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-                              <div><h2 className="text-[8vw] leading-none font-black text-slate-800 select-none">TAGGLEFISH</h2></div>
-                              <div className="text-right">
-                                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">Contact</div>
-                                 <div className="text-xl font-bold">hello@tagglefish.com</div>
+                           <div className="grid md:grid-cols-3 gap-12 mb-16">
+                              <div>
+                                 <a href="#home" className="text-2xl font-black tracking-tighter flex items-center gap-2 mb-6">
+                                    <div className="w-8 h-8 bg-white text-slate-950 flex items-center justify-center rounded-sm font-bold">TF</div>
+                                    TAGGLEFISH.
+                                 </a>
+                                 <p className="text-slate-400 text-sm leading-relaxed">Digital systems for local businesses. More calls. Faster responses. Fewer missed jobs.</p>
                               </div>
+                              <div>
+                                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-6">Navigation</div>
+                                 <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-3">
+                                    <a href="#services" className="text-sm text-slate-400 hover:text-white transition-colors">Services</a>
+                                    <a href="#how-it-works" className="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
+                                    <a href="#deal" className="text-sm text-slate-400 hover:text-white transition-colors">Deal</a>
+                                    <a href="#about" className="text-sm text-slate-400 hover:text-white transition-colors">About</a>
+                                    <a href="#reach-us" className="text-sm text-slate-400 hover:text-white transition-colors">Reach Us</a>
+                                    <a href="#apply" className="text-sm text-slate-400 hover:text-white transition-colors">Apply</a>
+                                 </nav>
+                              </div>
+                              <div>
+                                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-6">Contact</div>
+                                 <div className="text-lg font-bold mb-2">hello@tagglefish.com</div>
+                                 <div className="text-sm text-slate-400">Washington, DC</div>
+                              </div>
+                           </div>
+                           <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                              <div className="text-xs text-slate-600">&copy; {new Date().getFullYear()} TaggleFish. All rights reserved.</div>
+                              <div className="text-[8vw] md:text-[4vw] leading-none font-black text-slate-900 select-none">TAGGLEFISH</div>
                            </div>
                         </Container>
                     </footer>
