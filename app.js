@@ -1,0 +1,1157 @@
+const { useState, useEffect, useRef } = React;
+
+// --- STRIPE CONFIGURATION ---
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_replace_this_with_your_link";
+
+// --- ICONS ---
+const Icons = {
+    Menu: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>,
+    X: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 18 12"/></svg>,
+    ArrowRight: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>,
+    CheckCircle: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>,
+    Leaf: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>,
+    Wrench: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>,
+    Utensils: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>,
+    Target: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+    Zap: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+    Globe: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>,
+    MapPin: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>,
+    Mail: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>,
+    TrendingUp: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+    ArrowUpRight: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>,
+    Users: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    Package: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22v-8"/></svg>,
+    ChevronDown: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>,
+    Loader: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin"><path d="M21 12a9 9 0 1 1-6.219-8.56" /></svg>
+};
+
+// --- COMPONENTS ---
+
+const useScrollReveal = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.1 }
+        );
+        if (ref.current) observer.observe(ref.current);
+        return () => {
+            if (ref.current) observer.unobserve(ref.current);
+        };
+    }, []);
+
+    return [ref, isVisible];
+};
+
+const FadeIn = ({ children, delay = 0, className = "" }) => {
+    const [ref, isVisible] = useScrollReveal();
+    return (
+        <div
+            ref={ref}
+            className={`transition-all duration-1000 ease-out transform ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            } ${className}`}
+            style={{ transitionDelay: `${delay}ms` }}
+        >
+            {children}
+        </div>
+    );
+};
+
+const LinkButton = ({ children, variant = "primary", href, className = "", icon: Icon }) => {
+    const base = "inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 transform group rounded-none relative overflow-hidden z-10 border";
+    const styles = {
+        primary: "bg-rose-600 border-rose-600 text-white hover:bg-rose-700 hover:border-rose-700 shadow-[0_0_20px_rgba(225,29,72,0.3)] hover:shadow-[0_0_30px_rgba(225,29,72,0.5)]",
+        secondary: "bg-transparent border-slate-600 text-white hover:border-white hover:bg-white hover:text-slate-950",
+        dark: "bg-slate-900 border-slate-800 text-white hover:bg-slate-800",
+        outline: "bg-transparent border-slate-300 text-slate-900 hover:bg-slate-900 hover:text-white hover:border-slate-900",
+    };
+    return (
+        <a href={href} className={`${base} ${styles[variant]} ${className}`}>
+            <span className="relative z-10 flex items-center">
+                {children}
+                {Icon && <Icon className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1" />}
+            </span>
+        </a>
+    );
+};
+
+const Button = ({ children, variant = "primary", onClick, className = "", icon: Icon, isLoading = false }) => {
+    const base = "inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 transform group rounded-none relative overflow-hidden z-10 border";
+    const styles = {
+        primary: "bg-rose-600 border-rose-600 text-white hover:bg-rose-700 hover:border-rose-700 shadow-[0_0_20px_rgba(225,29,72,0.3)] hover:shadow-[0_0_30px_rgba(225,29,72,0.5)]",
+        secondary: "bg-transparent border-slate-600 text-white hover:border-white hover:bg-white hover:text-slate-950",
+        dark: "bg-slate-900 border-slate-800 text-white hover:bg-slate-800",
+    };
+    return (
+        <button onClick={onClick} className={`${base} ${styles[variant]} ${className}`} disabled={isLoading}>
+            <span className="relative z-10 flex items-center">
+                {isLoading ? <Icons.Loader className="mr-2 w-4 h-4" /> : null}
+                {children}
+                {!isLoading && Icon && <Icon className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1" />}
+            </span>
+        </button>
+    );
+};
+
+const Section = ({ children, className = "py-32 md:py-40", bg = "transparent" }) => (
+    <section className={`relative z-10 ${bg === "dark" ? "bg-slate-950 text-white" : bg === "light" ? "bg-slate-50 text-slate-900" : "bg-transparent text-slate-900"} ${className}`}>
+        {children}
+    </section>
+);
+
+const Container = ({ children, className = "" }) => (
+    <div className={`max-w-[1400px] mx-auto px-6 md:px-12 relative z-10 ${className}`}>
+        {children}
+    </div>
+);
+
+const SectionHeader = ({ subtitle, title, light = false, align = "left" }) => (
+    <div className={`mb-16 md:mb-24 ${align === "center" ? "text-center" : "text-left"}`}>
+        <FadeIn>
+            <h2 className={`text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 ${align === "center" ? "justify-center" : ""} ${light ? 'text-teal-400' : 'text-rose-500'}`}>
+                <span className={`w-12 h-[2px] ${light ? 'bg-teal-400' : 'bg-rose-500'}`}></span>
+                {subtitle}
+            </h2>
+            <h3 className={`text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] ${light ? 'text-white' : 'text-slate-950'}`}>
+                {title}
+            </h3>
+        </FadeIn>
+    </div>
+);
+
+// --- CROSS-LINK COMPONENT ---
+const CrossLinks = ({ links }) => (
+    <div className="mt-20 pt-16 border-t border-slate-800">
+        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8">Also See</h3>
+        <div className="flex flex-wrap gap-4">
+            {links.map((link, i) => (
+                <a key={i} href={link.href} className="px-6 py-3 border border-slate-800 text-sm font-bold text-slate-300 hover:text-white hover:border-teal-500 transition-colors">
+                    {link.text}
+                </a>
+            ))}
+        </div>
+    </div>
+);
+
+// --- PAGE SECTIONS ---
+
+const Homepage = () => (
+    <div className="bg-slate-950 min-h-screen text-white overflow-x-hidden">
+        <Section className="min-h-screen flex items-center pt-32 pb-20 relative">
+            <div className="absolute top-0 right-0 w-[80vw] h-[100vh] bg-gradient-to-b from-slate-900 to-slate-950 -z-10 border-l border-slate-800 opacity-80"></div>
+            <div className="absolute top-[20%] right-[10%] w-96 h-96 bg-rose-600/20 rounded-full blur-[120px] animate-pulse"></div>
+            <div className="absolute bottom-[20%] left-[10%] w-96 h-96 bg-teal-600/10 rounded-full blur-[120px]"></div>
+
+            <Container>
+                <div className="grid lg:grid-cols-12 gap-16 items-center">
+                    <div className="lg:col-span-7 relative z-20">
+                        <FadeIn className="flex flex-col items-start text-left">
+                            <div className="inline-flex items-center gap-3 px-4 py-2 mb-8 border border-teal-500/30 bg-teal-950/30 text-teal-400 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm">
+                                <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse shadow-[0_0_10px_#14b8a6]"></div>
+                                System Active
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tighter mb-8 text-white">
+                                MORE CALLS. <br/>
+                                FASTER RESPONSES. <br/>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-300 relative">
+                                    FEWER MISSED JOBS.
+                                </span>
+                            </h1>
+                            <h2 className="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-rose-500 pl-6">
+                                Everything you need to stop customers from slipping through the cracks.
+                            </h2>
+                            <p className="text-xl text-slate-100 max-w-xl leading-relaxed font-light mb-10">
+                                We help customers find you in local search, land on a website that makes sense, get an instant response when they reach out, and see what's working without guessing.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-6">
+                                <LinkButton href="/deal/" variant="primary">Claim Your Lifetime Deal</LinkButton>
+                            </div>
+                        </FadeIn>
+                    </div>
+
+                    <div className="lg:col-span-5 relative h-[600px] hidden lg:block">
+                        <FadeIn delay={200} className="w-full h-full flex items-center justify-center">
+                            <div className="relative w-full aspect-square max-w-[500px]">
+
+                                <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/20 to-rose-500/20 rounded-full blur-[80px] opacity-40 animate-pulse"></div>
+
+                                <div className="absolute inset-0 border border-slate-800 rounded-full animate-spin-slow"></div>
+                                <div className="absolute inset-[15%] border border-dashed border-slate-700/50 rounded-full animate-spin-reverse"></div>
+                                <div className="absolute inset-[30%] border border-slate-800 rounded-full animate-spin-slow"></div>
+
+                                <div className="absolute inset-0 m-auto w-40 h-40 bg-slate-900/90 backdrop-blur-xl rounded-full border border-slate-700 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(20,184,166,0.3)] z-20">
+                                    <div className="text-5xl font-black text-white tracking-tighter">TF</div>
+                                    <div className="text-[10px] font-bold text-teal-400 uppercase tracking-widest mt-1">System Active</div>
+                                    <div className="absolute inset-0 rounded-full border-2 border-teal-500/20 animate-ping"></div>
+                                </div>
+
+                                <div className="absolute top-[10%] right-0 z-30 animate-[bounce_3s_infinite]">
+                                    <div className="bg-slate-900/80 backdrop-blur border border-slate-700 p-4 rounded-lg shadow-xl w-48 border-l-4 border-l-rose-500">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-rose-500/20 rounded text-rose-400">
+                                                <Icons.Mail className="w-4 h-4" />
+                                            </div>
+                                            <div>
+                                                <div className="text-[10px] uppercase text-slate-300 font-bold">New Lead</div>
+                                                <div className="text-xs font-bold text-white">HVAC Inquiry</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="absolute bottom-[20%] left-0 z-30 animate-[bounce_4s_infinite]">
+                                    <div className="bg-slate-900/80 backdrop-blur border border-slate-700 p-4 rounded-lg shadow-xl w-48 border-l-4 border-l-teal-500">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-teal-500/20 rounded text-teal-400">
+                                                <Icons.TrendingUp className="w-4 h-4" />
+                                            </div>
+                                            <div>
+                                                <div className="text-[10px] uppercase text-slate-300 font-bold">Google Maps</div>
+                                                <div className="text-xs font-bold text-white">Rank #1</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="absolute bottom-[10%] right-[10%] z-30 animate-[bounce_5s_infinite]">
+                                    <div className="bg-slate-900/80 backdrop-blur border border-slate-700 p-3 rounded-lg shadow-xl flex items-center gap-3">
+                                        <div className="relative">
+                                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                                            <div className="absolute inset-0 bg-green-500 rounded-full animate-ping"></div>
+                                        </div>
+                                        <div className="text-xs font-bold text-slate-100">AI Agent Responding...</div>
+                                    </div>
+                                </div>
+
+                                <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-30">
+                                    <path d="M250 250 L380 100" stroke="url(#lineGrad)" strokeWidth="1" />
+                                    <path d="M250 250 L100 380" stroke="url(#lineGrad)" strokeWidth="1" />
+                                    <path d="M250 250 L350 420" stroke="url(#lineGrad)" strokeWidth="1" />
+                                    <defs>
+                                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="#0f766e" stopOpacity="0" />
+                                            <stop offset="50%" stopColor="#0f766e" stopOpacity="1" />
+                                            <stop offset="100%" stopColor="#0f766e" stopOpacity="0" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                            </div>
+                        </FadeIn>
+                    </div>
+                </div>
+            </Container>
+        </Section>
+
+        <Section bg="dark" className="py-20 border-y border-slate-900">
+            <Container>
+                <SectionHeader light subtitle="Select Market" title="CHOOSE YOUR INDUSTRY" align="center" />
+                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-0 border border-slate-800 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+                    {[
+                        { id: '/contractors/', icon: Icons.Wrench, title: "Contractors", desc: "HVAC, Plumbing, Trades. You're on the job. We make sure leads are answered fast.", hover: "group-hover:text-blue-400" },
+                        { id: '/cannabis/', icon: Icons.Leaf, title: "Cannabis", desc: "Dispensaries & Brands. Ads are restricted. Organic search is your entire strategy.", hover: "group-hover:text-green-400" },
+                        { id: '/restaurants/', icon: Icons.Utensils, title: "Restaurants", desc: "Food & Bev. Stop paying 30% to platforms. Get diners directly.", hover: "group-hover:text-orange-400" },
+                        { id: '/landscaping-marketing/', icon: Icons.Leaf, title: "Landscaping", desc: "Fill your schedule year-round with local search and instant lead response.", hover: "group-hover:text-green-400" },
+                    ].map((item, idx) => (
+                        <a key={item.id} href={item.id} className="group relative p-12 bg-slate-950 hover:bg-slate-900 transition-colors duration-500 cursor-pointer text-center block">
+                            <div className="mb-8 flex justify-center">
+                                <item.icon className={`w-12 h-12 text-slate-600 ${item.hover} transition-colors duration-500`} />
+                            </div>
+                            <h3 className="text-2xl font-black text-white mb-4 uppercase tracking-wide">{item.title}</h3>
+                            <p className="text-slate-200 leading-relaxed text-sm px-4">{item.desc}</p>
+                            <div className="mt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span className="text-xs font-bold uppercase tracking-widest border-b border-white pb-1">View Solutions</span>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+                <div className="mt-8 grid md:grid-cols-3 gap-0 border border-slate-800 border-t-0 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+                    {[
+                        { id: '/drywall-marketing/', title: "Drywall", desc: "Stop depending on GC referrals. Get your own leads." },
+                        { id: '/painting-marketing/', title: "Painting", desc: "Get more painting jobs without chasing referrals." },
+                        { id: '/flooring-marketing/', title: "Flooring", desc: "Compete with the big box stores on Google." },
+                    ].map((item, idx) => (
+                        <a key={item.id} href={item.id} className="group relative p-8 bg-slate-950 hover:bg-slate-900 transition-colors duration-500 cursor-pointer text-center block">
+                            <h3 className="text-xl font-black text-white mb-2 uppercase tracking-wide">{item.title}</h3>
+                            <p className="text-slate-200 leading-relaxed text-sm">{item.desc}</p>
+                            <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span className="text-xs font-bold uppercase tracking-widest border-b border-white pb-1">View Solutions</span>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </Container>
+        </Section>
+
+        <Section className="bg-slate-950 py-20">
+          <Container>
+            <div className="grid lg:grid-cols-12 gap-16">
+              <div className="lg:col-span-4">
+                 <div className="sticky top-32">
+                   <SectionHeader light subtitle="Capabilities" title="WHAT WE DO" />
+                   <p className="text-xl text-slate-200 leading-relaxed mb-8">
+                     We don't do "marketing". We build infrastructure. Every piece of the system has a single job: revenue.
+                   </p>
+                   <LinkButton href="/services/" variant="secondary">View Services</LinkButton>
+                 </div>
+              </div>
+              <div className="lg:col-span-8 grid gap-8">
+                 {[
+                   { title: "Website Build", problem: "If you don't have a real website, you're invisible.", solution: "We build fast, mobile-first sites designed to generate calls, orders, and inquiries." },
+                   { title: "Local SEO + Google Business", problem: "If your site and Google Profile don't align, you don't rank.", solution: "We fix that so you show up for service-plus-city searches." },
+                   { title: "Lead Automation", problem: "If leads wait, leads leave.", solution: "We install instant response and follow-up so jobs don't die in voicemail." },
+                   { title: "War Room Dashboard", problem: "If you can't see it, you can't scale it.", solution: "We give you a clear dashboard with rankings, leads, reviews, and alerts." }
+                 ].map((item, i) => (
+                   <FadeIn key={i} delay={i * 100}>
+                     <div className="p-10 border border-slate-800 bg-slate-900/50 hover:border-teal-500 transition-colors group">
+                       <h3 className="text-3xl font-black text-white mb-4 uppercase">{item.title}</h3>
+                       <div className="grid md:grid-cols-2 gap-8">
+                         <div>
+                           <div className="text-[10px] font-bold uppercase tracking-widest text-rose-500 mb-2">The Problem</div>
+                           <p className="text-slate-100 text-sm">{item.problem}</p>
+                         </div>
+                         <div>
+                           <div className="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-2">Our Solution</div>
+                           <p className="text-white text-sm font-medium">{item.solution}</p>
+                         </div>
+                       </div>
+                     </div>
+                   </FadeIn>
+                 ))}
+              </div>
+            </div>
+
+            {/* Homepage internal links */}
+            <div className="mt-20 pt-16 border-t border-slate-800">
+                <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8">Industries We Serve</h3>
+                <p className="text-slate-300 leading-relaxed max-w-3xl mb-6">
+                    We're a <a href="/" className="text-teal-400 hover:text-teal-300 font-semibold">local business marketing agency</a> serving trades and service businesses nationwide. We work with every type of contractor — from <a href="/contractors/" className="text-teal-400 hover:text-teal-300 font-semibold">HVAC marketing company</a> clients to <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a>, <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a>, <a href="/flooring-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">flooring company marketing</a>, and <a href="/landscaping-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">landscaping marketing agency</a> services.
+                </p>
+                <p className="text-slate-300 leading-relaxed max-w-3xl mb-8">
+                    We also specialize in <a href="/cannabis/" className="text-teal-400 hover:text-teal-300 font-semibold">dispensary SEO</a> and <a href="/restaurants/" className="text-teal-400 hover:text-teal-300 font-semibold">restaurant marketing</a>. Ready to grow? Check out our <a href="/deal/" className="text-teal-400 hover:text-teal-300 font-semibold">$2,450 lifetime deal</a>.
+                </p>
+            </div>
+
+          </Container>
+        </Section>
+    </div>
+);
+
+const ServicesPage = () => (
+    <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+        <Container>
+            <FadeIn>
+                <SectionHeader light subtitle="Our Products" title="SERVICES" />
+                <p className="text-2xl text-slate-100 max-w-2xl mb-16 leading-relaxed">
+                    We help local businesses get found, get contacted, and stop missing jobs.
+                </p>
+
+                <div className="grid lg:grid-cols-2 gap-8 mb-20">
+                    {[
+                        {
+                            name: "ReadySite",
+                            cat: "WEBSITE SETUP",
+                            desc: "If customers don't understand your site in 5 seconds, they leave.",
+                            points: ["What you do is immediately clear", "It works properly on phones", "Calling or contacting you is obvious"],
+                            note: "This is the starting point. Nothing else works without it."
+                        },
+                        {
+                            name: "LocalFind",
+                            cat: "SHOW UP IN LOCAL SEARCH",
+                            desc: "People search for services near them. If you don't show up, the job goes to someone else.",
+                            points: ["You show up on Google and Maps", "Your site matches what Google shows", "You compete in your local area"],
+                            note: "This is how customers find you."
+                        },
+                        {
+                            name: "FirstReply",
+                            cat: "INSTANT LEAD RESPONSE",
+                            desc: "The first business to respond usually wins.",
+                            points: ["Instant replies to new leads", "Missed calls that turn into follow-ups", "Automatic responses so jobs don't die"],
+                            note: "This stops money from slipping through the cracks."
+                        },
+                        {
+                            name: "ClearView",
+                            cat: "SEE WHAT'S WORKING",
+                            desc: "If you don't know what's working, you can't fix what's not.",
+                            points: ["Where you rank locally", "How many leads came in", "How fast they were answered"],
+                            note: "No confusing reports. Just the basics that matter."
+                        },
+                        {
+                            name: "SiteCare",
+                            cat: "ONGOING SUPPORT",
+                            desc: "Things need upkeep.",
+                            points: ["Small updates", "Fixes", "Help when something breaks"],
+                            note: "So nothing quietly falls apart."
+                        }
+                    ].map((service, i) => (
+                        <div key={i} className="bg-slate-900 border border-slate-800 p-10 hover:border-teal-500 transition-colors group">
+                            <div className="text-xs font-bold text-teal-500 uppercase tracking-widest mb-2">{service.cat}</div>
+                            <h3 className="text-3xl font-black text-white mb-4">Product: {service.name}</h3>
+                            <p className="text-slate-100 mb-6">{service.desc}</p>
+                            <ul className="space-y-2 mb-8">
+                                {service.points.map((pt, j) => (
+                                    <li key={j} className="flex items-start gap-3 text-sm text-slate-100">
+                                        <Icons.CheckCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                                        {pt}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="pt-6 border-t border-slate-800 text-xs font-bold uppercase tracking-wide text-slate-300">
+                                {service.note}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="grid lg:grid-cols-2 gap-16 border-t border-slate-800 pt-20">
+                    <div>
+                        <h3 className="text-2xl font-black text-white mb-6 uppercase">Why These Work Together</h3>
+                        <p className="text-slate-100 mb-6">Most businesses buy pieces. A site from one place. SEO from another. A tool they forget to check. That's why customers leak.</p>
+                        <ul className="space-y-4">
+                            {["People find you", "They contact you", "You respond fast", "You know what's happening"].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-white font-bold">
+                                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div> {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="bg-slate-900 p-10 border-l-4 border-rose-500">
+                        <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-widest">Who This Is For</h3>
+                        <div className="space-y-4">
+                            {["Local businesses losing jobs to competitors", "Owners tired of guessing", "Businesses ready to stop missing customers"].map((item, i) => (
+                                <div key={i} className="flex items-center gap-3 text-slate-300">
+                                    <Icons.Users className="w-5 h-5 text-rose-500" /> {item}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Services page internal links */}
+                <div className="mt-20 pt-16 border-t border-slate-800">
+                    <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8">Industries We Serve</h3>
+                    <p className="text-slate-300 leading-relaxed max-w-3xl mb-6">
+                        These services are built for every local business vertical we work with: <a href="/contractors/" className="text-teal-400 hover:text-teal-300 font-semibold">HVAC marketing company</a>, <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a>, <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a>, <a href="/flooring-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">flooring company marketing</a>, <a href="/landscaping-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">landscaping marketing agency</a>, <a href="/cannabis/" className="text-teal-400 hover:text-teal-300 font-semibold">dispensary SEO</a>, and <a href="/restaurants/" className="text-teal-400 hover:text-teal-300 font-semibold">restaurant marketing</a>.
+                    </p>
+                    <p className="text-slate-300 leading-relaxed max-w-3xl">
+                        See the <a href="/deal/" className="text-teal-400 hover:text-teal-300 font-semibold">$2,450 lifetime deal</a> — everything above, bundled.
+                    </p>
+                </div>
+
+                <div className="mt-20 text-center">
+                    <h2 className="text-3xl font-black text-white mb-6 uppercase">Next Step</h2>
+                    <p className="text-slate-200 mb-8">Don't let another customer slip away. Lock in this price today.</p>
+                    <LinkButton href="/apply/" variant="primary" className="py-6 px-12 text-lg">Claim Lifetime Deal</LinkButton>
+                </div>
+            </FadeIn>
+        </Container>
+    </div>
+);
+
+const HowItWorks = () => (
+    <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+        <Container>
+            <SectionHeader light subtitle="The Blueprint" title="IT'S NOT MARKETING. IT'S A SYSTEM." />
+            <div className="max-w-4xl mb-20">
+                <p className="text-2xl text-slate-200 font-light leading-relaxed">
+                    Most agencies build a website and wish you luck. We build a complete local customer acquisition system that generates leads, responds instantly, and keeps your pipeline full.
+                </p>
+            </div>
+            <div className="space-y-0">
+                {[
+                    { step: "01", title: "We Build Conversion Pages", text: "We don't build one homepage and call it done. We build pages for every service you offer and every area you serve." },
+                    { step: "02", title: "We Get You Ranking", text: "Pages are useless if nobody finds them. We optimize your Google Business Profile and build the local SEO signals." },
+                    { step: "03", title: "Leads Start Coming In", text: "Your pages rank. Your Google profile shows up. Customers find you. They call. They fill out forms." },
+                    { step: "04", title: "We Respond Instantly", text: "The moment a lead comes in, they get a response. Not later. Now. We install instant response and follow-up." },
+                    { step: "05", title: "You See Everything", text: "No monthly PDFs. No guessing. You get a live dashboard showing rankings, leads, reviews, and performance." },
+                    { step: "06", title: "You Close The Deal", text: "By the time you talk to the lead, they're engaged and informed. You're not cold-calling. You're closing." }
+                ].map((item, i) => (
+                    <FadeIn key={i}>
+                        <div className="grid md:grid-cols-12 gap-12 py-16 border-t border-slate-800 hover:bg-slate-900/30 transition-colors">
+                            <div className="md:col-span-2"><div className="text-6xl font-black text-slate-800">{item.step}</div></div>
+                            <div className="md:col-span-4"><h3 className="text-3xl font-black text-white uppercase tracking-tight">{item.title}</h3></div>
+                            <div className="md:col-span-6"><p className="text-lg text-slate-100 leading-relaxed font-light">{item.text}</p></div>
+                        </div>
+                    </FadeIn>
+                ))}
+            </div>
+
+            {/* How It Works internal links */}
+            <div className="mt-20 pt-16 border-t border-slate-800">
+                <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8">Learn More</h3>
+                <p className="text-slate-300 leading-relaxed max-w-3xl mb-6">
+                    See <a href="/services/" className="text-teal-400 hover:text-teal-300 font-semibold">our services</a> in detail, or lock in our <a href="/deal/" className="text-teal-400 hover:text-teal-300 font-semibold">$2,450 lifetime deal</a>. This system works for every vertical — <a href="/contractors/" className="text-teal-400 hover:text-teal-300 font-semibold">HVAC marketing company</a>, <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a>, <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a>, <a href="/cannabis/" className="text-teal-400 hover:text-teal-300 font-semibold">dispensary SEO</a>, and <a href="/restaurants/" className="text-teal-400 hover:text-teal-300 font-semibold">restaurant marketing</a>.
+                </p>
+            </div>
+
+            <div className="mt-20 pt-20 border-t border-slate-800 text-center">
+                <LinkButton href="/apply/" variant="primary" className="py-6 px-16 text-lg">Apply Now</LinkButton>
+            </div>
+        </Container>
+    </div>
+);
+
+const IndustryPage = ({ title, heroTitle, heroDesc, icon: Icon, color, content, crossLinks }) => (
+    <div className="bg-slate-950 min-h-screen text-white pt-40 pb-20">
+        <Container>
+            <FadeIn>
+                <div className={`inline-flex items-center gap-3 px-4 py-2 border border-slate-800 mb-10 ${color}`}>
+                    <Icon className="w-5 h-5" />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em]">{title}</span>
+                </div>
+                <h1 className="text-5xl md:text-7xl font-black mb-12 max-w-5xl leading-none text-white uppercase">{heroTitle}</h1>
+                <div className="grid lg:grid-cols-12 gap-16">
+                    <div className="lg:col-span-8">
+                        <p className="text-2xl text-slate-200 font-light leading-relaxed border-l-2 border-slate-700 pl-8 mb-16">{heroDesc}</p>
+                        <div className="space-y-12">
+                            <div className="bg-slate-900 p-10 border border-slate-800">
+                                <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">The Reality</h3>
+                                <p className="text-slate-100 text-lg leading-relaxed">{content.reality}</p>
+                            </div>
+                            <div className="bg-slate-900 p-10 border border-slate-800 relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                                <h3 className="text-xl font-bold text-teal-400 mb-4 uppercase tracking-wide">Our Solution</h3>
+                                <p className="text-slate-300 text-lg leading-relaxed">{content.solution}</p>
+                            </div>
+                        </div>
+                        {content.alsoServe && (
+                            <div className="mt-12 p-8 border border-slate-800 bg-slate-900/30">
+                                <p className="text-slate-300 leading-relaxed">{content.alsoServe}</p>
+                            </div>
+                        )}
+                        {crossLinks && <CrossLinks links={crossLinks} />}
+                    </div>
+                </div>
+            </FadeIn>
+        </Container>
+    </div>
+);
+
+const DealPage = () => (
+    <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+        <Container>
+            <FadeIn>
+                <div className="max-w-4xl mx-auto text-center mb-20">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 border border-rose-500/30 bg-rose-950/30 text-rose-400 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm mb-8">
+                        Limited Availability
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase leading-tight">
+                        Most Local Businesses Don't Have a Lead Problem.
+                    </h1>
+                    <p className="text-2xl text-rose-500 font-bold uppercase tracking-widest">
+                        They have a leak problem.
+                    </p>
+                    <div className="mt-12 text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
+                        <p className="mb-4">People search. They click. They reach the first business that responds.</p>
+                        <p>If that's not you, the job goes to someone else.</p>
+                    </div>
+                </div>
+
+                <div className="grid lg:grid-cols-2 gap-16 mb-32">
+                    <div>
+                        <h3 className="text-2xl font-black text-white mb-8 uppercase">Why This Happens</h3>
+                        <ul className="space-y-6">
+                            {[
+                                "The website doesn't convert",
+                                "You don't show up locally",
+                                "Leads sit too long",
+                                "Follow-up doesn't happen",
+                                "You don't know what's working"
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-center gap-4 text-slate-100">
+                                    <Icons.X className="w-6 h-6 text-rose-500 shrink-0" />
+                                    <span className="text-lg">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="mt-8 p-6 bg-slate-900 border-l-4 border-rose-500 text-slate-200 italic">
+                            Fixing one doesn't fix the rest.
+                        </div>
+                    </div>
+                    <div className="bg-slate-900 p-10 border border-slate-800">
+                         <h3 className="text-2xl font-black text-white mb-8 uppercase">What We Install</h3>
+                         <div className="space-y-8">
+                            {[
+                                { title: "Website That Converts", price: "$1,200", desc: "Built so Google can rank it and customers can contact you." },
+                                { title: "Local Search Visibility", price: "$600", desc: "So you show up when people search for your service." },
+                                { title: "Lead Response + Follow-Up", price: "$450", desc: "Instant replies and follow-up so jobs don't die." },
+                                { title: "Visibility and Control", price: "$350", desc: "See rankings, leads, and response speed without guessing." },
+                                { title: "Support", price: "$99", desc: "Edits, fixes, and help when needed." }
+                            ].map((item, i) => (
+                                <div key={i} className="flex justify-between items-start border-b border-slate-800 pb-4 last:border-0 last:pb-0">
+                                    <div>
+                                        <div className="font-bold text-white uppercase tracking-wide text-sm">{item.title}</div>
+                                        <div className="text-xs text-slate-300 mt-1">{item.desc}</div>
+                                    </div>
+                                    <div className="text-slate-100 font-mono text-sm shrink-0">{item.price}</div>
+                                </div>
+                            ))}
+                         </div>
+                    </div>
+                </div>
+
+                <div className="max-w-3xl mx-auto bg-slate-900 border border-teal-500/30 p-12 text-center relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-rose-500"></div>
+                    <h3 className="text-xl font-bold text-slate-200 uppercase tracking-widest mb-2">Total If Paid Separately</h3>
+                    <div className="text-3xl font-black text-slate-300 line-through mb-12">$2,699</div>
+
+                    <h3 className="text-2xl font-bold text-white uppercase tracking-widest mb-4">Our Offer</h3>
+                    <div className="text-6xl md:text-8xl font-black text-white mb-2">$2,450</div>
+                    <div className="text-teal-400 font-bold uppercase tracking-wide mb-8">+ Support: $99/mo</div>
+
+                    <p className="text-slate-200 mb-10 max-w-md mx-auto">We install everything together so nothing breaks. No add-ons. No piecing things together.</p>
+
+                    <Button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} variant="primary" className="w-full md:w-auto text-lg py-6">Claim Lifetime Deal</Button>
+                </div>
+
+                <div className="mt-20 text-center border-t border-slate-800 pt-16">
+                    <h3 className="text-xl font-bold text-white uppercase tracking-widest mb-8">Who This Is For</h3>
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+                        {["Local businesses losing jobs", "Owners tired of guessing", "Ready to stop missing customers"].map((item, i) => (
+                            <div key={i} className="flex items-center gap-2 text-slate-100">
+                                <Icons.CheckCircle className="w-5 h-5 text-teal-500" />
+                                <span className="uppercase text-sm font-bold">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Deal page internal links */}
+                <div className="mt-20 pt-16 border-t border-slate-800">
+                    <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8">This System Works For</h3>
+                    <p className="text-slate-300 leading-relaxed max-w-3xl mb-6">
+                        We built this deal for every local service business: <a href="/contractors/" className="text-teal-400 hover:text-teal-300 font-semibold">HVAC marketing company</a>, <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a>, <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a>, <a href="/flooring-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">flooring company marketing</a>, <a href="/landscaping-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">landscaping marketing agency</a>, <a href="/cannabis/" className="text-teal-400 hover:text-teal-300 font-semibold">dispensary SEO</a>, and <a href="/restaurants/" className="text-teal-400 hover:text-teal-300 font-semibold">restaurant marketing</a>.
+                    </p>
+                    <p className="text-slate-300 leading-relaxed max-w-3xl">
+                        Want to understand the full system first? See <a href="/how-it-works/" className="text-teal-400 hover:text-teal-300 font-semibold">how the system works</a>.
+                    </p>
+                </div>
+
+            </FadeIn>
+        </Container>
+    </div>
+);
+
+const About = () => (
+  <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+    <Container>
+      <SectionHeader light subtitle="Philosophy" title="BUILT FOR THE BOTTOM OF THE FUNNEL" />
+      <div className="grid lg:grid-cols-2 gap-20">
+        <div>
+           <p className="text-2xl text-slate-200 font-light leading-relaxed mb-12">TaggleFish exists for one reason: to help local businesses capture demand that already exists.</p>
+           <div className="space-y-12">
+             <div className="pl-8 border-l-2 border-rose-500">
+               <h4 className="text-white font-bold uppercase tracking-widest mb-2">No Vanity Metrics</h4>
+               <p className="text-slate-100">We don't run awareness campaigns. We focus on customers who are actively searching for your service right now.</p>
+             </div>
+             <div className="pl-8 border-l-2 border-teal-500">
+               <h4 className="text-white font-bold uppercase tracking-widest mb-2">Intent to Revenue</h4>
+               <p className="text-slate-100">Everything we build is designed to turn search intent into calls, orders, and revenue.</p>
+             </div>
+             <div className="pl-8 border-l-2 border-slate-600">
+               <h4 className="text-white font-bold uppercase tracking-widest mb-2">Built by Someone in the Trades</h4>
+               <p className="text-slate-100">We know the trades because we're in the trades. That's why we started with <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a> and <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a> — we live it.</p>
+             </div>
+           </div>
+
+           {/* About page internal links */}
+           <div className="mt-16 pt-12 border-t border-slate-800">
+               <p className="text-slate-300 leading-relaxed">
+                   See <a href="/how-it-works/" className="text-teal-400 hover:text-teal-300 font-semibold">how the system works</a>, or lock in our <a href="/deal/" className="text-teal-400 hover:text-teal-300 font-semibold">$2,450 lifetime deal</a>.
+               </p>
+           </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+);
+
+const ReachUs = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [status, setStatus] = useState('idle');
+
+    const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const handleSubmit = () => {
+        setStatus('submitting');
+        setTimeout(() => {
+            setStatus('success');
+            console.log("Contact Form Submitted:", formData);
+        }, 1500);
+    };
+
+    return (
+        <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+            <Container>
+                <FadeIn>
+                    <SectionHeader light subtitle="Contact" title="REACH US" />
+                    <div className="grid lg:grid-cols-2 gap-20">
+                        <div>
+                            <h3 className="text-2xl font-black text-white mb-8 uppercase">Direct Line</h3>
+                            <p className="text-lg text-slate-200 mb-12">
+                                Have a question before you secure your deal? Need to discuss a partnership? We're here.
+                            </p>
+
+                            <div className="space-y-8">
+                                <div className="flex items-center gap-6">
+                                    <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-teal-500">
+                                        <Icons.Mail className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1">Email</div>
+                                        <div className="text-xl font-bold text-white">hello@tagglefish.com</div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-6">
+                                    <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-rose-500">
+                                        <Icons.MapPin className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1">HQ</div>
+                                        <div className="text-xl font-bold text-white">Washington, DC</div>
+                                        <div className="text-sm text-slate-300">Serving clients nationwide</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-900 p-10 border border-slate-800">
+                            <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-widest">Send a Message</h3>
+                            {status === 'success' ? (
+                                <div className="text-center py-12">
+                                    <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <Icons.CheckCircle className="w-8 h-8" />
+                                    </div>
+                                    <h3 className="text-2xl font-black text-white mb-2">Message Sent</h3>
+                                    <p className="text-slate-200">We'll get back to you shortly.</p>
+                                    <Button variant="outline" className="mt-8" onClick={() => setStatus('idle')}>Send Another</Button>
+                                </div>
+                            ) : (
+                                <div className="space-y-6">
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
+                                        <input name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
+                                        <input name="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
+                                        <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" />
+                                    </div>
+                                    <Button variant="secondary" className="w-full" onClick={handleSubmit} isLoading={status === 'submitting'}>Send Message</Button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </FadeIn>
+            </Container>
+        </div>
+    );
+};
+
+const Apply = () => {
+    const [step, setStep] = useState(1);
+    const [formData, setFormData] = useState({ business: '', website: '', challenge: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleFinalSubmit = () => {
+        setIsSubmitting(true);
+        setTimeout(() => {
+            setIsSubmitting(false);
+            console.log("Form Captured:", formData);
+            window.location.href = STRIPE_PAYMENT_LINK;
+        }, 1500);
+    };
+
+    return (
+        <div className="bg-slate-950 min-h-screen pt-32 pb-20">
+            <Container>
+                <div className="max-w-3xl mx-auto bg-white p-12 md:p-20 relative z-10 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl font-black text-slate-900 uppercase mb-4">Start Generating Revenue on Autopilot.</h2>
+                        <p className="text-slate-600 text-lg leading-relaxed">
+                            Turn local search traffic into booked jobs without adding to your workload. Let's build your custom acquisition system today.
+                        </p>
+                    </div>
+                    <div className="border-t-4 border-rose-500 pt-8">
+                        {step === 1 && (
+                            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+                                <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Business Name</label><input name="business" value={formData.business} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="Enter name..." /></div>
+                                <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Website</label><input name="website" value={formData.website} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="https://" /></div>
+                                <div className="pt-8 text-right"><Button onClick={() => setStep(2)} variant="dark">Next Step</Button></div>
+                            </div>
+                        )}
+                        {step === 2 && (
+                            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+                                <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Biggest Challenge</label><textarea name="challenge" value={formData.challenge} onChange={handleChange} rows="3" className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="What's holding you back?" /></div>
+                                <div className="pt-8 flex justify-between"><button onClick={() => setStep(1)} className="text-slate-400 font-bold uppercase text-xs">Back</button><Button onClick={handleFinalSubmit} variant="dark" isLoading={isSubmitting}>Proceed to Payment</Button></div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </Container>
+        </div>
+    );
+};
+
+const ContactModal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [status, setStatus] = useState('idle');
+
+    const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const handleSubmit = () => {
+        setStatus('submitting');
+        setTimeout(() => {
+            setStatus('success');
+            console.log("Contact Form Submitted:", formData);
+        }, 1500);
+    };
+
+    return (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-sm" onClick={onClose}></div>
+
+            <div className="relative bg-slate-900 border border-slate-800 w-full max-w-5xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+                <button onClick={onClose} className="absolute top-6 right-6 text-slate-400 hover:text-white z-10">
+                    <Icons.X />
+                </button>
+
+                <div className="grid lg:grid-cols-2">
+                    <div className="p-12 bg-slate-950">
+                        <div className="inline-flex items-center gap-2 mb-8 text-rose-500 font-bold uppercase tracking-widest text-xs">
+                            <span className="w-8 h-[2px] bg-rose-500"></span> Contact
+                        </div>
+                        <h3 className="text-3xl font-black text-white mb-8 uppercase">Direct Line</h3>
+                        <p className="text-lg text-slate-200 mb-12">
+                            Have a question before you secure your deal? Need to discuss a partnership? We're here.
+                        </p>
+
+                        <div className="space-y-8">
+                            <div className="flex items-center gap-6">
+                                <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-teal-500">
+                                    <Icons.Mail className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1">Email</div>
+                                    <div className="text-xl font-bold text-white">hello@tagglefish.com</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-6">
+                                <div className="w-12 h-12 bg-slate-900 border border-slate-800 flex items-center justify-center text-rose-500">
+                                    <Icons.MapPin className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-1">HQ</div>
+                                    <div className="text-xl font-bold text-white">Washington, DC</div>
+                                    <div className="text-sm text-slate-300">Serving clients nationwide</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="p-12">
+                        <h3 className="text-xl font-bold text-white mb-8 uppercase tracking-widest">Send a Message</h3>
+                        {status === 'success' ? (
+                            <div className="text-center py-12">
+                                <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <Icons.CheckCircle className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-2xl font-black text-white mb-2">Message Sent</h3>
+                                <p className="text-slate-200">We'll get back to you shortly.</p>
+                                <Button variant="outline" className="mt-8" onClick={() => {setStatus('idle'); onClose();}}>Close</Button>
+                            </div>
+                        ) : (
+                            <div className="space-y-6">
+                                <div>
+                                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Name</label>
+                                    <input name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your name" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Email</label>
+                                    <input name="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Your email" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-200 mb-2">Message</label>
+                                    <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" />
+                                </div>
+                                <Button variant="secondary" className="w-full" onClick={handleSubmit} isLoading={status === 'submitting'}>Send Message</Button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const App = () => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isContactOpen, setIsContactOpen] = useState(false);
+
+    // Path-based routing
+    const getPage = () => {
+        const path = window.location.pathname.replace(/\/+$/, '') || '/';
+        switch (path) {
+            case '/': return 'home';
+            case '/contractors': return 'contractors';
+            case '/drywall-marketing': return 'drywall-marketing';
+            case '/painting-marketing': return 'painting-marketing';
+            case '/flooring-marketing': return 'flooring-marketing';
+            case '/landscaping-marketing': return 'landscaping-marketing';
+            case '/cannabis': return 'cannabis';
+            case '/restaurants': return 'restaurants';
+            case '/how-it-works': return 'how-it-works';
+            case '/about': return 'about';
+            case '/apply': return 'apply';
+            case '/deal': return 'deal';
+            case '/services': return 'services';
+            case '/reach-us': return 'reach-us';
+            default: return 'home';
+        }
+    };
+
+    const page = getPage();
+
+    const renderPage = () => {
+        switch (page) {
+            case 'home': return <Homepage />;
+            case 'cannabis': return (
+                <IndustryPage
+                    title="Cannabis" icon={Icons.Leaf} color="text-green-400"
+                    heroTitle="You Can't Run Ads. So You Better Rank."
+                    heroDesc="When ads are restricted, organic search isn't optional. It's your entire growth engine."
+                    content={{
+                        reality: "People near you are searching \u201Cdispensary near me\u201D right now. They click one of the top results. If it\u2019s not you, it\u2019s your competitor.",
+                        solution: "We help cannabis businesses rank locally, convert demand, and build direct customer relationships instead of renting them from platforms.",
+                        alsoServe: <span>We also work with <a href="/restaurants/" className="text-teal-400 hover:text-teal-300 font-semibold">restaurant marketing</a> clients who face similar platform dependency challenges.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/deal/", text: "$2,450 lifetime deal" },
+                        { href: "/how-it-works/", text: "how the system works" },
+                        { href: "/restaurants/", text: "restaurant marketing" },
+                        { href: "/services/", text: "our services" }
+                    ]}
+                />
+            );
+            case 'contractors': return (
+                <IndustryPage
+                    title="Local Contractors" icon={Icons.Wrench} color="text-blue-400"
+                    heroTitle="Losing Jobs Because You're Busy Doing Jobs."
+                    heroDesc="Homeowners call the first contractor who answers. If you're on a ladder or under a sink, that job is gone."
+                    content={{
+                        reality: "You\u2019re great at your trade, but you can\u2019t always answer the phone. 78% of customers hire the first contractor who responds.",
+                        solution: "We build systems that get you found and respond instantly so you never lose work because you were working.",
+                        alsoServe: <span>Many of our contractor clients do multiple trades. We also serve <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a>, <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a>, <a href="/flooring-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">flooring company marketing</a>, and <a href="/landscaping-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">landscaping marketing agency</a> clients.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/drywall-marketing/", text: "drywall contractor marketing" },
+                        { href: "/painting-marketing/", text: "painting contractor marketing" },
+                        { href: "/flooring-marketing/", text: "flooring company marketing" },
+                        { href: "/landscaping-marketing/", text: "landscaping marketing agency" },
+                        { href: "/deal/", text: "$2,450 lifetime deal" },
+                        { href: "/how-it-works/", text: "how the system works" }
+                    ]}
+                />
+            );
+            case 'drywall-marketing': return (
+                <IndustryPage
+                    title="Drywall Contractors" icon={Icons.Wrench} color="text-blue-400"
+                    heroTitle="Stop Depending on GC Referrals. Get Your Own Drywall Leads."
+                    heroDesc="Most drywall contractors rely on general contractors for work. That means someone else controls your pipeline."
+                    content={{
+                        reality: "You\u2019re competing for GC relationships instead of building your own customer base. When the GC pipeline dries up, so does your revenue.",
+                        solution: "We build you a website, rank you on Google Maps, and automate lead response so homeowners and property managers find you directly. Built by someone who runs a drywall company.",
+                        alsoServe: <span>We also serve <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a> and <a href="/flooring-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">flooring company marketing</a> clients — many contractors do multiple trades.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/painting-marketing/", text: "painting contractor marketing" },
+                        { href: "/contractors/", text: "HVAC marketing company" },
+                        { href: "/flooring-marketing/", text: "flooring company marketing" },
+                        { href: "/deal/", text: "$2,450 lifetime deal" },
+                        { href: "/how-it-works/", text: "how the system works" }
+                    ]}
+                />
+            );
+            case 'painting-marketing': return (
+                <IndustryPage
+                    title="Painting Contractors" icon={Icons.Wrench} color="text-blue-400"
+                    heroTitle="Get More Painting Jobs Without Chasing Referrals."
+                    heroDesc="Word-of-mouth is great until it's not. If you're waiting for the phone to ring, you're leaving money on the table."
+                    content={{
+                        reality: "Most painting contractors rely entirely on referrals and yard signs. That works until a slow season hits and there\u2019s no pipeline.",
+                        solution: "We get you found on Google when people search \u201Cpainter near me\u201D, respond to leads instantly, and keep your schedule full year-round.",
+                        alsoServe: <span>We also serve <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a> and <a href="/landscaping-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">landscaping marketing agency</a> clients.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/drywall-marketing/", text: "drywall contractor marketing" },
+                        { href: "/contractors/", text: "contractor lead generation" },
+                        { href: "/landscaping-marketing/", text: "landscaping marketing agency" },
+                        { href: "/deal/", text: "$2,450 lifetime deal" },
+                        { href: "/how-it-works/", text: "how the system works" }
+                    ]}
+                />
+            );
+            case 'flooring-marketing': return (
+                <IndustryPage
+                    title="Flooring Contractors" icon={Icons.Wrench} color="text-blue-400"
+                    heroTitle="Compete with the Big Box Stores on Google."
+                    heroDesc="Home Depot and Lowe's dominate search results. But local flooring companies can win the Google Maps pack."
+                    content={{
+                        reality: "Big box stores spend millions on SEO and ads. As a local flooring company, you can\u2019t outspend them. But you can outrank them locally.",
+                        solution: "We optimize your Google Business Profile, build service-area pages, and automate lead response so you capture local demand before the big boxes do.",
+                        alsoServe: <span>We also serve <a href="/drywall-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">drywall contractor marketing</a>, <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a>, and <a href="/landscaping-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">landscaping marketing agency</a> clients.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/drywall-marketing/", text: "drywall contractor marketing" },
+                        { href: "/painting-marketing/", text: "painting contractor marketing" },
+                        { href: "/contractors/", text: "contractor lead generation" },
+                        { href: "/landscaping-marketing/", text: "landscaping marketing agency" },
+                        { href: "/deal/", text: "$2,450 lifetime deal" }
+                    ]}
+                />
+            );
+            case 'landscaping-marketing': return (
+                <IndustryPage
+                    title="Landscaping Companies" icon={Icons.Leaf} color="text-green-400"
+                    heroTitle="Fill Your Schedule Year-Round. Not Just Spring."
+                    heroDesc="Landscaping is seasonal. Your marketing shouldn't be. Stop going dark in winter and scrambling to fill slots in spring."
+                    content={{
+                        reality: "Most landscaping companies feast in spring and starve in winter. Without a consistent marketing system, every year starts from scratch.",
+                        solution: "We build a system that generates leads year-round \u2014 website, local SEO, and instant lead response so your pipeline never goes empty.",
+                        alsoServe: <span>We also serve <a href="/painting-marketing/" className="text-teal-400 hover:text-teal-300 font-semibold">painting contractor marketing</a> and <a href="/restaurants/" className="text-teal-400 hover:text-teal-300 font-semibold">restaurant marketing</a> clients.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/contractors/", text: "HVAC marketing company" },
+                        { href: "/painting-marketing/", text: "painting contractor marketing" },
+                        { href: "/restaurants/", text: "restaurant marketing" },
+                        { href: "/deal/", text: "$2,450 lifetime deal" },
+                        { href: "/how-it-works/", text: "how the system works" }
+                    ]}
+                />
+            );
+            case 'restaurants': return (
+                <IndustryPage
+                    title="Restaurants" icon={Icons.Utensils} color="text-orange-400"
+                    heroTitle="Stop Paying 30% for Customers Who Were Already Looking for You."
+                    heroDesc="Third-party platforms insert themselves between you and your customer, then charge you for it."
+                    content={{
+                        reality: "You\u2019re giving away margin to platforms that didn\u2019t earn it. A customer searches \u201Cthai food near me\u201D and finds you on DoorDash.",
+                        solution: "We help diners find you directly through Google search and Maps, so orders and reservations come to you, not through a middleman.",
+                        alsoServe: <span>We also work with <a href="/cannabis/" className="text-teal-400 hover:text-teal-300 font-semibold">dispensary SEO</a> clients who face similar challenges with restricted advertising.</span>
+                    }}
+                    crossLinks={[
+                        { href: "/deal/", text: "$2,450 lifetime deal" },
+                        { href: "/how-it-works/", text: "how the system works" },
+                        { href: "/cannabis/", text: "dispensary SEO" },
+                        { href: "/services/", text: "our services" }
+                    ]}
+                />
+            );
+            case 'how-it-works': return <HowItWorks />;
+            case 'about': return <About />;
+            case 'apply': return <Apply />;
+            case 'deal': return <DealPage />;
+            case 'services': return <ServicesPage />;
+            case 'reach-us': return <ReachUs />;
+            default: return <Homepage />;
+        }
+    };
+
+    return (
+        <div className="font-sans antialiased selection:bg-rose-500 selection:text-white bg-slate-950">
+            <nav className="fixed w-full z-50 py-6 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md text-white">
+                <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
+                    <a href="/" className="text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2">
+                        <div className="w-8 h-8 bg-white text-slate-950 flex items-center justify-center rounded-sm font-bold">TF</div>
+                        TAGGLEFISH.
+                    </a>
+                    <div className="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
+                        <a href="/" className="hover:text-rose-500 transition-colors">Home</a>
+
+                        <div className="relative group">
+                            <button className="flex items-center gap-1 hover:text-rose-500 transition-colors py-6">
+                                Services <Icons.ChevronDown className="w-4 h-4" />
+                            </button>
+                            <div className="absolute top-full left-0 w-56 bg-slate-900 border border-slate-800 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 flex flex-col">
+                                <a href="/services/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Overview</a>
+                                <a href="/contractors/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Contractors</a>
+                                <a href="/drywall-marketing/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Drywall</a>
+                                <a href="/painting-marketing/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Painting</a>
+                                <a href="/flooring-marketing/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Flooring</a>
+                                <a href="/landscaping-marketing/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Landscaping</a>
+                                <a href="/cannabis/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Cannabis</a>
+                                <a href="/restaurants/" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 transition-colors block">Restaurants</a>
+                            </div>
+                        </div>
+
+                        <a href="/how-it-works/" className="hover:text-rose-500 transition-colors">How It Works</a>
+                        <a href="/deal/" className="hover:text-rose-500 transition-colors">Deal</a>
+                        <a href="/about/" className="hover:text-rose-500 transition-colors">About</a>
+                        <button onClick={() => setIsContactOpen(true)} className="hover:text-rose-500 transition-colors">Reach Us</button>
+
+                        <LinkButton href="/apply/" variant="primary" className="py-2 px-6 text-xs">Get in Touch</LinkButton>
+                    </div>
+                    <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden">{mobileMenuOpen ? <Icons.X /> : <Icons.Menu />}</button>
+                </div>
+            </nav>
+
+            {mobileMenuOpen && (
+                <div className="fixed inset-0 bg-slate-950 z-40 flex flex-col items-center justify-center space-y-6 text-white p-8 overflow-y-auto">
+                   <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6"><Icons.X /></button>
+                   <a href="/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">Home</a>
+                   <div className="h-px w-12 bg-slate-800 my-2"></div>
+                   <a href="/services/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">All Services</a>
+                   <a href="/contractors/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Contractors</a>
+                   <a href="/drywall-marketing/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Drywall</a>
+                   <a href="/painting-marketing/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Painting</a>
+                   <a href="/flooring-marketing/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Flooring</a>
+                   <a href="/landscaping-marketing/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Landscaping</a>
+                   <a href="/cannabis/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Cannabis</a>
+                   <a href="/restaurants/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Restaurants</a>
+                   <div className="h-px w-12 bg-slate-800 my-2"></div>
+                   <a href="/how-it-works/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">How It Works</a>
+                   <a href="/deal/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">Deal</a>
+                   <a href="/about/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">About</a>
+                   <button onClick={() => {setIsContactOpen(true); setMobileMenuOpen(false);}} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">Reach Us</button>
+                   <a href="/apply/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight text-rose-500">Get in Touch</a>
+                </div>
+            )}
+
+            <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+
+            <main>{renderPage()}</main>
+
+            <footer className="bg-black text-white py-20 border-t border-slate-900 relative z-10">
+                <Container>
+                   <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+                      <div><h2 className="text-[8vw] leading-none font-black text-slate-800 select-none">TAGGLEFISH</h2></div>
+                      <div className="text-right">
+                         <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">Contact</div>
+                         <div className="text-xl font-bold">hello@tagglefish.com</div>
+                      </div>
+                   </div>
+                </Container>
+            </footer>
+        </div>
+    );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
