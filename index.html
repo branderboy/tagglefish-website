@@ -609,7 +609,7 @@
                         <div className="mt-20 text-center">
                             <h2 className="text-3xl font-black text-white mb-6 uppercase">Next Step</h2>
                             <p className="text-slate-200 mb-8">Don't let another customer slip away. Lock in this price today.</p>
-                            <LinkButton href="#apply" variant="primary" className="py-6 px-12 text-lg">Claim Lifetime Deal</LinkButton>
+                            <LinkButton href="#deal" variant="primary" className="py-6 px-12 text-lg">Claim Lifetime Deal</LinkButton>
                         </div>
                     </FadeIn>
                 </Container>
@@ -644,7 +644,7 @@
                         ))}
                     </div>
                     <div className="mt-20 pt-20 border-t border-slate-800 text-center">
-                        <LinkButton href="#apply" variant="primary" className="py-6 px-16 text-lg">Apply Now</LinkButton>
+                        <LinkButton href="#deal" variant="primary" className="py-6 px-16 text-lg">Claim Lifetime Deal</LinkButton>
                     </div>
                 </Container>
             </div>
@@ -893,20 +893,41 @@
             
             const [formData, setFormData] = useState({ name: '', email: '', message: '' });
             const [status, setStatus] = useState('idle');
+            const [errorMsg, setErrorMsg] = useState('');
 
             const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
             
-           const handleSubmit = () => {
-    setStatus('submitting');
-    fetch(API_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, type: 'contact' })
-    })
-    .then(res => res.json())
-    .then(() => setStatus('success'))
-    .catch(() => setStatus('success'));
-};
+            const handleSubmit = () => {
+                setErrorMsg('');
+                if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+                    setStatus('error');
+                    setErrorMsg('Please fill out all fields.');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                    setStatus('error');
+                    setErrorMsg('Please enter a valid email address.');
+                    return;
+                }
+                setStatus('submitting');
+                fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...formData, type: 'contact' })
+                })
+                .then(res => {
+                    if (!res.ok) throw new Error('Request failed');
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.error) throw new Error(data.error);
+                    setStatus('success');
+                })
+                .catch(err => {
+                    setStatus('error');
+                    setErrorMsg(err.message || 'Something went wrong. Try again.');
+                });
+            };
 
             return (
                 <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
@@ -978,63 +999,12 @@
                                             <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-slate-950 border border-slate-800 py-3 px-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="How can we help?" />
                                         </div>
                                         <Button variant="secondary" className="w-full" onClick={handleSubmit} isLoading={status === 'submitting'}>Send Message</Button>
+                                        {status === 'error' && errorMsg && <p className="text-rose-400 text-sm font-bold mt-4">{errorMsg}</p>}
                                     </div>
                                 )}
                             </div>
                         </div>
                     </div>
-                </div>
-            );
-        };
-
-        const Apply = () => {
-            const [step, setStep] = useState(1);
-            const [formData, setFormData] = useState({ business: '', website: '', challenge: '' });
-            const [isSubmitting, setIsSubmitting] = useState(false);
-
-            const handleChange = (e) => {
-                setFormData({ ...formData, [e.target.name]: e.target.value });
-            };
-
-            const handleFinalSubmit = () => {
-                setIsSubmitting(true);
-                // Simulate processing time
-                setTimeout(() => {
-                    // In real app: fetch('/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'apply'}) })
-                    setIsSubmitting(false);
-                    console.log("Form Captured:", formData);
-                    // Redirect to Stripe Payment
-                    window.location.href = STRIPE_PAYMENT_LINK;
-                }, 1500);
-            };
-
-            return (
-                <div className="bg-slate-950 min-h-screen pt-32 pb-20">
-                    <Container>
-                        <div className="max-w-3xl mx-auto bg-white p-12 md:p-20 relative z-10 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
-                            <div className="text-center mb-12">
-                                <h2 className="text-4xl font-black text-slate-900 uppercase mb-4">Start Generating Revenue on Autopilot.</h2>
-                                <p className="text-slate-600 text-lg leading-relaxed">
-                                    Turn local search traffic into booked jobs without adding to your workload. Let's build your custom acquisition system today.
-                                </p>
-                            </div>
-                            <div className="border-t-4 border-rose-500 pt-8">
-                                {step === 1 && (
-                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Business Name</label><input name="business" value={formData.business} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="Enter name..." /></div>
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Website</label><input name="website" value={formData.website} onChange={handleChange} className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="https://" /></div>
-                                        <div className="pt-8 text-right"><Button onClick={() => setStep(2)} variant="dark">Next Step</Button></div>
-                                    </div>
-                                )}
-                                {step === 2 && (
-                                    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
-                                        <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Biggest Challenge</label><textarea name="challenge" value={formData.challenge} onChange={handleChange} rows="3" className="w-full border-b-2 border-slate-200 py-4 text-xl font-bold text-slate-900 focus:outline-none focus:border-rose-500 transition-colors" placeholder="What's holding you back?" /></div>
-                                        <div className="pt-8 flex justify-between"><button onClick={() => setStep(1)} className="text-slate-400 font-bold uppercase text-xs">Back</button><Button onClick={handleFinalSubmit} variant="dark" isLoading={isSubmitting}>Proceed to Payment</Button></div>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </Container>
                 </div>
             );
         };
@@ -1229,10 +1199,8 @@
                     );
                     case 'how-it-works': return <HowItWorks />;
                     case 'about': return <About />;
-                    case 'apply': return <Apply />;
                     case 'deal': return <DealPage />;
                     case 'services': return <ServicesPage />;
-                    case 'reach-us': return <ReachUs />; 
                     case 'privacy': return <PrivacyPolicy />;
                     case 'terms': return <TermsOfService />;
                     default: return <Homepage />;
@@ -1248,30 +1216,30 @@
                                 TAGGLEFISH.
                             </a>
                             <div className="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
-                                <a href="#home" className="hover:text-rose-500 transition-colors">Home</a>
+                                <a href="#home" className="hover:text-rose-500 transition-colors">HOME</a>
                                 
                                 <div className="relative group">
                                     <button className="flex items-center gap-1 hover:text-rose-500 transition-colors py-6">
-                                        Services <Icons.ChevronDown className="w-4 h-4" />
+                                        SERVICES <Icons.ChevronDown className="w-4 h-4" />
                                     </button>
                                     <div className="absolute top-full left-0 w-56 bg-slate-900 border border-slate-800 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 flex flex-col">
-                                        <a href="#services" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Overview</a>
-                                        <a href="#cannabis" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Cannabis</a>
-                                        <a href="#contractors" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Contractors</a>
-                                        <a href="#drywall-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Drywall</a>
-                                        <a href="#painting-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Painting</a>
-                                        <a href="#flooring-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Flooring</a>
-                                        <a href="#landscaping-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">Landscaping</a>
-                                        <a href="#restaurants" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 transition-colors block">Restaurants</a>
+                                        <a href="#services" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">OVERVIEW</a>
+                                        <a href="#cannabis" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">CANNABIS</a>
+                                        <a href="#contractors" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">CONTRACTORS</a>
+                                        <a href="#drywall-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">DRYWALL</a>
+                                        <a href="#painting-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">PAINTING</a>
+                                        <a href="#flooring-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">FLOORING</a>
+                                        <a href="#landscaping-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">LANDSCAPING</a>
+                                        <a href="#restaurants" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 transition-colors block">RESTAURANTS</a>
                                     </div>
                                 </div>
 
-                                <a href="#how-it-works" className="hover:text-rose-500 transition-colors">How It Works</a>
-                                <a href="#deal" className="hover:text-rose-500 transition-colors">Deal</a>
-                                <a href="#about" className="hover:text-rose-500 transition-colors">About</a>
-                                <button onClick={() => setIsContactOpen(true)} className="hover:text-rose-500 transition-colors">Reach Us</button>
+                                <a href="#how-it-works" className="hover:text-rose-500 transition-colors">HOW IT WORKS</a>
+                                <a href="#deal" className="hover:text-rose-500 transition-colors">DEAL</a>
+                                <a href="#about" className="hover:text-rose-500 transition-colors">ABOUT</a>
+                                <button onClick={() => setIsContactOpen(true)} className="hover:text-rose-500 transition-colors">REACH US</button>
                                 
-                                <LinkButton href="#apply" variant="primary" className="py-2 px-6 text-xs">Get in Touch</LinkButton>
+                                <LinkButton href="#deal" variant="primary" className="py-2 px-6 text-xs">Claim Lifetime Deal</LinkButton>
                             </div>
                             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden">{mobileMenuOpen ? <Icons.X /> : <Icons.Menu />}</button>
                         </div>
@@ -1280,22 +1248,22 @@
                     {mobileMenuOpen && (
                         <div className="fixed inset-0 bg-slate-950 z-40 flex flex-col items-center justify-center space-y-6 text-white p-8 overflow-y-auto">
                            <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6"><Icons.X /></button>
-                           <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">Home</a>
+                           <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">HOME</a>
                            <div className="h-px w-12 bg-slate-800 my-2"></div>
-                           <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">All Services</a>
-                           <a href="#cannabis" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Cannabis</a>
-                           <a href="#contractors" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Contractors</a>
-                           <a href="#drywall-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Drywall</a>
-                           <a href="#painting-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Painting</a>
-                           <a href="#flooring-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Flooring</a>
-                           <a href="#landscaping-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Landscaping</a>
-                           <a href="#restaurants" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">Restaurants</a>
+                           <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">ALL SERVICES</a>
+                           <a href="#cannabis" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">CANNABIS</a>
+                           <a href="#contractors" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">CONTRACTORS</a>
+                           <a href="#drywall-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">DRYWALL</a>
+                           <a href="#painting-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">PAINTING</a>
+                           <a href="#flooring-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">FLOORING</a>
+                           <a href="#landscaping-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">LANDSCAPING</a>
+                           <a href="#restaurants" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">RESTAURANTS</a>
                            <div className="h-px w-12 bg-slate-800 my-2"></div>
-                           <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">How It Works</a>
-                           <a href="#deal" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">Deal</a>
-                           <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">About</a>
-                           <button onClick={() => {setIsContactOpen(true); setMobileMenuOpen(false);}} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">Reach Us</button>
-                           <a href="#apply" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight text-rose-500">Get in Touch</a>
+                           <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">HOW IT WORKS</a>
+                           <a href="#deal" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">DEAL</a>
+                           <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">ABOUT</a>
+                           <button onClick={() => {setIsContactOpen(true); setMobileMenuOpen(false);}} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">REACH US</button>
+                           <a href="#deal" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight text-rose-500">Claim Lifetime Deal</a>
                         </div>
                     )}
 
