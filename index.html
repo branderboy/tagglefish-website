@@ -75,7 +75,7 @@
 
         // --- CONFIGURATION ---
         const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_replace_this_with_your_link";
-        const API_ENDPOINT = "/.netlify/functions/send-email"; // Backend function for Resend
+        const API_ENDPOINT = "/functions/send-email"; // Backend function for Resend
 
         // --- SEO DATA ---
         const SEO_DATA = {
@@ -900,7 +900,7 @@
                 setStatus('submitting');
                 // Simulate backend call
                 setTimeout(() => {
-                    // In real app: fetch('/.netlify/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'contact'}) })
+                    // In real app: fetch('/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'contact'}) })
                     setStatus('success');
                     console.log("Contact Form Submitted:", formData);
                 }, 1500);
@@ -998,7 +998,7 @@
                 setIsSubmitting(true);
                 // Simulate processing time
                 setTimeout(() => {
-                    // In real app: fetch('/.netlify/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'apply'}) })
+                    // In real app: fetch('/functions/send-email', { method: 'POST', body: JSON.stringify({...formData, type: 'apply'}) })
                     setIsSubmitting(false);
                     console.log("Form Captured:", formData);
                     // Redirect to Stripe Payment
