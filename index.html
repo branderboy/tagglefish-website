@@ -94,7 +94,7 @@
                     "priceRange": "$2,999 one-time",
                     "areaServed": "US",
                     "serviceType": ["Local SEO", "Website Design", "Lead Generation", "Google Business Profile Optimization", "Lead Automation"],
-                    "knowsAbout": ["HVAC Marketing", "Cannabis Marketing", "Restaurant Marketing", "Contractor SEO", "Drywall Contractor Marketing", "Painting Contractor Marketing", "Flooring Company Marketing", "Landscaping Marketing"]
+                    "knowsAbout": ["HVAC Marketing", "Plumbing Marketing", "Cannabis Marketing", "Restaurant Marketing", "Contractor SEO", "Drywall Contractor Marketing", "Painting Contractor Marketing", "Flooring Company Marketing", "Landscaping Marketing"]
                 }
             },
             'contractors': {
@@ -126,6 +126,18 @@
                 desc: "Landscaping marketing agency. Fill your schedule year-round with a website, Google Maps ranking, and instant lead response. $2,999 one-time — not $3-5K/month.",
                 url: "https://tagglefish.com/landscaping-marketing/",
                 schema: { "@context": "https://schema.org", "@type": "Service", "name": "Landscaping Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for landscaping companies.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'hvac-marketing': {
+                title: "HVAC Marketing Agency | TaggleFish — Websites, SEO & Lead Gen for HVAC Companies",
+                desc: "HVAC marketing company. Get found when homeowners search for heating and cooling services. Website, local SEO, Google Maps ranking, and instant lead response. $2,999 one-time.",
+                url: "https://tagglefish.com/hvac-marketing/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "HVAC Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for HVAC contractors.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
+            },
+            'plumbing-marketing': {
+                title: "Plumbing Marketing Agency | TaggleFish — Websites, SEO & Lead Gen for Plumbers",
+                desc: "Plumbing marketing company. Stop losing emergency calls to competitors. Website, local SEO, Google Maps ranking, and instant lead response for plumbers. $2,999 one-time.",
+                url: "https://tagglefish.com/plumbing-marketing/",
+                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Plumbing Marketing", "description": "Website, local SEO, Google Maps ranking, and lead automation for plumbing contractors.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "USD", "description": "One-time setup" } }
             },
             'cannabis': {
                 title: "Dispensary SEO & Cannabis Marketing | TaggleFish — Rank Without Ads",
@@ -1110,10 +1122,12 @@
                     case 'contractors': return (
                         <IndustryPage
                             title="Local Contractors" icon={Icons.Wrench} color="text-blue-400"
-                            heroTitle="Losing Jobs Because You’re Busy Doing Jobs."
-                            heroDesc="Homeowners call the first contractor who answers. If you’re on a ladder or under a sink, that job is gone."
-                            content={{ reality: "You’re great at your trade, but you can't always answer the phone. 78% of customers hire the first contractor who responds.", solution: "We build systems that get you found and respond instantly so you never lose work because you were working." }}
+                            heroTitle="Losing Jobs Because You're Busy Doing Jobs."
+                            heroDesc="Homeowners call the first contractor who answers. If you're on a ladder or under a sink, that job is gone."
+                            content={{ reality: "You're great at your trade, but you can't always answer the phone. 78% of customers hire the first contractor who responds.", solution: "We build systems that get you found and respond instantly so you never lose work because you were working." }}
                             links={[
+                                { text: "HVAC marketing", href: "#hvac-marketing" },
+                                { text: "plumbing marketing", href: "#plumbing-marketing" },
                                 { text: "drywall contractor marketing", href: "#drywall-marketing" },
                                 { text: "painting contractor marketing", href: "#painting-marketing" },
                                 { text: "flooring company marketing", href: "#flooring-marketing" },
@@ -1145,7 +1159,8 @@
                             content={{ reality: "Relying on word-of-mouth keeps your schedule unpredictable. You need a system that brings in work consistently.", solution: "We build websites that rank for 'drywall repair near me' and automate the lead follow-up so you book more jobs." }}
                             links={[
                                 { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "HVAC marketing company", href: "#contractors" },
+                                { text: "HVAC marketing company", href: "#hvac-marketing" },
+                                { text: "plumbing marketing", href: "#plumbing-marketing" },
                                 { text: "flooring company marketing", href: "#flooring-marketing" },
                                 { text: "$2,999 lifetime deal", href: "#deal" },
                                 { text: "how the system works", href: "#how-it-works" }
@@ -1160,7 +1175,8 @@
                             content={{ reality: "Homeowners search online before calling a painter. If you don't show up in the map pack, you don't get the call.", solution: "We position you as the top local painter and ensure every lead gets an instant text back, securing the job before they call the next guy." }}
                             links={[
                                 { text: "drywall contractor marketing", href: "#drywall-marketing" },
-                                { text: "contractor lead generation", href: "#contractors" },
+                                { text: "HVAC marketing company", href: "#hvac-marketing" },
+                                { text: "plumbing marketing", href: "#plumbing-marketing" },
                                 { text: "landscaping marketing agency", href: "#landscaping-marketing" },
                                 { text: "$2,999 lifetime deal", href: "#deal" },
                                 { text: "how the system works", href: "#how-it-works" }
@@ -1176,7 +1192,8 @@
                             links={[
                                 { text: "drywall contractor marketing", href: "#drywall-marketing" },
                                 { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "contractor lead generation", href: "#contractors" },
+                                { text: "HVAC marketing company", href: "#hvac-marketing" },
+                                { text: "plumbing marketing", href: "#plumbing-marketing" },
                                 { text: "landscaping marketing agency", href: "#landscaping-marketing" },
                                 { text: "$2,999 lifetime deal", href: "#deal" }
                             ]}
@@ -1189,9 +1206,41 @@
                             heroDesc="Fill your schedule year-round with a website, Google Maps ranking, and instant lead response."
                             content={{ reality: "Landscaping is competitive. If you don't answer the phone, the homeowner calls the next company on the list immediately.", solution: "Our system captures missed calls and texts back instantly, booking appointments while you're out on a job." }}
                             links={[
-                                { text: "HVAC marketing company", href: "#contractors" },
+                                { text: "HVAC marketing company", href: "#hvac-marketing" },
                                 { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "restaurant marketing", href: "#restaurants" },
+                                { text: "plumbing marketing", href: "#plumbing-marketing" },
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" }
+                            ]}
+                        />
+                    );
+                    case 'hvac-marketing': return (
+                        <IndustryPage
+                            title="HVAC" icon={Icons.Wrench} color="text-blue-400"
+                            heroTitle="Stop Losing Emergency Calls to the Company That Answers First."
+                            heroDesc="When someone's AC dies in July or their furnace quits in January, they call whoever shows up first on Google. Make sure that's you."
+                            content={{ reality: "Homeowners don't comparison-shop HVAC companies — they call whoever ranks first and responds fastest. If you're on a job when a lead comes in, that customer is gone before you even see the missed call.", solution: "We build HVAC websites that rank for 'AC repair near me' and 'furnace installation,' then automate instant text-back so every lead gets a response in seconds — even when you're elbow-deep in ductwork." }}
+                            links={[
+                                { text: "plumbing marketing", href: "#plumbing-marketing" },
+                                { text: "contractor lead generation", href: "#contractors" },
+                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
+                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
+                                { text: "$2,999 lifetime deal", href: "#deal" },
+                                { text: "how the system works", href: "#how-it-works" }
+                            ]}
+                        />
+                    );
+                    case 'plumbing-marketing': return (
+                        <IndustryPage
+                            title="Plumbing" icon={Icons.Wrench} color="text-blue-400"
+                            heroTitle="Every Missed Call Is a $500+ Job Going to Your Competitor."
+                            heroDesc="Plumbing emergencies don't wait. Homeowners call the first plumber they find and hire whoever picks up. Be that plumber."
+                            content={{ reality: "When a pipe bursts or a water heater fails, homeowners aren't browsing — they're panicking. They search 'emergency plumber near me' and call the top result. If you don't answer, they move on in seconds.", solution: "We get your plumbing business ranking in the Google Map Pack for high-intent searches, and our instant text-back system responds to every missed call so you never lose a job because you were under a sink." }}
+                            links={[
+                                { text: "HVAC marketing company", href: "#hvac-marketing" },
+                                { text: "contractor lead generation", href: "#contractors" },
+                                { text: "painting contractor marketing", href: "#painting-marketing" },
+                                { text: "flooring company marketing", href: "#flooring-marketing" },
                                 { text: "$2,999 lifetime deal", href: "#deal" },
                                 { text: "how the system works", href: "#how-it-works" }
                             ]}
@@ -1226,10 +1275,12 @@
                                         <a href="#services" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">OVERVIEW</a>
                                         <a href="#cannabis" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">CANNABIS</a>
                                         <a href="#contractors" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">CONTRACTORS</a>
-                                        <a href="#drywall-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">DRYWALL</a>
-                                        <a href="#painting-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">PAINTING</a>
-                                        <a href="#flooring-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">FLOORING</a>
-                                        <a href="#landscaping-marketing" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">LANDSCAPING</a>
+                                        <a href="#hvac-marketing" className="text-left pl-10 pr-6 py-3 text-xs text-slate-400 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">HVAC</a>
+                                        <a href="#plumbing-marketing" className="text-left pl-10 pr-6 py-3 text-xs text-slate-400 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">PLUMBING</a>
+                                        <a href="#drywall-marketing" className="text-left pl-10 pr-6 py-3 text-xs text-slate-400 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">DRYWALL</a>
+                                        <a href="#painting-marketing" className="text-left pl-10 pr-6 py-3 text-xs text-slate-400 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">PAINTING</a>
+                                        <a href="#flooring-marketing" className="text-left pl-10 pr-6 py-3 text-xs text-slate-400 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">FLOORING</a>
+                                        <a href="#landscaping-marketing" className="text-left pl-10 pr-6 py-3 text-xs text-slate-400 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">LANDSCAPING</a>
                                         <a href="#restaurants" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 transition-colors block">RESTAURANTS</a>
                                     </div>
                                 </div>
@@ -1253,10 +1304,12 @@
                            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">ALL SERVICES</a>
                            <a href="#cannabis" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">CANNABIS</a>
                            <a href="#contractors" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">CONTRACTORS</a>
-                           <a href="#drywall-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">DRYWALL</a>
-                           <a href="#painting-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">PAINTING</a>
-                           <a href="#flooring-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">FLOORING</a>
-                           <a href="#landscaping-marketing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">LANDSCAPING</a>
+                           <a href="#hvac-marketing" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-slate-500 hover:text-rose-500">HVAC</a>
+                           <a href="#plumbing-marketing" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-slate-500 hover:text-rose-500">PLUMBING</a>
+                           <a href="#drywall-marketing" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-slate-500 hover:text-rose-500">DRYWALL</a>
+                           <a href="#painting-marketing" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-slate-500 hover:text-rose-500">PAINTING</a>
+                           <a href="#flooring-marketing" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-slate-500 hover:text-rose-500">FLOORING</a>
+                           <a href="#landscaping-marketing" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold text-slate-500 hover:text-rose-500">LANDSCAPING</a>
                            <a href="#restaurants" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">RESTAURANTS</a>
                            <div className="h-px w-12 bg-slate-800 my-2"></div>
                            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">HOW IT WORKS</a>
