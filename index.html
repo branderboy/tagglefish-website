@@ -693,6 +693,90 @@
                             Agencies build you a website and disappear. We install a complete revenue system. Seven integrated tools that get you found, capture every lead, follow up automatically, and tell you exactly what's making you money.
                         </p>
                     </div>
+
+                    {/* Sales Funnel Graphic */}
+                    <FadeIn>
+                        <div className="mb-24">
+                            <div className="max-w-3xl mx-auto">
+                                {/* Funnel Visual */}
+                                <div className="relative">
+                                    {/* SVG Funnel Shape */}
+                                    <svg viewBox="0 0 600 480" className="w-full" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="funnelGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stopColor="#1e3a5f" />
+                                                <stop offset="100%" stopColor="#1e3a5f" stopOpacity="0.9" />
+                                            </linearGradient>
+                                            <linearGradient id="funnelGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stopColor="#0f766e" />
+                                                <stop offset="100%" stopColor="#0f766e" stopOpacity="0.9" />
+                                            </linearGradient>
+                                            <linearGradient id="funnelGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stopColor="#1e3a5f" />
+                                                <stop offset="100%" stopColor="#0b1a2e" stopOpacity="0.95" />
+                                            </linearGradient>
+                                            <linearGradient id="funnelGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stopColor="#059669" />
+                                                <stop offset="100%" stopColor="#047857" />
+                                            </linearGradient>
+                                            <filter id="funnelShadow" x="-10%" y="-10%" width="120%" height="120%">
+                                                <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#0b1a2e" floodOpacity="0.15" />
+                                            </filter>
+                                        </defs>
+
+                                        {/* Layer 1 - Get Found (widest) */}
+                                        <g filter="url(#funnelShadow)">
+                                            <path d="M30 10 L570 10 L530 110 L70 110 Z" fill="url(#funnelGrad1)" rx="4" />
+                                        </g>
+                                        <text x="300" y="48" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.1em" fontFamily="Inter, sans-serif">GET FOUND</text>
+                                        <text x="300" y="72" textAnchor="middle" fill="#94a3b8" fontSize="12" fontFamily="Inter, sans-serif">Website CMS + Traffic Plus + SEO Launch</text>
+                                        <text x="300" y="92" textAnchor="middle" fill="#5eead4" fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif">Customers searching for your services find you first</text>
+
+                                        {/* Arrow connector */}
+                                        <path d="M300 112 L300 128" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4 3" opacity="0.5" />
+                                        <polygon points="294,126 300,134 306,126" fill="#14b8a6" opacity="0.5" />
+
+                                        {/* Layer 2 - Capture Leads */}
+                                        <g filter="url(#funnelShadow)">
+                                            <path d="M90 135 L510 135 L470 235 L130 235 Z" fill="url(#funnelGrad2)" />
+                                        </g>
+                                        <text x="300" y="173" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.1em" fontFamily="Inter, sans-serif">CAPTURE LEADS</text>
+                                        <text x="300" y="197" textAnchor="middle" fill="#d1fae5" fontSize="12" fontFamily="Inter, sans-serif">Forms + Live Chat + Calls + CRM</text>
+                                        <text x="300" y="217" textAnchor="middle" fill="#fef3c7" fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif">Every inquiry lands in one place — nothing slips through</text>
+
+                                        {/* Arrow connector */}
+                                        <path d="M300 237 L300 253" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4 3" opacity="0.5" />
+                                        <polygon points="294,251 300,259 306,251" fill="#14b8a6" opacity="0.5" />
+
+                                        {/* Layer 3 - Engage Automatically */}
+                                        <g filter="url(#funnelShadow)">
+                                            <path d="M150 260 L450 260 L410 360 L190 360 Z" fill="url(#funnelGrad3)" />
+                                        </g>
+                                        <text x="300" y="298" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.1em" fontFamily="Inter, sans-serif">ENGAGE AUTOMATICALLY</text>
+                                        <text x="300" y="322" textAnchor="middle" fill="#94a3b8" fontSize="12" fontFamily="Inter, sans-serif">Smart Automation + Auto-Responses + Follow-Ups</text>
+                                        <text x="300" y="342" textAnchor="middle" fill="#c4b5fd" fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif">Leads get instant replies while you keep working</text>
+
+                                        {/* Arrow connector */}
+                                        <path d="M300 362 L300 378" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4 3" opacity="0.5" />
+                                        <polygon points="294,376 300,384 306,376" fill="#14b8a6" opacity="0.5" />
+
+                                        {/* Layer 4 - Close & Grow (narrowest) */}
+                                        <g filter="url(#funnelShadow)">
+                                            <path d="M200 385 L400 385 L370 470 L230 470 Z" fill="url(#funnelGrad4)" />
+                                        </g>
+                                        <text x="300" y="418" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.1em" fontFamily="Inter, sans-serif">CLOSE &amp; GROW</text>
+                                        <text x="300" y="442" textAnchor="middle" fill="#d1fae5" fontSize="12" fontFamily="Inter, sans-serif">Power Dashboard + Revenue Tracking</text>
+                                        <text x="300" y="460" textAnchor="middle" fill="#fde68a" fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif">You close — the system finds the next one</text>
+
+                                        {/* Side labels - left */}
+                                        <line x1="25" y1="60" x2="25" y2="427" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
+                                        <text x="20" y="30" textAnchor="middle" fill="#94a3b8" fontSize="9" fontWeight="700" letterSpacing="0.15em" fontFamily="Inter, sans-serif" transform="rotate(-90 20 250)">YOUR REVENUE SYSTEM</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </FadeIn>
+
                     <div className="space-y-0">
                         {[
                             { step: "01", title: "We Build Your Revenue Engine", text: "Your Website CMS goes live. Fast, professional, SEO-optimized. Pages for every service, every area. Built to rank and built to convert." },
