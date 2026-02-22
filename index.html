@@ -652,7 +652,28 @@
                         <div className="mt-20 text-center">
                             <h2 className="text-2xl font-black text-slate-900 mb-6">One System. One Price. Everything Included.</h2>
                             <p className="text-slate-700 mb-8">No extra subscriptions. No piecemeal pricing. Seven tools, custom built for your business.</p>
-                            <LinkButton href="#deal" variant="primary" className="py-6 px-12 text-lg">Get Your System Built</LinkButton>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <LinkButton href="#deal" variant="primary" className="py-6 px-12 text-lg">See Pricing &amp; Start</LinkButton>
+                                <LinkButton href="#how-it-works" variant="outline" className="py-6 px-12 text-lg">See How It Works</LinkButton>
+                            </div>
+                        </div>
+
+                        <div className="mt-20 pt-12 border-t border-blue-200">
+                            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-6">Explore by Industry</h4>
+                            <div className="flex flex-wrap gap-3">
+                                {[
+                                    { text: "Contractors", href: "#contractors" },
+                                    { text: "Restaurants", href: "#restaurants" },
+                                    { text: "HVAC", href: "#hvac-marketing" },
+                                    { text: "Plumbing", href: "#plumbing-marketing" },
+                                    { text: "Drywall", href: "#drywall-marketing" },
+                                    { text: "Painting", href: "#painting-marketing" },
+                                    { text: "Flooring", href: "#flooring-marketing" },
+                                    { text: "Landscaping", href: "#landscaping-marketing" }
+                                ].map((link, i) => (
+                                    <a key={i} href={link.href} className="px-4 py-2 border border-blue-200 bg-white text-sm font-bold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors">{link.text}</a>
+                                ))}
+                            </div>
                         </div>
                     </FadeIn>
                 </Container>
@@ -687,7 +708,30 @@
                         ))}
                     </div>
                     <div className="mt-20 pt-20 border-t border-blue-200 text-center">
-                        <LinkButton href="#deal" variant="primary" className="py-6 px-16 text-lg">Get Your System Built</LinkButton>
+                        <h3 className="text-2xl font-black text-slate-900 mb-4">Ready to stop losing leads?</h3>
+                        <p className="text-slate-700 mb-8 max-w-lg mx-auto">See exactly what's included and what it costs. Or explore the seven tools that make it work.</p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <LinkButton href="#deal" variant="primary" className="py-6 px-12 text-lg">See Pricing &amp; Start</LinkButton>
+                            <LinkButton href="#services" variant="outline" className="py-6 px-12 text-lg">Explore All 7 Tools</LinkButton>
+                        </div>
+                    </div>
+
+                    <div className="mt-16 pt-12 border-t border-blue-200">
+                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-6">See It In Action For Your Industry</h4>
+                        <div className="flex flex-wrap gap-3">
+                            {[
+                                { text: "Contractors", href: "#contractors" },
+                                { text: "Restaurants", href: "#restaurants" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "Flooring", href: "#flooring-marketing" },
+                                { text: "Landscaping", href: "#landscaping-marketing" }
+                            ].map((link, i) => (
+                                <a key={i} href={link.href} className="px-4 py-2 border border-blue-200 bg-white text-sm font-bold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors">{link.text}</a>
+                            ))}
+                        </div>
                     </div>
                 </Container>
             </div>
@@ -716,14 +760,19 @@
                                         <p className="text-slate-700 text-lg leading-relaxed">{content.solution}</p>
                                     </div>
                                 </div>
+                                <div className="mt-16 flex flex-col sm:flex-row gap-4">
+                                    <LinkButton href="#deal" variant="primary" className="py-5 px-10">See Pricing &amp; Start</LinkButton>
+                                    <LinkButton href="#how-it-works" variant="outline" className="py-5 px-10">See How It Works</LinkButton>
+                                </div>
+
                                 {links && (
-                                    <div className="mt-12 pt-8 border-t border-blue-200 text-sm font-bold uppercase tracking-widest text-slate-500">
-                                        {links.map((link, i) => (
-                                            <span key={i}>
-                                                <a href={link.href} className="hover:text-blue-600">{link.text}</a>
-                                                {i < links.length - 1 && <span className="text-blue-300 mx-3">|</span>}
-                                            </span>
-                                        ))}
+                                    <div className="mt-12 pt-8 border-t border-blue-200">
+                                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-4">Related Pages</h4>
+                                        <div className="flex flex-wrap gap-3">
+                                            {links.map((link, i) => (
+                                                <a key={i} href={link.href} className="px-4 py-2 border border-blue-200 bg-white text-sm font-bold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors">{link.text}</a>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -1004,10 +1053,28 @@
                        <p className="text-slate-700">Someone in your area just searched for your service. Every tool we build is designed to make sure that person becomes your customer, not your competitor's.</p>
                      </div>
                    </div>
-                   <div className="mt-12 pt-8 border-t border-blue-200 text-sm font-bold uppercase tracking-widest text-slate-500">
-                        <a href="#drywall-marketing" className="hover:text-blue-600">drywall contractor marketing</a> |
-                        <a href="#painting-marketing" className="hover:text-blue-600">painting contractor marketing</a> |
-                        <a href="#deal" className="hover:text-blue-600">get your system built</a>
+                   <div className="mt-12 flex flex-col sm:flex-row gap-4">
+                        <LinkButton href="#deal" variant="primary" className="py-5 px-10">See Pricing &amp; Start</LinkButton>
+                        <LinkButton href="#services" variant="outline" className="py-5 px-10">Explore All 7 Tools</LinkButton>
+                   </div>
+
+                   <div className="mt-12 pt-8 border-t border-blue-200">
+                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-4">Explore by Industry</h4>
+                        <div className="flex flex-wrap gap-3">
+                            {[
+                                { text: "Contractors", href: "#contractors" },
+                                { text: "Restaurants", href: "#restaurants" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "Flooring", href: "#flooring-marketing" },
+                                { text: "Landscaping", href: "#landscaping-marketing" },
+                                { text: "How It Works", href: "#how-it-works" }
+                            ].map((link, i) => (
+                                <a key={i} href={link.href} className="px-4 py-2 border border-blue-200 bg-white text-sm font-bold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors">{link.text}</a>
+                            ))}
+                        </div>
                    </div>
                 </div>
               </div>
@@ -1292,14 +1359,14 @@
                             heroDesc="You're on the job. A homeowner calls. You can't answer. They call the next guy. That's not bad luck. That's a broken system."
                             content={{ reality: "78% of customers hire the first contractor who responds. You're not losing jobs because you're bad at your trade. You're losing them because you don't have a system that works when you can't.", solution: "We build the full revenue platform. A website that ranks, SEO that gets you found, automation that responds to every lead instantly, and a dashboard that shows you exactly which jobs are coming in and where from. You do the work. The system does everything else." }}
                             links={[
-                                { text: "HVAC marketing", href: "#hvac-marketing" },
-                                { text: "plumbing marketing", href: "#plumbing-marketing" },
-                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
-                                { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "flooring company marketing", href: "#flooring-marketing" },
-                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
-                                { text: "get your system built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "Flooring", href: "#flooring-marketing" },
+                                { text: "Landscaping", href: "#landscaping-marketing" },
+                                { text: "Restaurants", href: "#restaurants" }
                             ]}
                         />
                     );
@@ -1310,10 +1377,12 @@
                             heroDesc="We build you a complete revenue system. Website, SEO, Google Business Profile, lead capture, automation, and a dashboard that shows where every customer comes from."
                             content={{ reality: "Right now you're paying platforms to send you your own customers. Someone searches 'thai food near me,' finds you on DoorDash, and you lose 30% on an order that should have been yours. You don't have a website that ranks. You don't have a system that captures and follows up with customers. So the platforms own the relationship and you pay the tax.", solution: "We build your complete platform. A Website CMS that ranks for local food searches, a Content Editor so you can update menus and specials yourself, Traffic Plus for local SEO and Google Business optimization, Business Process Tools for lead capture and customer messaging, Smart Automation that sends follow-ups without you touching it, and The Power Dashboard that shows you exactly where your covers come from. Plus a full SEO Launch for your Google Business Profile and website, included free." }}
                             links={[
-                                { text: "get your system built", href: "#deal" },
-                                { text: "see all 7 tools", href: "#services" },
-                                { text: "how it works step by step", href: "#how-it-works" },
-                                { text: "contractor platform", href: "#contractors" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "Contractors", href: "#contractors" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Painting", href: "#painting-marketing" }
                             ]}
                         />
                     );
@@ -1324,12 +1393,12 @@
                             heroDesc="Word-of-mouth is unpredictable. A system that brings homeowners directly to you isn't."
                             content={{ reality: "When the GC pipeline slows down, your schedule empties. You're great at drywall, but your business depends on someone else's phone ringing first. That's not a growth strategy. That's a gamble.", solution: "We build your revenue platform. A site that ranks for 'drywall repair near me,' automation that responds to every lead instantly, and a dashboard that shows you exactly where your jobs are coming from. Your own pipeline. Your own customers." }}
                             links={[
-                                { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "HVAC marketing company", href: "#hvac-marketing" },
-                                { text: "plumbing marketing", href: "#plumbing-marketing" },
-                                { text: "flooring company marketing", href: "#flooring-marketing" },
-                                { text: "get your system built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Flooring", href: "#flooring-marketing" },
+                                { text: "Contractors", href: "#contractors" }
                             ]}
                         />
                     );
@@ -1340,12 +1409,12 @@
                             heroDesc="Homeowners search 'painter near me' before they ask their neighbor. If you're not in the map pack, you're not getting that call."
                             content={{ reality: "You're a great painter. But your next job depends on whether someone happens to recommend you. That's not a business model. It's a coin flip. Meanwhile, your competitor shows up on Google every time.", solution: "We build your revenue platform. A site that ranks for local painting searches, instant lead response that texts back before they call the next guy, and a dashboard that shows which jobs are coming in and where from. Your schedule stays full because the system fills it." }}
                             links={[
-                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
-                                { text: "HVAC marketing company", href: "#hvac-marketing" },
-                                { text: "plumbing marketing", href: "#plumbing-marketing" },
-                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
-                                { text: "get your system built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Landscaping", href: "#landscaping-marketing" },
+                                { text: "Contractors", href: "#contractors" }
                             ]}
                         />
                     );
@@ -1356,12 +1425,12 @@
                             heroDesc="Homeowners want a local flooring expert, not a big box store. But they'll never find you if your competitor shows up first."
                             content={{ reality: "Big box stores own paid ads. You'll never outbid them. But local search is different. Homeowners searching 'flooring installation near me' want someone local, someone they can talk to. If you're not showing up, you're handing those jobs to the chain store down the road.", solution: "We build your revenue platform. A site optimized for local flooring searches, automation that responds to every inquiry instantly, and a dashboard that shows you exactly which neighborhoods your leads are coming from. You win on local expertise. We make sure Google knows it." }}
                             links={[
-                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
-                                { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "HVAC marketing company", href: "#hvac-marketing" },
-                                { text: "plumbing marketing", href: "#plumbing-marketing" },
-                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
-                                { text: "get your system built", href: "#deal" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Landscaping", href: "#landscaping-marketing" }
                             ]}
                         />
                     );
@@ -1372,11 +1441,12 @@
                             heroDesc="Landscaping is seasonal and competitive. The companies that stay booked year-round aren't better. They have a system."
                             content={{ reality: "You're on a job site. A homeowner calls for a quote. You can't answer. They call the next company on Google. By the time you see the missed call, they've already booked. This happens every single day.", solution: "We build your revenue platform. A website that ranks for local landscaping searches, automation that texts back every missed call instantly, and a dashboard that shows which services and areas are driving the most jobs. Your schedule stays full. Even during the slow months." }}
                             links={[
-                                { text: "HVAC marketing company", href: "#hvac-marketing" },
-                                { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "plumbing marketing", href: "#plumbing-marketing" },
-                                { text: "get your system built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Flooring", href: "#flooring-marketing" },
+                                { text: "Contractors", href: "#contractors" }
                             ]}
                         />
                     );
@@ -1387,12 +1457,12 @@
                             heroDesc="HVAC emergencies don't wait. Homeowners call whoever shows up first and responds fastest. If that's not you, that job is gone."
                             content={{ reality: "Nobody comparison-shops HVAC companies when their furnace quits in January. They search, they call, they hire. In that order. If you're on a job when the lead comes in, that customer is gone before you see the missed call. Every. Single. Time.", solution: "We build your full revenue platform. A site that ranks for 'AC repair near me' and 'furnace installation,' automation that texts back every lead in seconds even when you're elbow-deep in ductwork, and a dashboard that shows you exactly which services and zip codes are driving your revenue." }}
                             links={[
-                                { text: "plumbing marketing", href: "#plumbing-marketing" },
-                                { text: "contractor lead generation", href: "#contractors" },
-                                { text: "drywall contractor marketing", href: "#drywall-marketing" },
-                                { text: "landscaping marketing agency", href: "#landscaping-marketing" },
-                                { text: "get your system built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "Plumbing", href: "#plumbing-marketing" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Landscaping", href: "#landscaping-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "Contractors", href: "#contractors" }
                             ]}
                         />
                     );
@@ -1403,12 +1473,12 @@
                             heroDesc="Plumbing emergencies don't wait. Homeowners call the first plumber they find and hire whoever picks up. Right now, that's not you."
                             content={{ reality: "When a water heater fails at 9 PM, nobody's browsing reviews. They search 'emergency plumber near me,' call the top result, and hire whoever answers. If you don't pick up, they move on in seconds. Not minutes. Seconds.", solution: "We build your full revenue platform. Ranking in the Google Map Pack for high-intent searches, instant text-back that responds to every missed call automatically, and a dashboard that shows you which emergency services are driving the most revenue. You never lose a job because you were under a sink again." }}
                             links={[
-                                { text: "HVAC marketing company", href: "#hvac-marketing" },
-                                { text: "contractor lead generation", href: "#contractors" },
-                                { text: "painting contractor marketing", href: "#painting-marketing" },
-                                { text: "flooring company marketing", href: "#flooring-marketing" },
-                                { text: "get your system built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" }
+                                { text: "All 7 Tools", href: "#services" },
+                                { text: "HVAC", href: "#hvac-marketing" },
+                                { text: "Drywall", href: "#drywall-marketing" },
+                                { text: "Painting", href: "#painting-marketing" },
+                                { text: "Flooring", href: "#flooring-marketing" },
+                                { text: "Contractors", href: "#contractors" }
                             ]}
                         />
                     );
