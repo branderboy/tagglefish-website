@@ -477,17 +477,17 @@
                     </Container>
                 </Section>
 
-                <Section bg="dark" className="py-20 border-y border-slate-900">
+                <section className="relative z-10 py-20" style={{backgroundColor: '#1e293b'}}>
                     <Container>
                         <SectionHeader light subtitle="Select Market" title="Choose Your Industry" align="center" />
-                        <div className="grid md:grid-cols-2 gap-0 border border-slate-800 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+                        <div className="grid md:grid-cols-2 gap-0 border border-slate-600 divide-y md:divide-y-0 md:divide-x divide-slate-600">
                             {[
                                 { id: '#contractors', icon: Icons.Wrench, title: "Contractors", desc: "You're on the job site. Leads are calling right now. Our system answers before your competitor does.", hover: "group-hover:text-blue-400" },
                                 { id: '#restaurants', icon: Icons.Utensils, title: "Restaurants", desc: "Every order through a third-party platform costs you 30%. Get customers directly.", hover: "group-hover:text-orange-400" }
                             ].map((item, idx) => (
-                                <a key={item.id} href={item.id} className="group relative p-12 bg-slate-950 hover:bg-slate-900 transition-colors duration-500 cursor-pointer text-center block">
+                                <a key={item.id} href={item.id} className="group relative p-12 transition-colors duration-500 cursor-pointer text-center block" style={{backgroundColor: '#1e293b'}}>
                                     <div className="mb-8 flex justify-center">
-                                        <item.icon className={`w-12 h-12 text-slate-600 ${item.hover} transition-colors duration-500`} />
+                                        <item.icon className={`w-12 h-12 text-slate-400 ${item.hover} transition-colors duration-500`} />
                                     </div>
                                     <h3 className="text-xl font-black text-white mb-4 tracking-wide">{item.title}</h3>
                                     <p className="text-slate-200 leading-relaxed text-sm px-4">{item.desc}</p>
@@ -497,11 +497,11 @@
                                 </a>
                             ))}
                         </div>
-                        <div className="mt-12 text-center text-sm font-bold uppercase tracking-widest text-slate-500">
+                        <div className="mt-12 text-center text-sm font-bold uppercase tracking-widest text-slate-400">
                            Also serving: <a href="#landscaping-marketing" className="hover:text-rose-500 mx-2">landscaping marketing agency</a> | <a href="#flooring-marketing" className="hover:text-rose-500 mx-2">flooring company marketing</a>
                         </div>
                     </Container>
-                </Section>
+                </section>
                 
                 <section className="relative z-10 py-24" style={{backgroundColor: '#f8fafc'}}>
                   <Container>
