@@ -308,7 +308,7 @@
                         <span className={`w-12 h-[2px] ${light ? 'bg-teal-400' : 'bg-rose-500'}`}></span>
                         {subtitle}
                     </h2>
-                    <h3 className={`text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] ${light ? 'text-white' : 'text-slate-950'}`}>
+                    <h3 className={`text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] ${light ? 'text-white' : 'text-slate-950'}`}>
                         {title}
                     </h3>
                 </FadeIn>
@@ -332,7 +332,7 @@
 
         const FAQSection = () => (
             <div className="max-w-4xl mx-auto mt-20">
-                <SectionHeader subtitle="FAQ" title="COMMON QUESTIONS" align="center" light />
+                <SectionHeader subtitle="FAQ" title="Common Questions" align="center" light />
                 <div className="space-y-2">
                     <FAQItem
                         question="Do you work with anyone?"
@@ -371,17 +371,17 @@
                                         <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse shadow-[0_0_10px_#14b8a6]"></div>
                                         System Active
                                     </div>
-                                    <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tighter mb-8 text-white">
-                                        YOU DON'T NEED <br/>
-                                        MORE MARKETING. <br/>
+                                    <h1 className="text-3xl md:text-5xl font-black leading-[0.95] tracking-tighter mb-8 text-white">
+                                        You Don't Need <br/>
+                                        More Marketing. <br/>
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-300 relative">
-                                            YOU NEED A SYSTEM THAT MAKES MONEY.
+                                            You Need a System That Makes Money.
                                         </span>
                                     </h1>
-                                    <h2 className="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-rose-500 pl-6">
+                                    <h2 className="text-lg md:text-xl font-bold text-white mb-6 border-l-4 border-rose-500 pl-6">
                                         The full revenue platform for contractors and restaurants.
                                     </h2>
-                                    <p className="text-xl text-slate-100 max-w-xl leading-relaxed font-light mb-10">
+                                    <p className="text-lg text-slate-100 max-w-xl leading-relaxed font-light mb-10">
                                         One custom-built platform. Your website, SEO, lead capture, follow-up, automation, and a dashboard that tells you exactly what to do next.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-6">
@@ -480,7 +480,7 @@
 
                 <Section bg="dark" className="py-20 border-y border-slate-900">
                     <Container>
-                        <SectionHeader light subtitle="Select Market" title="CHOOSE YOUR INDUSTRY" align="center" />
+                        <SectionHeader light subtitle="Select Market" title="Choose Your Industry" align="center" />
                         <div className="grid md:grid-cols-2 gap-0 border border-slate-800 divide-y md:divide-y-0 md:divide-x divide-slate-800">
                             {[
                                 { id: '#contractors', icon: Icons.Wrench, title: "Contractors", desc: "You're on the job site. Leads are calling right now. Our system answers before your competitor does.", hover: "group-hover:text-blue-400" },
@@ -490,7 +490,7 @@
                                     <div className="mb-8 flex justify-center">
                                         <item.icon className={`w-12 h-12 text-slate-600 ${item.hover} transition-colors duration-500`} />
                                     </div>
-                                    <h3 className="text-2xl font-black text-white mb-4 uppercase tracking-wide">{item.title}</h3>
+                                    <h3 className="text-xl font-black text-white mb-4 tracking-wide">{item.title}</h3>
                                     <p className="text-slate-200 leading-relaxed text-sm px-4">{item.desc}</p>
                                     <div className="mt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <span className={`text-xs font-bold uppercase tracking-widest border-b border-white pb-1`}>View Solutions</span>
@@ -509,7 +509,7 @@
                     <div className="grid lg:grid-cols-12 gap-16">
                       <div className="lg:col-span-4">
                          <div className="sticky top-32">
-                           <SectionHeader light subtitle="The Platform" title="WHAT'S INSIDE THE PLATFORM" />
+                           <SectionHeader light subtitle="The Platform" title="What's Inside the Platform" />
                            <p className="text-xl text-slate-200 leading-relaxed mb-8">
                              Every tool works on its own. Together, they run your business while you do the actual work.
                            </p>
@@ -528,7 +528,7 @@
                          ].map((item, i) => (
                            <FadeIn key={i} delay={i * 100}>
                              <div className="p-10 border border-slate-800 bg-slate-900/50 hover:border-teal-500 transition-colors group">
-                               <h3 className="text-3xl font-black text-white mb-4 uppercase">{item.title}</h3>
+                               <h3 className="text-2xl font-black text-white mb-4">{item.title}</h3>
                                <div className="grid md:grid-cols-2 gap-8">
                                  <div>
                                    <div className="text-[10px] font-bold uppercase tracking-widest text-rose-500 mb-2">The Problem</div>
@@ -558,7 +558,7 @@
             <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
                 <Container>
                     <FadeIn>
-                        <SectionHeader light subtitle="The Platform" title="YOUR REVENUE SYSTEM" />
+                        <SectionHeader light subtitle="The Platform" title="Your Revenue System" />
                         <p className="text-2xl text-slate-100 max-w-2xl mb-16 leading-relaxed">
                             Seven tools that work independently. Together, they turn local search into revenue.
                         </p>
@@ -575,7 +575,7 @@
                             ].map((service, i) => (
                                 <div key={i} className="bg-slate-900 border border-slate-800 p-10 hover:border-teal-500 transition-colors group">
                                     <div className="text-xs font-bold text-teal-500 uppercase tracking-widest mb-2">{service.cat}</div>
-                                    <h3 className="text-3xl font-black text-white mb-4">Product: {service.name}</h3>
+                                    <h3 className="text-2xl font-black text-white mb-4">Product: {service.name}</h3>
                                     <p className="text-slate-100 mb-6">{service.desc}</p>
                                     <ul className="space-y-2 mb-8">
                                         {service.points.map((pt, j) => (
@@ -594,7 +594,7 @@
 
                         <div className="grid lg:grid-cols-2 gap-16 border-t border-slate-800 pt-20">
                             <div>
-                                <h3 className="text-2xl font-black text-white mb-6 uppercase">Why One System Beats Seven Vendors</h3>
+                                <h3 className="text-xl font-black text-white mb-6">Why One System Beats Seven Vendors</h3>
                                 <p className="text-slate-100 mb-6">A website from one company. SEO from another. A CRM you never log into. Three invoices, no integration, and customers falling through every gap. That's how most local businesses operate. It's why they lose.</p>
                                 <ul className="space-y-4">
                                     {["Customers find you in local search", "Your site converts them into leads", "Automation responds and follows up instantly", "You see what's working and what to fix", "Revenue goes up. Headaches go down."].map((item, i) => (
@@ -605,7 +605,7 @@
                                 </ul>
                             </div>
                             <div className="bg-slate-900 p-10 border-l-4 border-rose-500">
-                                <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-widest">Built For</h3>
+                                <h3 className="text-lg font-bold text-white mb-6 tracking-widest">Built For</h3>
                                 <div className="space-y-4">
                                     {["Contractors who are too busy working to chase leads", "Restaurant owners tired of giving 30% to platforms", "Any local service business that wants more customers and less headache"].map((item, i) => (
                                         <div key={i} className="flex items-center gap-3 text-slate-300">
@@ -617,7 +617,7 @@
                         </div>
 
                         <div className="mt-20 text-center">
-                            <h2 className="text-3xl font-black text-white mb-6 uppercase">One System. One Price. Everything Included.</h2>
+                            <h2 className="text-2xl font-black text-white mb-6">One System. One Price. Everything Included.</h2>
                             <p className="text-slate-200 mb-8">No extra subscriptions. No piecemeal pricing. Seven tools, custom built for your business.</p>
                             <LinkButton href="#deal" variant="primary" className="py-6 px-12 text-lg">Get Your System Built</LinkButton>
                         </div>
@@ -629,9 +629,9 @@
         const HowItWorks = () => (
             <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
                 <Container>
-                    <SectionHeader light subtitle="The Blueprint" title="IT'S NOT MARKETING. IT'S INFRASTRUCTURE." />
+                    <SectionHeader light subtitle="The Blueprint" title="It's Not Marketing. It's Infrastructure." />
                     <div className="max-w-4xl mb-20">
-                        <p className="text-2xl text-slate-200 font-light leading-relaxed">
+                        <p className="text-xl text-slate-200 font-light leading-relaxed">
                             Agencies build you a website and disappear. We install a complete revenue system. Seven integrated tools that get you found, capture every lead, follow up automatically, and tell you exactly what's making you money.
                         </p>
                     </div>
@@ -646,8 +646,8 @@
                         ].map((item, i) => (
                             <FadeIn key={i}>
                                 <div className="grid md:grid-cols-12 gap-12 py-16 border-t border-slate-800 hover:bg-slate-900/30 transition-colors">
-                                    <div className="md:col-span-2"><div className="text-6xl font-black text-slate-800">{item.step}</div></div>
-                                    <div className="md:col-span-4"><h3 className="text-3xl font-black text-white uppercase tracking-tight">{item.title}</h3></div>
+                                    <div className="md:col-span-2"><div className="text-4xl font-black text-slate-800">{item.step}</div></div>
+                                    <div className="md:col-span-4"><h3 className="text-2xl font-black text-white tracking-tight">{item.title}</h3></div>
                                     <div className="md:col-span-6"><p className="text-lg text-slate-100 leading-relaxed font-light">{item.text}</p></div>
                                 </div>
                             </FadeIn>
@@ -668,18 +668,18 @@
                             <Icon className="w-5 h-5" /> 
                             <span className="text-xs font-bold uppercase tracking-[0.2em]">{title}</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-black mb-12 max-w-5xl leading-none text-white uppercase">{heroTitle}</h1>
+                        <h1 className="text-3xl md:text-5xl font-black mb-12 max-w-5xl leading-none text-white">{heroTitle}</h1>
                         <div className="grid lg:grid-cols-12 gap-16">
                             <div className="lg:col-span-8">
-                                <p className="text-2xl text-slate-200 font-light leading-relaxed border-l-2 border-slate-700 pl-8 mb-16">{heroDesc}</p>
+                                <p className="text-xl text-slate-200 font-light leading-relaxed border-l-2 border-slate-700 pl-8 mb-16">{heroDesc}</p>
                                 <div className="space-y-12">
                                     <div className="bg-slate-900 p-10 border border-slate-800">
-                                        <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">The Reality</h3>
+                                        <h3 className="text-lg font-bold text-white mb-4 tracking-wide">The Reality</h3>
                                         <p className="text-slate-100 text-lg leading-relaxed">{content.reality}</p>
                                     </div>
                                     <div className="bg-slate-900 p-10 border border-slate-800 relative overflow-hidden">
                                         <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
-                                        <h3 className="text-xl font-bold text-teal-400 mb-4 uppercase tracking-wide">Our Solution</h3>
+                                        <h3 className="text-lg font-bold text-teal-400 mb-4 tracking-wide">Our Solution</h3>
                                         <p className="text-slate-300 text-lg leading-relaxed">{content.solution}</p>
                                     </div>
                                 </div>
@@ -708,10 +708,10 @@
                             <div className="inline-flex items-center gap-3 px-4 py-2 border border-rose-500/30 bg-rose-950/30 text-rose-400 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm mb-8">
                                 Limited Availability
                             </div>
-                            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase leading-tight">
-                                EVERYTHING YOUR BUSINESS NEEDS. ONE PRICE. NO BULLSHIT.
+                            <h1 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                                Everything Your Business Needs. One Price. No Bullshit.
                             </h1>
-                            <p className="text-2xl text-rose-500 font-bold uppercase tracking-widest">
+                            <p className="text-xl text-rose-500 font-bold tracking-widest">
                                 One price. No surprises. It pays for itself.
                             </p>
                             <div className="mt-12 text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
@@ -722,7 +722,7 @@
 
                         <div className="grid lg:grid-cols-2 gap-16 mb-32">
                             <div>
-                                <h3 className="text-2xl font-black text-white mb-8 uppercase">What You're Losing Without This</h3>
+                                <h3 className="text-xl font-black text-white mb-8">What You're Losing Without This</h3>
                                 <ul className="space-y-6">
                                     {[
                                         "Your website doesn't convert visitors into calls",
@@ -743,7 +743,7 @@
                                 </div>
                             </div>
                             <div className="bg-slate-900 p-10 border border-slate-800">
-                                 <h3 className="text-2xl font-black text-white mb-8 uppercase">What You Get</h3>
+                                 <h3 className="text-xl font-black text-white mb-8">What You Get</h3>
                                  <div className="space-y-8">
                                     {[
                                         { title: "Website CMS", price: "$2,000", desc: "Professional, fast, SEO-optimized. Built to rank and convert." },
@@ -768,7 +768,7 @@
                                     ].map((item, i) => (
                                         <div key={i} className="flex justify-between items-start border-b border-slate-800 pb-4 last:border-0 last:pb-0">
                                             <div>
-                                                <div className="font-bold text-white uppercase tracking-wide text-sm">{item.title}</div>
+                                                <div className="font-bold text-white tracking-wide text-sm">{item.title}</div>
                                                 <div className="text-xs text-slate-300 mt-1">{item.desc}</div>
                                             </div>
                                             <div className="text-slate-100 font-mono text-sm shrink-0 ml-4">{item.price}</div>
@@ -780,12 +780,12 @@
 
                         <div className="max-w-3xl mx-auto bg-slate-900 border border-teal-500/30 p-12 text-center relative overflow-hidden">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-rose-500"></div>
-                            <h3 className="text-xl font-bold text-slate-200 uppercase tracking-widest mb-2">Total If Bought Separately</h3>
-                            <div className="text-3xl font-black text-slate-300 line-through mb-12">$7,000</div>
+                            <h3 className="text-lg font-bold text-slate-200 tracking-widest mb-2">Total If Bought Separately</h3>
+                            <div className="text-2xl font-black text-slate-300 line-through mb-12">$7,000</div>
 
-                            <h3 className="text-2xl font-bold text-white uppercase tracking-widest mb-4">The Full System</h3>
-                            <div className="text-6xl md:text-8xl font-black text-white mb-2">$4,999</div>
-                            <div className="text-teal-400 font-bold uppercase tracking-wide mb-8">+ $249/mo — hosting, tools, and support included</div>
+                            <h3 className="text-xl font-bold text-white tracking-widest mb-4">The Full System</h3>
+                            <div className="text-5xl md:text-6xl font-black text-white mb-2">$4,999</div>
+                            <div className="text-teal-400 font-bold tracking-wide mb-8">+ $249/mo — hosting, tools, and support included</div>
 
                             <p className="text-slate-200 mb-10 max-w-md mx-auto">All seven tools. Custom built for your business. No add-ons. No extra subscriptions. It pays for itself in 1-2 jobs.</p>
 
@@ -793,7 +793,7 @@
                         </div>
 
                         <div className="mt-20 text-center border-t border-slate-800 pt-16">
-                            <h3 className="text-xl font-bold text-white uppercase tracking-widest mb-8">Built For</h3>
+                            <h3 className="text-lg font-bold text-white tracking-widest mb-8">Built For</h3>
                             <div className="flex flex-wrap justify-center gap-4 md:gap-8">
                                 {["Contractors who want more jobs", "Restaurants cutting out the middleman", "Any local service business ready to make more money"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-2 text-slate-100">
@@ -812,17 +812,17 @@
         const About = ({ navigate }) => (
           <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
             <Container>
-              <SectionHeader light subtitle="Philosophy" title="WE DON'T DO MARKETING. WE BUILD REVENUE SYSTEMS." />
+              <SectionHeader light subtitle="Philosophy" title="We Don't Do Marketing. We Build Revenue Systems." />
               <div className="grid lg:grid-cols-2 gap-20">
                 <div>
-                   <p className="text-2xl text-slate-200 font-light leading-relaxed mb-12">TaggleFish is a revenue platform for local service businesses. We exist for one reason: to help you capture the customers who are already looking for you and turn them into money.</p>
+                   <p className="text-xl text-slate-200 font-light leading-relaxed mb-12">TaggleFish is a revenue platform for local service businesses. We exist for one reason: to help you capture the customers who are already looking for you and turn them into money.</p>
                    <div className="space-y-12">
                      <div className="pl-8 border-l-2 border-rose-500">
-                       <h4 className="text-white font-bold uppercase tracking-widest mb-2">No Vanity Metrics</h4>
+                       <h4 className="text-white font-bold tracking-widest mb-2">No Vanity Metrics</h4>
                        <p className="text-slate-100">We don't count impressions or likes. We count leads, jobs, and revenue. If it doesn't make you money, we don't do it.</p>
                      </div>
                      <div className="pl-8 border-l-2 border-teal-500">
-                       <h4 className="text-white font-bold uppercase tracking-widest mb-2">Search Intent to Revenue</h4>
+                       <h4 className="text-white font-bold tracking-widest mb-2">Search Intent to Revenue</h4>
                        <p className="text-slate-100">Someone in your area just searched for your service. Every tool we build is designed to make sure that person becomes your customer, not your competitor's.</p>
                      </div>
                    </div>
@@ -841,7 +841,7 @@
             <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
                 <Container>
                     <FadeIn>
-                        <SectionHeader light subtitle="Legal" title="PRIVACY POLICY" />
+                        <SectionHeader light subtitle="Legal" title="Privacy Policy" />
                         <div className="prose prose-invert prose-lg max-w-3xl">
                             <h3>1. Introduction</h3>
                             <p>Welcome to TaggleFish. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
@@ -876,7 +876,7 @@
             <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
                 <Container>
                     <FadeIn>
-                        <SectionHeader light subtitle="Legal" title="TERMS OF SERVICE" />
+                        <SectionHeader light subtitle="Legal" title="Terms of Service" />
                         <div className="prose prose-invert prose-lg max-w-3xl">
                             <h3>1. Terms</h3>
                             <p>By accessing the website at https://tagglefish.com, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
@@ -959,7 +959,7 @@
                                 <div className="inline-flex items-center gap-2 mb-8 text-rose-500 font-bold uppercase tracking-widest text-xs">
                                     <span className="w-8 h-[2px] bg-rose-500"></span> Contact
                                 </div>
-                                <h3 className="text-3xl font-black text-white mb-8 uppercase">Direct Line</h3>
+                                <h3 className="text-2xl font-black text-white mb-8">Direct Line</h3>
                                 <p className="text-lg text-slate-200 mb-12">
                                     Have a question before you secure your deal? Need to discuss a partnership? We're here.
                                 </p>
@@ -988,7 +988,7 @@
                             </div>
 
                             <div className="p-12">
-                                <h3 className="text-xl font-bold text-white mb-8 uppercase tracking-widest">Send a Message</h3>
+                                <h3 className="text-lg font-bold text-white mb-8 tracking-widest">Send a Message</h3>
                                 {status === 'success' ? (
                                     <div className="text-center py-12">
                                         <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
