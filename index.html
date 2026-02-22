@@ -777,16 +777,17 @@
                 </div>
 
                 {/* The Problem */}
+                <div className="bg-slate-900">
                 <Container>
                     <div className="py-24 md:py-32">
                         <FadeIn>
                             <div className="max-w-3xl mx-auto text-center mb-16">
-                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-600">
-                                    <span className="w-12 h-[2px] bg-blue-600"></span>
+                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-red-500">
+                                    <span className="w-12 h-[2px] bg-red-500"></span>
                                     The Problem
-                                    <span className="w-12 h-[2px] bg-blue-600"></span>
+                                    <span className="w-12 h-[2px] bg-red-500"></span>
                                 </h2>
-                                <h3 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] text-slate-900">
+                                <h3 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] text-white">
                                     This Is Costing You Every Day.
                                 </h3>
                             </div>
@@ -803,21 +804,22 @@
                                         "Your competitors have a system. You're winging it."
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4">
-                                            <Icons.X className="w-6 h-6 text-red-600 shrink-0 mt-0.5" />
-                                            <span className="text-xl text-slate-900 font-semibold leading-snug">{item}</span>
+                                            <Icons.X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
+                                            <span className="text-xl text-slate-100 font-semibold leading-snug">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </FadeIn>
                             <FadeIn>
-                                <div className="mt-14 border-l-4 border-blue-600 pl-8">
-                                    <p className="text-2xl text-slate-900 font-bold">Fixing one piece doesn't fix the system.</p>
-                                    <p className="text-lg text-slate-700 mt-2">You need the whole thing working together. That's what we build.</p>
+                                <div className="mt-14 border-l-4 border-blue-500 pl-8">
+                                    <p className="text-2xl text-white font-bold">Fixing one piece doesn't fix the system.</p>
+                                    <p className="text-lg text-slate-300 mt-2">You need the whole thing working together. That's what we build.</p>
                                 </div>
                             </FadeIn>
                         </div>
                     </div>
                 </Container>
+                </div>
 
                 {/* The Real Problem — Disjointed Tools */}
                 <Container>
