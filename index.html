@@ -698,109 +698,82 @@
                     <FadeIn>
                         <div className="mb-24">
                             <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-blue-100">
-                                <svg viewBox="0 0 840 720" className="w-full" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <linearGradient id="fgLayer1" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stopColor="#3b82f6" />
-                                            <stop offset="100%" stopColor="#60a5fa" />
-                                        </linearGradient>
-                                        <linearGradient id="fgLayer2" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stopColor="#14b8a6" />
-                                            <stop offset="100%" stopColor="#2dd4bf" />
-                                        </linearGradient>
-                                        <linearGradient id="fgLayer3" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stopColor="#f59e0b" />
-                                            <stop offset="100%" stopColor="#fbbf24" />
-                                        </linearGradient>
-                                        <linearGradient id="fgLayer4" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stopColor="#ef4444" />
-                                            <stop offset="100%" stopColor="#f87171" />
-                                        </linearGradient>
-                                    </defs>
-
-                                    {/* Title */}
-                                    <text x="420" y="40" textAnchor="middle" fill="#0f172a" fontSize="22" fontWeight="900" letterSpacing="0.15em" fontFamily="Inter, sans-serif">THE SALES FUNNEL</text>
-
-                                    {/* Traffic Sources - icons across the top */}
-                                    <text x="420" y="70" textAnchor="middle" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.1em" fontFamily="Inter, sans-serif">TRAFFIC / PEOPLE</text>
-
-                                    {/* Traffic source icons */}
-                                    {/* Website */}
-                                    <g transform="translate(230, 85)">
-                                        <circle cx="16" cy="16" r="16" fill="#e2e8f0" />
-                                        <text x="16" y="21" textAnchor="middle" fontSize="15">🌐</text>
-                                        <text x="16" y="46" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Website</text>
-                                    </g>
-                                    {/* Google */}
-                                    <g transform="translate(310, 85)">
-                                        <circle cx="16" cy="16" r="16" fill="#e2e8f0" />
-                                        <text x="16" y="21" textAnchor="middle" fontSize="15">G</text>
-                                        <text x="16" y="46" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Google</text>
-                                    </g>
-                                    {/* Maps */}
-                                    <g transform="translate(390, 85)">
-                                        <circle cx="16" cy="16" r="16" fill="#e2e8f0" />
-                                        <text x="16" y="21" textAnchor="middle" fontSize="15">📍</text>
-                                        <text x="16" y="46" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Maps</text>
-                                    </g>
-                                    {/* SEO */}
-                                    <g transform="translate(470, 85)">
-                                        <circle cx="16" cy="16" r="16" fill="#e2e8f0" />
-                                        <text x="16" y="21" textAnchor="middle" fontSize="15">📈</text>
-                                        <text x="16" y="46" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">SEO</text>
-                                    </g>
-                                    {/* Referrals */}
-                                    <g transform="translate(550, 85)">
-                                        <circle cx="16" cy="16" r="16" fill="#e2e8f0" />
-                                        <text x="16" y="21" textAnchor="middle" fontSize="15">🗣️</text>
-                                        <text x="16" y="46" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Referrals</text>
-                                    </g>
-
-                                    {/* Downward arrows from sources into funnel */}
-                                    <path d="M260 135 L340 170" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
-                                    <path d="M340 135 L370 170" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
-                                    <path d="M420 135 L420 170" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
-                                    <path d="M500 135 L470 170" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
-                                    <path d="M580 135 L500 170" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                <svg viewBox="0 0 840 660" className="w-full" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
                                         <marker id="funnelArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                                             <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
                                         </marker>
                                     </defs>
 
-                                    {/* === FUNNEL SHAPE === */}
+                                    {/* Title */}
+                                    <text x="420" y="36" textAnchor="middle" fill="#0f172a" fontSize="22" fontWeight="900" letterSpacing="0.15em" fontFamily="Inter, sans-serif">THE SALES FUNNEL</text>
+
+                                    {/* Traffic Sources subtitle */}
+                                    <text x="420" y="62" textAnchor="middle" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.1em" fontFamily="Inter, sans-serif">TRAFFIC / PEOPLE</text>
+
+                                    {/* Traffic source icons */}
+                                    <g transform="translate(230, 78)">
+                                        <circle cx="16" cy="14" r="15" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
+                                        <text x="16" y="19" textAnchor="middle" fontSize="14">🌐</text>
+                                        <text x="16" y="42" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Website</text>
+                                    </g>
+                                    <g transform="translate(310, 78)">
+                                        <circle cx="16" cy="14" r="15" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
+                                        <text x="16" y="20" textAnchor="middle" fill="#4285F4" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif">G</text>
+                                        <text x="16" y="42" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Google</text>
+                                    </g>
+                                    <g transform="translate(390, 78)">
+                                        <circle cx="16" cy="14" r="15" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
+                                        <text x="16" y="19" textAnchor="middle" fontSize="14">📍</text>
+                                        <text x="16" y="42" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Maps</text>
+                                    </g>
+                                    <g transform="translate(470, 78)">
+                                        <circle cx="16" cy="14" r="15" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
+                                        <text x="16" y="19" textAnchor="middle" fontSize="14">📈</text>
+                                        <text x="16" y="42" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">SEO</text>
+                                    </g>
+                                    <g transform="translate(550, 78)">
+                                        <circle cx="16" cy="14" r="15" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
+                                        <text x="16" y="19" textAnchor="middle" fontSize="14">🗣️</text>
+                                        <text x="16" y="42" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600" fontFamily="Inter, sans-serif">Referrals</text>
+                                    </g>
+
+                                    {/* Downward arrows from sources into funnel */}
+                                    <path d="M258 125 L340 158" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <path d="M338 125 L370 158" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <path d="M420 125 L420 158" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <path d="M498 125 L468 158" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <path d="M578 125 L498 158" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+
+                                    {/* === FUNNEL SHAPE (outline style) === */}
                                     {/* Funnel rim / opening (curved top edge) */}
-                                    <ellipse cx="420" cy="180" rx="230" ry="18" fill="#cbd5e1" opacity="0.5" />
-                                    <ellipse cx="420" cy="180" rx="220" ry="14" fill="white" stroke="#94a3b8" strokeWidth="1.5" />
+                                    <ellipse cx="420" cy="168" rx="220" ry="14" fill="white" stroke="#94a3b8" strokeWidth="1.5" />
 
-                                    {/* Layer 1 - LEAD CAPTURE (blue) */}
-                                    <path d="M200 180 L640 180 L600 300 L240 300 Z" fill="url(#fgLayer1)" />
-                                    <line x1="240" y1="300" x2="600" y2="300" stroke="white" strokeWidth="1" opacity="0.4" />
-                                    <text x="420" y="232" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">LEAD CAPTURE</text>
-                                    <text x="420" y="255" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="10" fontFamily="Inter, sans-serif">Forms + Live Chat + Calls + CRM</text>
+                                    {/* Layer 1 - LEAD CAPTURE (blue outline) */}
+                                    <path d="M200 168 L640 168 L598 270 L242 270 Z" fill="#eff6ff" stroke="#3b82f6" strokeWidth="2.5" strokeLinejoin="round" />
+                                    <text x="420" y="210" textAnchor="middle" fill="#1e40af" fontSize="16" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">LEAD CAPTURE</text>
+                                    <text x="420" y="232" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">Forms + Live Chat + Calls + CRM</text>
 
-                                    {/* Layer 2 - SMART FOLLOW-UP (teal) */}
-                                    <path d="M240 300 L600 300 L550 410 L290 410 Z" fill="url(#fgLayer2)" />
-                                    <line x1="290" y1="410" x2="550" y2="410" stroke="white" strokeWidth="1" opacity="0.4" />
-                                    <text x="420" y="347" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">SMART FOLLOW-UP</text>
-                                    <text x="420" y="370" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="10" fontFamily="Inter, sans-serif">Auto-Responses + Automation + Nurture</text>
+                                    {/* Layer 2 - SMART FOLLOW-UP (teal outline) */}
+                                    <path d="M242 270 L598 270 L548 370 L292 370 Z" fill="#f0fdfa" stroke="#14b8a6" strokeWidth="2.5" strokeLinejoin="round" />
+                                    <text x="420" y="312" textAnchor="middle" fill="#0f766e" fontSize="16" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">SMART FOLLOW-UP</text>
+                                    <text x="420" y="334" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">Auto-Responses + Automation + Nurture</text>
 
-                                    {/* Layer 3 - NURTURE &amp; CONVERT (amber) */}
-                                    <path d="M290 410 L550 410 L500 505 L340 505 Z" fill="url(#fgLayer3)" />
-                                    <line x1="340" y1="505" x2="500" y2="505" stroke="white" strokeWidth="1" opacity="0.4" />
-                                    <text x="420" y="452" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">NURTURE &amp; CONVERT</text>
-                                    <text x="420" y="475" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="10" fontFamily="Inter, sans-serif">Dashboard + Insights + Close Deals</text>
+                                    {/* Layer 3 - NURTURE &amp; CONVERT (amber outline) */}
+                                    <path d="M292 370 L548 370 L498 460 L342 460 Z" fill="#fffbeb" stroke="#f59e0b" strokeWidth="2.5" strokeLinejoin="round" />
+                                    <text x="420" y="408" textAnchor="middle" fill="#b45309" fontSize="16" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">NURTURE &amp; CONVERT</text>
+                                    <text x="420" y="430" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">Dashboard + Insights + Close Deals</text>
 
-                                    {/* Layer 4 - GROW &amp; ASCEND (red/coral) */}
-                                    <path d="M340 505 L500 505 L460 585 L380 585 Z" fill="url(#fgLayer4)" />
-                                    <text x="420" y="540" textAnchor="middle" fill="white" fontSize="15" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">GROW &amp; ASCEND</text>
-                                    <text x="420" y="560" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="10" fontFamily="Inter, sans-serif">Reviews + Repeat + Revenue</text>
+                                    {/* Layer 4 - GROW &amp; ASCEND (red outline) */}
+                                    <path d="M342 460 L498 460 L458 540 L382 540 Z" fill="#fef2f2" stroke="#ef4444" strokeWidth="2.5" strokeLinejoin="round" />
+                                    <text x="420" y="495" textAnchor="middle" fill="#b91c1c" fontSize="15" fontWeight="800" letterSpacing="0.12em" fontFamily="Inter, sans-serif">GROW &amp; ASCEND</text>
+                                    <text x="420" y="515" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">Reviews + Repeat + Revenue</text>
 
                                     {/* === STICK FIGURES (left side, decreasing) === */}
-                                    {/* Row 1 - 6 figures (top, outside funnel) */}
+                                    {/* Row 1 - 6 figures */}
                                     {[0,1,2,3,4,5].map(i => (
-                                        <g key={`sf1-${i}`} transform={`translate(${50 + i * 22}, 165)`}>
-                                            <circle cx="6" cy="0" r="4" fill="#3b82f6" />
+                                        <g key={`sf1-${i}`} transform={`translate(${48 + i * 22}, 158)`}>
+                                            <circle cx="6" cy="0" r="4" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
                                             <line x1="6" y1="4" x2="6" y2="16" stroke="#3b82f6" strokeWidth="1.5" />
                                             <line x1="0" y1="10" x2="12" y2="10" stroke="#3b82f6" strokeWidth="1.5" />
                                             <line x1="6" y1="16" x2="1" y2="24" stroke="#3b82f6" strokeWidth="1.5" />
@@ -810,8 +783,8 @@
 
                                     {/* Row 2 - 4 figures */}
                                     {[0,1,2,3].map(i => (
-                                        <g key={`sf2-${i}`} transform={`translate(${65 + i * 22}, 290)`}>
-                                            <circle cx="6" cy="0" r="4" fill="#14b8a6" />
+                                        <g key={`sf2-${i}`} transform={`translate(${60 + i * 22}, 268)`}>
+                                            <circle cx="6" cy="0" r="4" fill="none" stroke="#14b8a6" strokeWidth="1.5" />
                                             <line x1="6" y1="4" x2="6" y2="16" stroke="#14b8a6" strokeWidth="1.5" />
                                             <line x1="0" y1="10" x2="12" y2="10" stroke="#14b8a6" strokeWidth="1.5" />
                                             <line x1="6" y1="16" x2="1" y2="24" stroke="#14b8a6" strokeWidth="1.5" />
@@ -821,8 +794,8 @@
 
                                     {/* Row 3 - 2 figures */}
                                     {[0,1].map(i => (
-                                        <g key={`sf3-${i}`} transform={`translate(${80 + i * 22}, 400)`}>
-                                            <circle cx="6" cy="0" r="4" fill="#f59e0b" />
+                                        <g key={`sf3-${i}`} transform={`translate(${75 + i * 22}, 370)`}>
+                                            <circle cx="6" cy="0" r="4" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
                                             <line x1="6" y1="4" x2="6" y2="16" stroke="#f59e0b" strokeWidth="1.5" />
                                             <line x1="0" y1="10" x2="12" y2="10" stroke="#f59e0b" strokeWidth="1.5" />
                                             <line x1="6" y1="16" x2="1" y2="24" stroke="#f59e0b" strokeWidth="1.5" />
@@ -831,8 +804,8 @@
                                     ))}
 
                                     {/* Row 4 - 1 figure */}
-                                    <g transform="translate(90, 500)">
-                                        <circle cx="6" cy="0" r="4" fill="#ef4444" />
+                                    <g transform="translate(88, 460)">
+                                        <circle cx="6" cy="0" r="4" fill="none" stroke="#ef4444" strokeWidth="1.5" />
                                         <line x1="6" y1="4" x2="6" y2="16" stroke="#ef4444" strokeWidth="1.5" />
                                         <line x1="0" y1="10" x2="12" y2="10" stroke="#ef4444" strokeWidth="1.5" />
                                         <line x1="6" y1="16" x2="1" y2="24" stroke="#ef4444" strokeWidth="1.5" />
@@ -840,39 +813,32 @@
                                     </g>
 
                                     {/* === RIGHT SIDE LABELS with dashed lines === */}
-                                    {/* Leads */}
-                                    <line x1="610" y1="240" x2="690" y2="240" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
-                                    <rect x="692" y="225" width="80" height="30" rx="6" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1.5" />
-                                    <text x="732" y="245" textAnchor="middle" fill="#1e40af" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Leads</text>
+                                    <line x1="608" y1="218" x2="688" y2="218" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
+                                    <rect x="690" y="204" width="80" height="28" rx="6" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
+                                    <text x="730" y="223" textAnchor="middle" fill="#1e40af" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Leads</text>
 
-                                    {/* Prospects */}
-                                    <line x1="560" y1="355" x2="690" y2="355" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
-                                    <rect x="692" y="340" width="80" height="30" rx="6" fill="#f0fdfa" stroke="#14b8a6" strokeWidth="1.5" />
-                                    <text x="732" y="360" textAnchor="middle" fill="#0f766e" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Prospects</text>
+                                    <line x1="558" y1="320" x2="688" y2="320" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
+                                    <rect x="690" y="306" width="80" height="28" rx="6" fill="none" stroke="#14b8a6" strokeWidth="1.5" />
+                                    <text x="730" y="325" textAnchor="middle" fill="#0f766e" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Prospects</text>
 
-                                    {/* Customers */}
-                                    <line x1="510" y1="458" x2="690" y2="458" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
-                                    <rect x="692" y="443" width="80" height="30" rx="6" fill="#fffbeb" stroke="#f59e0b" strokeWidth="1.5" />
-                                    <text x="732" y="463" textAnchor="middle" fill="#b45309" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Customers</text>
+                                    <line x1="508" y1="415" x2="688" y2="415" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
+                                    <rect x="690" y="401" width="80" height="28" rx="6" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
+                                    <text x="730" y="420" textAnchor="middle" fill="#b45309" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Customers</text>
 
-                                    {/* Clients */}
-                                    <line x1="470" y1="545" x2="690" y2="545" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
-                                    <rect x="692" y="530" width="80" height="30" rx="6" fill="#fef2f2" stroke="#ef4444" strokeWidth="1.5" />
-                                    <text x="732" y="550" textAnchor="middle" fill="#b91c1c" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Clients</text>
+                                    <line x1="468" y1="500" x2="688" y2="500" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
+                                    <rect x="690" y="486" width="80" height="28" rx="6" fill="none" stroke="#ef4444" strokeWidth="1.5" />
+                                    <text x="730" y="505" textAnchor="middle" fill="#b91c1c" fontSize="12" fontWeight="700" fontFamily="Inter, sans-serif">Clients</text>
 
                                     {/* === BOTTOM - Dollar signs and money === */}
-                                    {/* Arrows coming out of funnel bottom */}
-                                    <line x1="410" y1="590" x2="400" y2="630" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
-                                    <line x1="420" y1="590" x2="420" y2="635" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
-                                    <line x1="430" y1="590" x2="440" y2="630" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <line x1="410" y1="545" x2="400" y2="575" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <line x1="420" y1="545" x2="420" y2="580" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
+                                    <line x1="430" y1="545" x2="440" y2="575" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#funnelArrow)" />
 
-                                    {/* Money / Dollar signs */}
-                                    <text x="370" y="670" textAnchor="middle" fill="#16a34a" fontSize="26" fontWeight="900" fontFamily="Inter, sans-serif">$</text>
-                                    <text x="420" y="675" textAnchor="middle" fill="#16a34a" fontSize="32" fontWeight="900" fontFamily="Inter, sans-serif">$</text>
-                                    <text x="470" y="670" textAnchor="middle" fill="#16a34a" fontSize="26" fontWeight="900" fontFamily="Inter, sans-serif">$</text>
+                                    <text x="370" y="615" textAnchor="middle" fill="#16a34a" fontSize="26" fontWeight="900" fontFamily="Inter, sans-serif">$</text>
+                                    <text x="420" y="620" textAnchor="middle" fill="#16a34a" fontSize="32" fontWeight="900" fontFamily="Inter, sans-serif">$</text>
+                                    <text x="470" y="615" textAnchor="middle" fill="#16a34a" fontSize="26" fontWeight="900" fontFamily="Inter, sans-serif">$</text>
 
-                                    {/* Revenue label */}
-                                    <text x="420" y="705" textAnchor="middle" fill="#16a34a" fontSize="12" fontWeight="700" letterSpacing="0.15em" fontFamily="Inter, sans-serif">REVENUE</text>
+                                    <text x="420" y="650" textAnchor="middle" fill="#16a34a" fontSize="12" fontWeight="700" letterSpacing="0.15em" fontFamily="Inter, sans-serif">REVENUE</text>
                                 </svg>
                             </div>
                         </div>
