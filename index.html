@@ -313,6 +313,7 @@
                     <h2 className={`text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 ${align === "center" ? "justify-center" : ""} ${light ? 'text-teal-400' : 'text-rose-500'}`}>
                         <span className={`w-12 h-[2px] ${light ? 'bg-teal-400' : 'bg-rose-500'}`}></span>
                         {subtitle}
+                        {align === "center" && <span className={`w-12 h-[2px] ${light ? 'bg-teal-400' : 'bg-rose-500'}`}></span>}
                     </h2>
                     <h3 className={`text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] ${light ? 'text-white' : 'text-slate-950'}`}>
                         {title}
@@ -547,9 +548,11 @@
                           { title: "Smart Automation", value: "Lead comes in, auto-respond. Follow up, automatic. Review request, sent. The system runs while you work.", icon: Icons.Zap },
                           { title: "The Power Dashboard", value: "Leads, close rates, response time, revenue, SEO rankings. Plus AI recommendations that tell you exactly what to do next.", icon: Icons.Target }
                         ].map((item, i) => (
-                          <div key={i} className="group p-8 md:p-10 rounded-2xl border-2 border-slate-800 hover:border-teal-500 hover:shadow-[0_8px_40px_rgba(20,184,166,0.15)] transition-all duration-500 hover:-translate-y-1" style={{backgroundColor: '#f8fafc'}}>
-                            <div className="w-14 h-14 rounded-xl border-2 border-slate-800 group-hover:border-teal-500 flex items-center justify-center mb-6 transition-colors duration-500" style={{backgroundColor: '#f8fafc'}}>
-                              <item.icon className="w-7 h-7 text-teal-600 group-hover:text-teal-500 transition-colors duration-500" />
+                          <div key={i} className="group p-8 md:p-10 rounded-2xl border-2 border-slate-800 hover:border-teal-500 hover:shadow-[0_8px_40px_rgba(20,184,166,0.15)] transition-all duration-500 hover:-translate-y-1 text-center" style={{backgroundColor: '#f8fafc'}}>
+                            <div className="flex justify-center mb-6">
+                              <div className="w-14 h-14 rounded-xl border-2 border-slate-800 group-hover:border-teal-500 flex items-center justify-center transition-colors duration-500" style={{backgroundColor: '#f8fafc'}}>
+                                <item.icon className="w-7 h-7 text-teal-600 group-hover:text-teal-500 transition-colors duration-500" />
+                              </div>
                             </div>
                             <h4 className="text-2xl md:text-3xl font-black mb-3" style={{color: '#0b1a2e'}}>{item.title}</h4>
                             <p className="text-lg md:text-xl leading-relaxed" style={{color: '#112240'}}>{item.value}</p>
@@ -557,16 +560,18 @@
                         ))}
                       </div>
                       <div className="flex justify-center mt-6">
-                        <div className="group p-8 md:p-10 rounded-2xl border-2 border-slate-800 hover:border-teal-500 hover:shadow-[0_8px_40px_rgba(20,184,166,0.15)] transition-all duration-500 hover:-translate-y-1 w-full md:w-1/2" style={{backgroundColor: '#f8fafc'}}>
-                          <div className="w-14 h-14 rounded-xl border-2 border-slate-800 group-hover:border-teal-500 flex items-center justify-center mb-6 transition-colors duration-500" style={{backgroundColor: '#f8fafc'}}>
-                            <Icons.MapPin className="w-7 h-7 text-teal-600 group-hover:text-teal-500 transition-colors duration-500" />
+                        <div className="group p-8 md:p-10 rounded-2xl border-2 border-slate-800 hover:border-teal-500 hover:shadow-[0_8px_40px_rgba(20,184,166,0.15)] transition-all duration-500 hover:-translate-y-1 w-full md:w-1/2 text-center" style={{backgroundColor: '#f8fafc'}}>
+                          <div className="flex justify-center mb-6">
+                            <div className="w-14 h-14 rounded-xl border-2 border-slate-800 group-hover:border-teal-500 flex items-center justify-center transition-colors duration-500" style={{backgroundColor: '#f8fafc'}}>
+                              <Icons.MapPin className="w-7 h-7 text-teal-600 group-hover:text-teal-500 transition-colors duration-500" />
+                            </div>
                           </div>
                           <h4 className="text-2xl md:text-3xl font-black mb-3" style={{color: '#0b1a2e'}}>SEO Launch</h4>
                           <p className="text-lg md:text-xl leading-relaxed" style={{color: '#112240'}}>Full Google Business Profile optimization and on-page SEO from day one. Included free with every build.</p>
                         </div>
                       </div>
                       <div className="text-center mt-12">
-                        <LinkButton href="#services" variant="primary">See the Full System</LinkButton>
+                        <LinkButton href="#services" variant="primary" className="py-6 px-16 text-lg">See the Full System</LinkButton>
                       </div>
                     </div>
                   </Container>
@@ -1271,7 +1276,7 @@
 
             return (
                 <div className="font-sans antialiased selection:bg-rose-500 selection:text-white bg-slate-950">
-                    <nav className="fixed w-full z-50 py-6 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md text-white">
+                    <nav className="fixed w-full z-50 py-6 border-b border-blue-900/50 backdrop-blur-md text-white" style={{background: 'linear-gradient(135deg, #0a1628 0%, #112240 50%, #1a3a6e 100%)'}}>
                         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
                             <a href="#home" className="text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2">
                                 <div className="w-8 h-8 bg-white text-slate-950 flex items-center justify-center rounded-sm font-bold">TF</div>
