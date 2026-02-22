@@ -313,6 +313,7 @@
                     <h2 className={`text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 ${align === "center" ? "justify-center" : ""} ${light ? 'text-teal-400' : 'text-rose-500'}`}>
                         <span className={`w-12 h-[2px] ${light ? 'bg-teal-400' : 'bg-rose-500'}`}></span>
                         {subtitle}
+                        {align === "center" && <span className={`w-12 h-[2px] ${light ? 'bg-teal-400' : 'bg-rose-500'}`}></span>}
                     </h2>
                     <h3 className={`text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] ${light ? 'text-white' : 'text-slate-950'}`}>
                         {title}
