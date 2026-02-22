@@ -736,50 +736,40 @@
         const DealPage = ({ navigate }) => (
             <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #eef2f7 0%, #e8edf4 40%, #f0f4f8 100%)' }}>
 
-                {/* Hero — Immediate Impact */}
+                {/* Hero */}
                 <div className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
                     <Container>
                         <FadeIn>
                             <div className="max-w-4xl mx-auto text-center relative z-10">
-                                <div className="inline-flex items-center gap-2 px-5 py-2.5 border border-blue-600/30 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-[0.25em] mb-10">
+                                <div className="inline-flex items-center gap-2 px-5 py-2.5 border border-blue-600/30 bg-blue-50 text-blue-700 text-sm font-bold uppercase tracking-[0.2em] mb-10">
                                     <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
-                                    One Business Per Market — Limited Availability
+                                    One Business Per Market — Limited
                                 </div>
-                                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] mb-8 text-slate-900">
+                                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-8 text-slate-900">
                                     Stop Losing Jobs<br />
                                     <span className="text-blue-600">To The Company That</span><br />
                                     Answers First.
                                 </h1>
-                                <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12">
+                                <p className="text-xl md:text-2xl text-slate-800 max-w-2xl mx-auto leading-relaxed">
                                     You're great at what you do. But you're losing customers before they even talk to you. We build the system that fixes that — website, SEO, automation, everything — so you get found, respond first, and close more jobs.
                                 </p>
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                    <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-10 py-5 text-sm font-bold uppercase tracking-widest bg-blue-600 border-2 border-blue-600 text-white hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 shadow-[0_4px_20px_rgba(37,99,235,0.35)] hover:shadow-[0_4px_30px_rgba(37,99,235,0.5)]">
-                                        Get Your System Built
-                                        <Icons.ArrowRight className="ml-3 w-4 h-4" />
-                                    </button>
-                                    <a href="tel:+12026301645" className="inline-flex items-center gap-3 text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors tracking-wide">
-                                        <Icons.Phone className="w-4 h-4 text-blue-600" />
-                                        (202) 630-1645
-                                    </a>
-                                </div>
                             </div>
                         </FadeIn>
                     </Container>
                 </div>
 
                 {/* Social Proof Bar */}
-                <div className="border-y border-slate-200 bg-white/60 backdrop-blur-sm">
+                <div className="border-y border-slate-300 bg-white/60 backdrop-blur-sm">
                     <Container>
-                        <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-slate-200">
+                        <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-slate-300">
                             {[
                                 { stat: "7", label: "Integrated tools in one platform" },
                                 { stat: "1–2 Jobs", label: "To pay for the entire system" },
                                 { stat: "$0", label: "Extra subscriptions needed" }
                             ].map((item, i) => (
                                 <div key={i} className="text-center px-4">
-                                    <div className="text-2xl md:text-3xl font-black text-slate-900">{item.stat}</div>
-                                    <div className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">{item.label}</div>
+                                    <div className="text-3xl md:text-4xl font-black text-slate-900">{item.stat}</div>
+                                    <div className="text-sm text-slate-700 font-bold uppercase tracking-widest mt-2">{item.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -791,19 +781,19 @@
                     <div className="py-24 md:py-32">
                         <FadeIn>
                             <div className="max-w-3xl mx-auto text-center mb-16">
-                                <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-600">
+                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-600">
                                     <span className="w-12 h-[2px] bg-blue-600"></span>
                                     The Problem
                                     <span className="w-12 h-[2px] bg-blue-600"></span>
                                 </h2>
-                                <h3 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-slate-900">
+                                <h3 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] text-slate-900">
                                     This Is Costing You Every Day.
                                 </h3>
                             </div>
                         </FadeIn>
                         <div className="max-w-3xl mx-auto">
                             <FadeIn>
-                                <ul className="space-y-6">
+                                <ul className="space-y-7">
                                     {[
                                         "Your website looks like it was built in 2015 — and Google knows it.",
                                         "You're invisible in local search. Customers can't find you.",
@@ -813,16 +803,16 @@
                                         "Your competitors have a system. You're winging it."
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4">
-                                            <Icons.X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                                            <span className="text-lg text-slate-700 font-medium leading-snug">{item}</span>
+                                            <Icons.X className="w-6 h-6 text-red-600 shrink-0 mt-0.5" />
+                                            <span className="text-xl text-slate-900 font-semibold leading-snug">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </FadeIn>
                             <FadeIn>
                                 <div className="mt-14 border-l-4 border-blue-600 pl-8">
-                                    <p className="text-xl text-slate-900 font-bold">Fixing one piece doesn't fix the system.</p>
-                                    <p className="text-slate-500 mt-2">You need the whole thing working together. That's what we build.</p>
+                                    <p className="text-2xl text-slate-900 font-bold">Fixing one piece doesn't fix the system.</p>
+                                    <p className="text-lg text-slate-700 mt-2">You need the whole thing working together. That's what we build.</p>
                                 </div>
                             </FadeIn>
                         </div>
@@ -830,17 +820,17 @@
                 </Container>
 
                 {/* What You Get */}
-                <div className="border-y border-slate-200 bg-white/50">
+                <div className="border-y border-slate-300 bg-white/50">
                     <Container>
                         <div className="py-24 md:py-32">
                             <FadeIn>
                                 <div className="max-w-3xl mx-auto mb-16 text-center">
-                                    <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-600">
+                                    <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-600">
                                         <span className="w-12 h-[2px] bg-blue-600"></span>
                                         The Solution
                                         <span className="w-12 h-[2px] bg-blue-600"></span>
                                     </h2>
-                                    <h3 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-slate-900">
+                                    <h3 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] text-slate-900">
                                         Seven Tools. One System.<br />Built For You.
                                     </h3>
                                 </div>
@@ -857,16 +847,16 @@
                                     { title: "Ongoing Support", price: "$249/mo", desc: "Hosting, security, updates, SEO adjustments, website changes, and technical support.", icon: Icons.Shield }
                                 ].map((item, i) => (
                                     <FadeIn key={i} delay={i * 80}>
-                                        <div className="flex gap-5 p-6 border border-slate-200 bg-white hover:border-blue-300 hover:shadow-md transition-all group">
-                                            <div className="shrink-0 w-10 h-10 flex items-center justify-center border border-blue-200 bg-blue-50">
-                                                <item.icon className="w-5 h-5 text-blue-600" />
+                                        <div className="flex gap-6 p-8 md:p-10 border border-slate-200 bg-white hover:border-blue-400 hover:shadow-md transition-all group">
+                                            <div className="shrink-0 w-14 h-14 flex items-center justify-center border border-blue-200 bg-blue-50">
+                                                <item.icon className="w-7 h-7 text-blue-600" />
                                             </div>
                                             <div className="flex-1">
-                                                <div className="flex items-center justify-between mb-1">
-                                                    <h4 className="font-bold text-slate-900 text-sm tracking-wide">{item.title}</h4>
-                                                    <span className="text-blue-600 font-mono text-xs font-bold ml-4">{item.price}</span>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <h4 className="font-black text-slate-900 text-lg">{item.title}</h4>
+                                                    <span className="text-blue-600 font-mono text-base font-bold ml-4">{item.price}</span>
                                                 </div>
-                                                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                                                <p className="text-lg text-slate-700 leading-relaxed">{item.desc}</p>
                                             </div>
                                         </div>
                                     </FadeIn>
@@ -881,26 +871,26 @@
                     <div className="py-24 md:py-32">
                         <FadeIn>
                             <div className="max-w-3xl mx-auto text-center">
-                                <div className="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2">If Purchased Separately</div>
-                                <div className="text-4xl font-black text-slate-300 line-through mb-12">$7,000+</div>
+                                <div className="text-slate-700 text-base font-bold uppercase tracking-widest mb-2">If Purchased Separately</div>
+                                <div className="text-5xl font-black text-slate-400 line-through mb-12">$7,000+</div>
 
                                 <div className="relative p-12 md:p-16 border-2 border-blue-600 bg-slate-900 overflow-hidden text-white">
                                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600"></div>
                                     <div className="relative z-10">
-                                        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-6">The Complete System</h3>
-                                        <div className="text-6xl md:text-8xl font-black text-white mb-2 tracking-tight">$4,999</div>
-                                        <div className="text-blue-300 font-bold tracking-wide mb-10 text-lg">+ $249/mo — everything included</div>
+                                        <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-400 mb-6">The Complete System</h3>
+                                        <div className="text-7xl md:text-9xl font-black text-white mb-2 tracking-tight">$4,999</div>
+                                        <div className="text-blue-300 font-bold tracking-wide mb-10 text-xl">+ $249/mo — everything included</div>
 
-                                        <p className="text-slate-300 mb-12 max-w-lg mx-auto leading-relaxed">All seven tools. Custom built for your business. No add-ons, no extra subscriptions, no hidden fees. It pays for itself in 1–2 jobs.</p>
+                                        <p className="text-lg text-slate-200 mb-12 max-w-lg mx-auto leading-relaxed">All seven tools. Custom built for your business. No add-ons, no extra subscriptions, no hidden fees. It pays for itself in 1–2 jobs.</p>
 
                                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                            <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-12 py-6 text-sm font-bold uppercase tracking-widest bg-blue-600 border-2 border-blue-500 text-white hover:bg-blue-500 transition-all duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] w-full sm:w-auto text-lg">
+                                            <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-12 py-6 text-base font-bold uppercase tracking-widest bg-blue-600 border-2 border-blue-500 text-white hover:bg-blue-500 transition-all duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] w-full sm:w-auto text-lg">
                                                 Get Your System Built
                                                 <Icons.ArrowRight className="ml-3 w-5 h-5" />
                                             </button>
                                         </div>
-                                        <a href="tel:+12026301645" className="inline-flex items-center gap-2 mt-6 text-sm text-slate-400 hover:text-white transition-colors font-medium">
-                                            <Icons.Phone className="w-4 h-4" />
+                                        <a href="tel:+12026301645" className="inline-flex items-center gap-2 mt-6 text-base text-slate-300 hover:text-white transition-colors font-bold">
+                                            <Icons.Phone className="w-5 h-5" />
                                             Or call (202) 630-1645
                                         </a>
                                     </div>
@@ -911,15 +901,15 @@
                 </Container>
 
                 {/* Built For */}
-                <div className="border-t border-slate-200 bg-white/60">
+                <div className="border-t border-slate-300 bg-white/60">
                     <Container>
                         <div className="py-16 text-center">
-                            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-8">Built For</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-slate-700 mb-8">Built For</h3>
                             <div className="flex flex-wrap justify-center gap-4 md:gap-8">
                                 {["Contractors who want more jobs", "Restaurants cutting out the middleman", "Any local service business ready to grow"].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-slate-700">
-                                        <Icons.CheckCircle className="w-5 h-5 text-blue-600" />
-                                        <span className="uppercase text-sm font-bold">{item}</span>
+                                    <div key={i} className="flex items-center gap-2 text-slate-900">
+                                        <Icons.CheckCircle className="w-6 h-6 text-blue-600" />
+                                        <span className="uppercase text-base font-bold">{item}</span>
                                     </div>
                                 ))}
                             </div>
