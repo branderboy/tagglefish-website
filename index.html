@@ -506,17 +506,17 @@
                                 { id: '#contractors', icon: Icons.Wrench, title: "Contractors", desc: "You're on the job site. Leads are calling right now. Our system answers before your competitor does.", accent: "from-blue-500 to-blue-600", iconColor: "text-blue-400", borderColor: "hover:border-blue-400", glowColor: "group-hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]" },
                                 { id: '#restaurants', icon: Icons.Utensils, title: "Restaurants", desc: "Every order through a third-party platform costs you 30%. Get customers directly.", accent: "from-orange-500 to-orange-600", iconColor: "text-orange-400", borderColor: "hover:border-orange-400", glowColor: "group-hover:shadow-[0_0_40px_rgba(251,146,60,0.2)]" }
                             ].map((item, idx) => (
-                                <a key={item.id} href={item.id} className={`group relative p-10 md:p-14 rounded-2xl border border-white/10 ${item.borderColor} ${item.glowColor} transition-all duration-500 cursor-pointer block`} style={{backgroundColor: 'rgba(11,26,46,0.6)', backdropFilter: 'blur(10px)'}}>
+                                <a key={item.id} href={item.id} className={`group relative p-10 md:p-14 rounded-2xl border border-white/15 ${item.borderColor} ${item.glowColor} transition-all duration-500 cursor-pointer block`} style={{backgroundColor: '#1e3f6e'}}>
                                     <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl`}></div>
                                     <div className="mb-8 flex justify-center">
-                                        <div className={`w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-white/20 transition-colors duration-500`}>
+                                        <div className={`w-20 h-20 rounded-2xl border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors duration-500`} style={{backgroundColor: '#1e3f6e'}}>
                                             <item.icon className={`w-10 h-10 ${item.iconColor} transition-colors duration-500`} />
                                         </div>
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight text-center">{item.title}</h3>
-                                    <p className="text-blue-100/80 leading-relaxed text-base md:text-lg text-center px-2">{item.desc}</p>
+                                    <p className="text-white leading-relaxed text-base md:text-lg text-center px-2">{item.desc}</p>
                                     <div className="mt-8 text-center">
-                                        <span className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors duration-300`}>
+                                        <span className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/70 group-hover:text-white transition-colors duration-300`}>
                                             View Solutions <Icons.ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                         </span>
                                     </div>
@@ -524,8 +524,8 @@
                             ))}
                         </div>
 
-                        <div className="mt-14 text-center text-sm font-bold uppercase tracking-widest text-blue-200/40">
-                           Also serving: <a href="#landscaping-marketing" className="hover:text-rose-500 mx-2 transition-colors">landscaping marketing agency</a> <span className="text-blue-200/20">|</span> <a href="#flooring-marketing" className="hover:text-rose-500 mx-2 transition-colors">flooring company marketing</a>
+                        <div className="mt-14 text-center text-sm font-bold uppercase tracking-widest text-white">
+                           Also serving: <a href="#landscaping-marketing" className="hover:text-rose-500 mx-2 transition-colors">landscaping marketing agency</a> <span className="text-white/40">|</span> <a href="#flooring-marketing" className="hover:text-rose-500 mx-2 transition-colors">flooring company marketing</a>
                         </div>
                     </Container>
                 </section>
