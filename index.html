@@ -588,11 +588,11 @@
         );
 
         const ServicesPage = () => (
-            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+            <div className="min-h-screen pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
                 <Container>
                     <FadeIn>
-                        <SectionHeader light subtitle="The Platform" title="Your Revenue System" />
-                        <p className="text-2xl text-slate-100 max-w-2xl mb-16 leading-relaxed">
+                        <SectionHeader subtitle="The Platform" title="Your Revenue System" />
+                        <p className="text-2xl text-slate-700 max-w-2xl mb-16 leading-relaxed">
                             Seven tools that work independently. Together, they turn local search into revenue.
                         </p>
 
@@ -606,43 +606,43 @@
                                 { name: "The Power Dashboard", cat: "KNOW EXACTLY WHAT TO DO NEXT", desc: "Most business owners are flying blind. Not anymore.", points: ["Leads, close rates, response time, revenue", "SEO rankings tracked in real time", "AI-powered recommendations for your next move"], note: "Stop guessing. Start deciding." },
                                 { name: "SEO Launch", cat: "FREE WITH EVERY BUILD", desc: "Your Google Business Profile and website SEO, done right from day one.", points: ["Full Google Business Profile optimization", "On-page SEO: keywords, meta tags, schema markup", "Local search structure so Google knows where you are and what you do"], note: "Most agencies charge extra for this. It's included." }
                             ].map((service, i) => (
-                                <div key={i} className="bg-slate-900 border border-slate-800 p-10 hover:border-teal-500 transition-colors group">
-                                    <div className="text-xs font-bold text-teal-500 uppercase tracking-widest mb-2">{service.cat}</div>
-                                    <h3 className="text-2xl font-black text-white mb-4">Product: {service.name}</h3>
-                                    <p className="text-slate-100 mb-6">{service.desc}</p>
+                                <div key={i} className="bg-white border border-blue-200 p-10 hover:border-blue-400 hover:shadow-md transition-all group">
+                                    <div className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">{service.cat}</div>
+                                    <h3 className="text-2xl font-black text-slate-900 mb-4">Product: {service.name}</h3>
+                                    <p className="text-slate-700 mb-6">{service.desc}</p>
                                     <ul className="space-y-2 mb-8">
                                         {service.points.map((pt, j) => (
-                                            <li key={j} className="flex items-start gap-3 text-sm text-slate-100">
-                                                <Icons.CheckCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                                            <li key={j} className="flex items-start gap-3 text-sm text-slate-700">
+                                                <Icons.CheckCircle className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                                                 {pt}
                                             </li>
                                         ))}
                                     </ul>
-                                    <div className="pt-6 border-t border-slate-800 text-xs font-bold uppercase tracking-wide text-slate-300">
+                                    <div className="pt-6 border-t border-blue-200 text-xs font-bold uppercase tracking-wide text-slate-500">
                                         {service.note}
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="grid lg:grid-cols-2 gap-16 border-t border-slate-800 pt-20">
+                        <div className="grid lg:grid-cols-2 gap-16 border-t border-blue-200 pt-20">
                             <div>
-                                <h3 className="text-xl font-black text-white mb-6">Why One System Beats Seven Vendors</h3>
-                                <p className="text-slate-100 mb-6">A website from one company. SEO from another. A CRM you never log into. Three invoices, no integration, and customers falling through every gap. That's how most local businesses operate. It's why they lose.</p>
+                                <h3 className="text-xl font-black text-slate-900 mb-6">Why One System Beats Seven Vendors</h3>
+                                <p className="text-slate-700 mb-6">A website from one company. SEO from another. A CRM you never log into. Three invoices, no integration, and customers falling through every gap. That's how most local businesses operate. It's why they lose.</p>
                                 <ul className="space-y-4">
                                     {["Customers find you in local search", "Your site converts them into leads", "Automation responds and follows up instantly", "You see what's working and what to fix", "Revenue goes up. Headaches go down."].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-white font-bold">
-                                            <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div> {item}
+                                        <li key={i} className="flex items-center gap-3 text-slate-900 font-bold">
+                                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> {item}
                                         </li>
                                     ))}
                                 </ul>
                             </div>
-                            <div className="bg-slate-900 p-10 border-l-4 border-rose-500">
-                                <h3 className="text-lg font-bold text-white mb-6 tracking-widest">Built For</h3>
+                            <div className="bg-white p-10 border-l-4 border-blue-600">
+                                <h3 className="text-lg font-bold text-slate-900 mb-6 tracking-widest">Built For</h3>
                                 <div className="space-y-4">
                                     {["Contractors who are too busy working to chase leads", "Restaurant owners tired of giving 30% to platforms", "Any local service business that wants more customers and less headache"].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-3 text-slate-300">
-                                            <Icons.Users className="w-5 h-5 text-rose-500" /> {item}
+                                        <div key={i} className="flex items-center gap-3 text-slate-700">
+                                            <Icons.Users className="w-5 h-5 text-blue-600" /> {item}
                                         </div>
                                     ))}
                                 </div>
@@ -650,8 +650,8 @@
                         </div>
 
                         <div className="mt-20 text-center">
-                            <h2 className="text-2xl font-black text-white mb-6">One System. One Price. Everything Included.</h2>
-                            <p className="text-slate-200 mb-8">No extra subscriptions. No piecemeal pricing. Seven tools, custom built for your business.</p>
+                            <h2 className="text-2xl font-black text-slate-900 mb-6">One System. One Price. Everything Included.</h2>
+                            <p className="text-slate-700 mb-8">No extra subscriptions. No piecemeal pricing. Seven tools, custom built for your business.</p>
                             <LinkButton href="#deal" variant="primary" className="py-6 px-12 text-lg">Get Your System Built</LinkButton>
                         </div>
                     </FadeIn>
@@ -660,11 +660,11 @@
         );
 
         const HowItWorks = () => (
-            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+            <div className="min-h-screen pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
                 <Container>
-                    <SectionHeader light subtitle="The Blueprint" title="It's Not Marketing. It's Infrastructure." />
+                    <SectionHeader subtitle="The Blueprint" title="It's Not Marketing. It's Infrastructure." />
                     <div className="max-w-4xl mb-20">
-                        <p className="text-xl text-slate-200 font-light leading-relaxed">
+                        <p className="text-xl text-slate-700 font-light leading-relaxed">
                             Agencies build you a website and disappear. We install a complete revenue system. Seven integrated tools that get you found, capture every lead, follow up automatically, and tell you exactly what's making you money.
                         </p>
                     </div>
@@ -678,15 +678,15 @@
                             { step: "06", title: "You Close. The System Keeps Running.", text: "By the time you talk to a lead, they're already engaged. You're not chasing. You're closing. And the system keeps finding the next one." }
                         ].map((item, i) => (
                             <FadeIn key={i}>
-                                <div className="grid md:grid-cols-12 gap-12 py-16 border-t border-slate-800 hover:bg-slate-900/30 transition-colors">
-                                    <div className="md:col-span-2"><div className="text-4xl font-black text-slate-800">{item.step}</div></div>
-                                    <div className="md:col-span-4"><h3 className="text-2xl font-black text-white tracking-tight">{item.title}</h3></div>
-                                    <div className="md:col-span-6"><p className="text-lg text-slate-100 leading-relaxed font-light">{item.text}</p></div>
+                                <div className="grid md:grid-cols-12 gap-12 py-16 border-t border-blue-200 hover:bg-blue-50/50 transition-colors">
+                                    <div className="md:col-span-2"><div className="text-4xl font-black text-blue-200">{item.step}</div></div>
+                                    <div className="md:col-span-4"><h3 className="text-2xl font-black text-slate-900 tracking-tight">{item.title}</h3></div>
+                                    <div className="md:col-span-6"><p className="text-lg text-slate-700 leading-relaxed font-light">{item.text}</p></div>
                                 </div>
                             </FadeIn>
                         ))}
                     </div>
-                    <div className="mt-20 pt-20 border-t border-slate-800 text-center">
+                    <div className="mt-20 pt-20 border-t border-blue-200 text-center">
                         <LinkButton href="#deal" variant="primary" className="py-6 px-16 text-lg">Get Your System Built</LinkButton>
                     </div>
                 </Container>
@@ -694,34 +694,34 @@
         );
 
         const IndustryPage = ({ title, heroTitle, heroDesc, navigate, icon: Icon, color, content, links }) => (
-            <div className="bg-slate-950 min-h-screen text-white pt-40 pb-20">
+            <div className="min-h-screen pt-40 pb-20" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
                 <Container>
                     <FadeIn>
-                        <div className={`inline-flex items-center gap-3 px-4 py-2 border border-slate-800 mb-10 ${color}`}>
-                            <Icon className="w-5 h-5" /> 
+                        <div className={`inline-flex items-center gap-3 px-4 py-2 border border-blue-200 bg-white mb-10 ${color}`}>
+                            <Icon className="w-5 h-5" />
                             <span className="text-xs font-bold uppercase tracking-[0.2em]">{title}</span>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-black mb-12 max-w-5xl leading-none text-white">{heroTitle}</h1>
+                        <h1 className="text-3xl md:text-5xl font-black mb-12 max-w-5xl leading-none text-slate-900">{heroTitle}</h1>
                         <div className="grid lg:grid-cols-12 gap-16">
                             <div className="lg:col-span-8">
-                                <p className="text-xl text-slate-200 font-light leading-relaxed border-l-2 border-slate-700 pl-8 mb-16">{heroDesc}</p>
+                                <p className="text-xl text-slate-700 font-light leading-relaxed border-l-2 border-blue-400 pl-8 mb-16">{heroDesc}</p>
                                 <div className="space-y-12">
-                                    <div className="bg-slate-900 p-10 border border-slate-800">
-                                        <h3 className="text-lg font-bold text-white mb-4 tracking-wide">The Reality</h3>
-                                        <p className="text-slate-100 text-lg leading-relaxed">{content.reality}</p>
+                                    <div className="bg-white p-10 border border-blue-200">
+                                        <h3 className="text-lg font-bold text-slate-900 mb-4 tracking-wide">The Reality</h3>
+                                        <p className="text-slate-700 text-lg leading-relaxed">{content.reality}</p>
                                     </div>
-                                    <div className="bg-slate-900 p-10 border border-slate-800 relative overflow-hidden">
-                                        <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
-                                        <h3 className="text-lg font-bold text-teal-400 mb-4 tracking-wide">Our Solution</h3>
-                                        <p className="text-slate-300 text-lg leading-relaxed">{content.solution}</p>
+                                    <div className="bg-white p-10 border border-blue-200 relative overflow-hidden">
+                                        <div className="absolute top-0 left-0 w-1 h-full bg-blue-600"></div>
+                                        <h3 className="text-lg font-bold text-blue-600 mb-4 tracking-wide">Our Solution</h3>
+                                        <p className="text-slate-700 text-lg leading-relaxed">{content.solution}</p>
                                     </div>
                                 </div>
                                 {links && (
-                                    <div className="mt-12 pt-8 border-t border-slate-800 text-sm font-bold uppercase tracking-widest text-slate-500">
+                                    <div className="mt-12 pt-8 border-t border-blue-200 text-sm font-bold uppercase tracking-widest text-slate-500">
                                         {links.map((link, i) => (
                                             <span key={i}>
-                                                <a href={link.href} className="hover:text-rose-500">{link.text}</a>
-                                                {i < links.length - 1 && <span className="text-slate-700 mx-3">|</span>}
+                                                <a href={link.href} className="hover:text-blue-600">{link.text}</a>
+                                                {i < links.length - 1 && <span className="text-blue-300 mx-3">|</span>}
                                             </span>
                                         ))}
                                     </div>
@@ -988,26 +988,26 @@
         );
 
         const About = ({ navigate }) => (
-          <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+          <div className="min-h-screen pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
             <Container>
-              <SectionHeader light subtitle="Philosophy" title="We Don't Do Marketing. We Build Revenue Systems." />
+              <SectionHeader subtitle="Philosophy" title="We Don't Do Marketing. We Build Revenue Systems." />
               <div className="grid lg:grid-cols-2 gap-20">
                 <div>
-                   <p className="text-xl text-slate-200 font-light leading-relaxed mb-12">TaggleFish is a revenue platform for local service businesses. We exist for one reason: to help you capture the customers who are already looking for you and turn them into money.</p>
+                   <p className="text-xl text-slate-700 font-light leading-relaxed mb-12">TaggleFish is a revenue platform for local service businesses. We exist for one reason: to help you capture the customers who are already looking for you and turn them into money.</p>
                    <div className="space-y-12">
-                     <div className="pl-8 border-l-2 border-rose-500">
-                       <h4 className="text-white font-bold tracking-widest mb-2">No Vanity Metrics</h4>
-                       <p className="text-slate-100">We don't count impressions or likes. We count leads, jobs, and revenue. If it doesn't make you money, we don't do it.</p>
+                     <div className="pl-8 border-l-2 border-blue-600">
+                       <h4 className="text-slate-900 font-bold tracking-widest mb-2">No Vanity Metrics</h4>
+                       <p className="text-slate-700">We don't count impressions or likes. We count leads, jobs, and revenue. If it doesn't make you money, we don't do it.</p>
                      </div>
-                     <div className="pl-8 border-l-2 border-teal-500">
-                       <h4 className="text-white font-bold tracking-widest mb-2">Search Intent to Revenue</h4>
-                       <p className="text-slate-100">Someone in your area just searched for your service. Every tool we build is designed to make sure that person becomes your customer, not your competitor's.</p>
+                     <div className="pl-8 border-l-2 border-blue-400">
+                       <h4 className="text-slate-900 font-bold tracking-widest mb-2">Search Intent to Revenue</h4>
+                       <p className="text-slate-700">Someone in your area just searched for your service. Every tool we build is designed to make sure that person becomes your customer, not your competitor's.</p>
                      </div>
                    </div>
-                   <div className="mt-12 pt-8 border-t border-slate-800 text-sm font-bold uppercase tracking-widest text-slate-500">
-                        <a href="#drywall-marketing" className="hover:text-rose-500">drywall contractor marketing</a> |
-                        <a href="#painting-marketing" className="hover:text-rose-500">painting contractor marketing</a> |
-                        <a href="#deal" className="hover:text-rose-500">get your system built</a>
+                   <div className="mt-12 pt-8 border-t border-blue-200 text-sm font-bold uppercase tracking-widest text-slate-500">
+                        <a href="#drywall-marketing" className="hover:text-blue-600">drywall contractor marketing</a> |
+                        <a href="#painting-marketing" className="hover:text-blue-600">painting contractor marketing</a> |
+                        <a href="#deal" className="hover:text-blue-600">get your system built</a>
                    </div>
                 </div>
               </div>
@@ -1016,11 +1016,11 @@
         );
 
         const PrivacyPolicy = () => (
-            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+            <div className="min-h-screen pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
                 <Container>
                     <FadeIn>
-                        <SectionHeader light subtitle="Legal" title="Privacy Policy" />
-                        <div className="prose prose-invert prose-lg max-w-3xl">
+                        <SectionHeader subtitle="Legal" title="Privacy Policy" />
+                        <div className="prose prose-lg max-w-3xl text-slate-700">
                             <h3>1. Introduction</h3>
                             <p>Welcome to TaggleFish. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
 
@@ -1043,7 +1043,7 @@
                             <h3>4. Data Security</h3>
                             <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.</p>
                             
-                            <p>For questions, contact <a href="mailto:hello@tagglefish.com" className="text-rose-500">hello@tagglefish.com</a>.</p>
+                            <p>For questions, contact <a href="mailto:hello@tagglefish.com" className="text-blue-600">hello@tagglefish.com</a>.</p>
                         </div>
                     </FadeIn>
                 </Container>
@@ -1051,11 +1051,11 @@
         );
 
         const TermsOfService = () => (
-            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
+            <div className="min-h-screen pt-32 pb-20" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
                 <Container>
                     <FadeIn>
-                        <SectionHeader light subtitle="Legal" title="Terms of Service" />
-                        <div className="prose prose-invert prose-lg max-w-3xl">
+                        <SectionHeader subtitle="Legal" title="Terms of Service" />
+                        <div className="prose prose-lg max-w-3xl text-slate-700">
                             <h3>1. Terms</h3>
                             <p>By accessing the website at https://tagglefish.com, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
 
