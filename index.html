@@ -92,7 +92,7 @@
                     "email": "hello@tagglefish.com",
                     "priceRange": "$4,999 one-time",
                     "areaServed": "US",
-                    "serviceType": ["Website CMS", "Content Editor", "Local SEO", "Business Process Tools", "Smart Automation", "Revenue Dashboard"],
+                    "serviceType": ["Website CMS", "Content Editor", "Local SEO", "Business Process Tools", "Smart Automation", "Revenue Dashboard", "SEO Launch"],
                     "knowsAbout": ["HVAC Marketing", "Plumbing Marketing", "Restaurant Marketing", "Contractor SEO", "Drywall Contractor Marketing", "Painting Contractor Marketing", "Flooring Company Marketing", "Landscaping Marketing"]
                 }
             },
@@ -139,14 +139,14 @@
                 schema: { "@context": "https://schema.org", "@type": "Service", "name": "Plumbing Revenue Platform", "description": "Complete revenue system for plumbing contractors. Website, SEO, automation, and dashboard.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "USD", "description": "One-time build" } }
             },
             'restaurants': {
-                title: "Restaurant Revenue Platform | TaggleFish — Direct Orders, No 30% Commissions",
-                desc: "Revenue platform for restaurants. Stop paying 30% to DoorDash. Get direct orders through Google with a website, SEO, and automation. $4,999 one-time build.",
+                title: "Restaurant Platform | TaggleFish — Custom Website, SEO, Direct Ordering & Automation for $4,999",
+                desc: "Custom platform for restaurants. Website, local SEO, direct ordering, automation, and dashboard — $4,999 one-time build + $249/mo. Zero commissions. Every customer is yours.",
                 url: "https://tagglefish.com/restaurants/",
                 schema: { "@context": "https://schema.org", "@type": "Service", "name": "Restaurant Revenue Platform", "description": "Complete revenue system for restaurants. Website with direct ordering, local SEO, automation, and dashboard.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "USD", "description": "One-time build" } }
             },
             'services': {
                 title: "The Platform | TaggleFish — Website CMS, SEO, Automation & Dashboard for Local Businesses",
-                desc: "Six integrated tools in one revenue platform. Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, and The Power Dashboard.",
+                desc: "Seven integrated tools in one revenue platform. Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, The Power Dashboard, and SEO Launch.",
                 url: "https://tagglefish.com/services/",
                 schema: [
                     { "@context": "https://schema.org", "@type": "Service", "name": "Website CMS", "description": "Professional, fast, SEO-optimized website for local service businesses.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish" } },
@@ -159,13 +159,13 @@
             },
             'deal': {
                 title: "Get Your System Built — $4,999 Complete Revenue Platform | TaggleFish",
-                desc: "Complete revenue platform for local businesses. $4,999 one-time build. Website CMS + Content Editor + SEO + Business Tools + Automation + Dashboard. $249/mo keeps it running.",
+                desc: "Complete revenue platform for local businesses. $4,999 one-time build. Website CMS + Content Editor + SEO + Business Tools + Automation + Dashboard + free SEO Launch for your GMB and website. $249/mo keeps it running.",
                 url: "https://tagglefish.com/deal/",
                 schema: { "@context": "https://schema.org", "@type": "Offer", "name": "TaggleFish Revenue Platform", "description": "Complete revenue platform: Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, and The Power Dashboard.", "price": "4999", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "seller": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" } }
             },
             'how-it-works': {
                 title: "How It Works | TaggleFish — The Complete Revenue System for Local Businesses",
-                desc: "How the TaggleFish revenue platform works. Six integrated tools that get you found, capture leads, automate follow-up, and show you exactly where your money comes from.",
+                desc: "How the TaggleFish revenue platform works. Seven integrated tools that get you found, capture leads, automate follow-up, and show you exactly where your money comes from.",
                 url: "https://tagglefish.com/how-it-works/",
                 schema: null
             },
@@ -340,7 +340,7 @@
                     />
                     <FAQItem
                         question="What do I get for $4,999?"
-                        answer="The full system — custom built. Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, and The Power Dashboard. All six tools, configured for your business, your market, your services."
+                        answer="The full system — custom built. Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, The Power Dashboard, and SEO Launch for your Google Business Profile and website. All seven tools, configured for your business, your market, your services."
                     />
                     <FAQItem
                         question="Do I own everything?"
@@ -523,7 +523,8 @@
                            { title: "Traffic Plus", problem: "You're invisible in local search. Your competitors show up. You don't.", solution: "Local SEO engine that builds location pages, syncs your Google Business profile, and tracks your rankings automatically." },
                            { title: "Business Process Tools", problem: "Leads come in. Nobody follows up. Money walks out the door.", solution: "Forms, messaging, CRM, and live chat. Capture every lead, send emails and texts, track every customer." },
                            { title: "Smart Automation", problem: "You're doing everything manually. Follow-ups fall through the cracks.", solution: "Lead comes in, auto-respond, follow up, request a review. Rules connect your tools. The system runs while you work." },
-                           { title: "The Power Dashboard", problem: "You have no idea what's working. You're spending money and hoping.", solution: "Leads, close rates, response time, revenue, SEO rankings. Plus AI recommendations that tell you exactly what to do next to make more money." }
+                           { title: "The Power Dashboard", problem: "You have no idea what's working. You're spending money and hoping.", solution: "Leads, close rates, response time, revenue, SEO rankings. Plus AI recommendations that tell you exactly what to do next to make more money." },
+                           { title: "SEO Launch", problem: "Your Google Business Profile is incomplete and your site has zero SEO. You're starting from invisible.", solution: "We fully optimize your Google Business Profile and build your website with on-page SEO from day one — keyword targeting, meta tags, schema markup, and local search structure. Included free with every build." }
                          ].map((item, i) => (
                            <FadeIn key={i} delay={i * 100}>
                              <div className="p-10 border border-slate-800 bg-slate-900/50 hover:border-teal-500 transition-colors group">
@@ -559,7 +560,7 @@
                     <FadeIn>
                         <SectionHeader light subtitle="The Platform" title="YOUR REVENUE SYSTEM" />
                         <p className="text-2xl text-slate-100 max-w-2xl mb-16 leading-relaxed">
-                            Six tools that work independently. Together, they turn local search into revenue.
+                            Seven tools that work independently. Together, they turn local search into revenue.
                         </p>
 
                         <div className="grid lg:grid-cols-2 gap-8 mb-20">
@@ -569,7 +570,8 @@
                                 { name: "Traffic Plus", cat: "LOCAL SEO ENGINE", desc: "If you don't show up when someone searches your service in your area, you don't exist.", points: ["Location pages built for every service area", "Google Business Profile sync and optimization", "Keyword tracking so you see where you rank"], note: "This is how customers find you instead of your competitor." },
                                 { name: "Business Process Tools", cat: "CAPTURE EVERY LEAD", desc: "Leads come in from everywhere. Without a system, most of them disappear.", points: ["Forms, live chat, and messaging in one place", "Email and text follow-up built in", "CRM tracks every customer interaction"], note: "Every tool works on its own. Together, nothing slips through." },
                                 { name: "Smart Automation", cat: "YOUR BUSINESS RUNS ITSELF", desc: "You shouldn't have to babysit every lead. Set the rules. Let the system work.", points: ["Lead comes in — auto-respond instantly", "Follow-up sequences that run without you", "Automatic review requests after every job"], note: "You close the deal. The system handles everything else." },
-                                { name: "The Power Dashboard", cat: "KNOW EXACTLY WHAT TO DO NEXT", desc: "Most business owners are flying blind. Not anymore.", points: ["Leads, close rates, response time, revenue", "SEO rankings tracked in real time", "AI-powered recommendations for your next move"], note: "Stop guessing. Start deciding." }
+                                { name: "The Power Dashboard", cat: "KNOW EXACTLY WHAT TO DO NEXT", desc: "Most business owners are flying blind. Not anymore.", points: ["Leads, close rates, response time, revenue", "SEO rankings tracked in real time", "AI-powered recommendations for your next move"], note: "Stop guessing. Start deciding." },
+                                { name: "SEO Launch", cat: "FREE WITH EVERY BUILD", desc: "Your Google Business Profile and website SEO — done right from day one.", points: ["Full Google Business Profile optimization", "On-page SEO: keywords, meta tags, schema markup", "Local search structure so Google knows where you are and what you do"], note: "Most agencies charge $1,500+ for this. It's included." }
                             ].map((service, i) => (
                                 <div key={i} className="bg-slate-900 border border-slate-800 p-10 hover:border-teal-500 transition-colors group">
                                     <div className="text-xs font-bold text-teal-500 uppercase tracking-widest mb-2">{service.cat}</div>
@@ -592,7 +594,7 @@
 
                         <div className="grid lg:grid-cols-2 gap-16 border-t border-slate-800 pt-20">
                             <div>
-                                <h3 className="text-2xl font-black text-white mb-6 uppercase">Why One System Beats Six Vendors</h3>
+                                <h3 className="text-2xl font-black text-white mb-6 uppercase">Why One System Beats Seven Vendors</h3>
                                 <p className="text-slate-100 mb-6">A website from one company. SEO from another. A CRM you never log into. Three invoices, no integration, and customers falling through every gap. That's how most local businesses operate. It's why they lose.</p>
                                 <ul className="space-y-4">
                                     {["Customers find you in local search", "Your site converts them into leads", "Automation responds and follows up instantly", "You see what's working and what to fix", "Revenue goes up. Headaches go down."].map((item, i) => (
@@ -630,7 +632,7 @@
                     <SectionHeader light subtitle="The Blueprint" title="IT'S NOT MARKETING. IT'S INFRASTRUCTURE." />
                     <div className="max-w-4xl mb-20">
                         <p className="text-2xl text-slate-200 font-light leading-relaxed">
-                            Agencies build you a website and disappear. We install a complete revenue system — six integrated tools that get you found, capture every lead, follow up automatically, and tell you exactly what's making you money.
+                            Agencies build you a website and disappear. We install a complete revenue system — seven integrated tools that get you found, capture every lead, follow up automatically, and tell you exactly what's making you money.
                         </p>
                     </div>
                     <div className="space-y-0">
@@ -713,7 +715,7 @@
                                 One price. No surprises. It pays for itself.
                             </p>
                             <div className="mt-12 text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
-                                <p className="mb-4">$4,999 gets you the full system built — Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, and The Power Dashboard. All custom. All yours.</p>
+                                <p className="mb-4">$4,999 gets you the full system built — Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, The Power Dashboard, and a complete SEO Launch for your Google Business Profile and website. All custom. All yours.</p>
                                 <p>$249/mo keeps it running — hosting, security, updates, support, and every tool included. No extra subscriptions. No piecemeal pricing.</p>
                             </div>
                         </div>
@@ -750,6 +752,7 @@
                                         { title: "Business Process Tools", price: "$1,200", desc: "Forms, messaging, CRM, live chat. Capture and track every lead." },
                                         { title: "Smart Automation", price: "$1,000", desc: "Auto-respond, follow up, request reviews. Runs without you." },
                                         { title: "The Power Dashboard", price: "$800", desc: "Leads, revenue, rankings, and AI recommendations. See everything." },
+                                        { title: "SEO Launch", price: "FREE", desc: "Full Google Business Profile optimization + on-page SEO for your entire website. Included with every build." },
                                         {
                                             title: "Ongoing Support",
                                             price: "$249/mo",
@@ -784,7 +787,7 @@
                             <div className="text-6xl md:text-8xl font-black text-white mb-2">$4,999</div>
                             <div className="text-teal-400 font-bold uppercase tracking-wide mb-8">+ $249/mo — hosting, tools, and support included</div>
 
-                            <p className="text-slate-200 mb-10 max-w-md mx-auto">All six tools. Custom built for your business. No add-ons. No extra subscriptions. It pays for itself in 1-2 jobs.</p>
+                            <p className="text-slate-200 mb-10 max-w-md mx-auto">All seven tools. Custom built for your business. No add-ons. No extra subscriptions. It pays for itself in 1-2 jobs.</p>
 
                             <Button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} variant="primary" className="w-full md:w-auto text-lg py-6">Get Your System Built</Button>
                         </div>
@@ -1125,14 +1128,14 @@
                     case 'restaurants': return (
                         <IndustryPage
                             title="Restaurants" icon={Icons.Utensils} color="text-orange-400"
-                            heroTitle="Every Order Through a Platform Costs You 30%. That's Not a Partner. That's a Tax."
-                            heroDesc="Customers are already searching for you. Third-party apps just intercept them and charge you for the introduction."
-                            content={{ reality: "A customer searches 'thai food near me.' They find you on DoorDash. You make the food, they take the margin. That customer was already looking for you — the platform just got in the way.", solution: "We build your entire revenue system — a website that ranks for local food searches, direct ordering, automated follow-up, and a dashboard that shows you exactly where your covers are coming from. Customers find you directly. Every order is yours." }}
+                            heroTitle="Your Own Platform. Your Own Customers. Zero Commissions."
+                            heroDesc="DoorDash takes 30% because you don't have your own system. We build you one — a custom website, local SEO, direct ordering, automation, and a dashboard — for $4,999."
+                            content={{ reality: "Right now you're paying platforms to send you your own customers. Someone searches 'thai food near me,' finds you on DoorDash, and you lose 30% on an order that should have been direct. You don't have a website that ranks. You don't have a system that captures and follows up with customers. So the platforms own the relationship and you pay the tax.", solution: "For $4,999 we build your complete platform — a Website CMS that ranks for local food searches, a Content Editor so you can update menus and specials yourself, Traffic Plus for local SEO and Google Business optimization, Business Process Tools for direct ordering and customer messaging, Smart Automation that sends confirmations and follow-ups without you touching it, and The Power Dashboard that shows you exactly where your covers come from. $249/mo keeps everything running. No commissions. No middleman. Every customer is yours." }}
                             links={[
                                 { text: "$4,999 — get it built", href: "#deal" },
-                                { text: "how the system works", href: "#how-it-works" },
-                                { text: "contractor marketing", href: "#contractors" },
-                                { text: "see the full system", href: "#services" }
+                                { text: "see all 6 tools", href: "#services" },
+                                { text: "how it works step by step", href: "#how-it-works" },
+                                { text: "contractor platform", href: "#contractors" }
                             ]}
                         />
                     );
