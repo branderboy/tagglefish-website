@@ -819,6 +819,73 @@
                     </div>
                 </Container>
 
+                {/* The WordPress Trap */}
+                <div className="bg-slate-900 border-y border-slate-700">
+                    <Container>
+                        <div className="py-24 md:py-32">
+                            <FadeIn>
+                                <div className="max-w-3xl mx-auto text-center mb-16">
+                                    <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-red-500">
+                                        <span className="w-12 h-[2px] bg-red-500"></span>
+                                        The WordPress Trap
+                                        <span className="w-12 h-[2px] bg-red-500"></span>
+                                    </h2>
+                                    <h3 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] text-white">
+                                        WordPress Is Holding<br />Your Business Back.
+                                    </h3>
+                                    <p className="text-xl text-slate-300 mt-8 max-w-2xl mx-auto leading-relaxed">
+                                        You were told WordPress is "the standard." What they didn't tell you is that it's a patchwork of problems designed to keep you paying.
+                                    </p>
+                                </div>
+                            </FadeIn>
+                            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                                <FadeIn>
+                                    <div className="space-y-5">
+                                        {[
+                                            { title: "Plugin Roulette", desc: "30+ plugins just to do the basics. Half are abandoned. Half conflict with each other. One update breaks your whole site." },
+                                            { title: "Security Nightmare", desc: "WordPress powers 40% of the web — and hackers know it. Outdated plugins are the #1 attack vector. You're one missed update away from malware." },
+                                            { title: "Speed That Kills Rankings", desc: "Bloated themes, unoptimized databases, render-blocking scripts. Your site loads slow, Google notices, and your competitors outrank you." }
+                                        ].map((item, i) => (
+                                            <div key={i} className="flex gap-4 p-6 bg-slate-800/60 border border-slate-700">
+                                                <Icons.X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
+                                                <div>
+                                                    <h4 className="text-lg font-black text-white mb-1">{item.title}</h4>
+                                                    <p className="text-base text-slate-300 leading-relaxed">{item.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </FadeIn>
+                                <FadeIn delay={100}>
+                                    <div className="space-y-5">
+                                        {[
+                                            { title: "Hidden Costs Everywhere", desc: "Premium theme: $60/yr. SEO plugin: $99/yr. Forms: $49/yr. Backup: $80/yr. Security: $100/yr. It never stops — and none of it works together." },
+                                            { title: "You Don't Own Anything", desc: "Your theme developer disappears. Your plugin gets acquired. Your host changes pricing. You're always one decision away from rebuilding from scratch." },
+                                            { title: "No Clear Path Forward", desc: "Need automation? New plugin. Need a CRM? Another plugin. Need analytics? Another subscription. Nothing is connected. There's no strategy — just more duct tape." }
+                                        ].map((item, i) => (
+                                            <div key={i} className="flex gap-4 p-6 bg-slate-800/60 border border-slate-700">
+                                                <Icons.X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
+                                                <div>
+                                                    <h4 className="text-lg font-black text-white mb-1">{item.title}</h4>
+                                                    <p className="text-base text-slate-300 leading-relaxed">{item.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </FadeIn>
+                            </div>
+                            <FadeIn>
+                                <div className="max-w-3xl mx-auto mt-16 text-center">
+                                    <div className="inline-block border-2 border-red-500/30 bg-red-500/10 px-10 py-6">
+                                        <p className="text-2xl text-white font-black mb-2">WordPress isn't a solution. It's a subscription to problems.</p>
+                                        <p className="text-lg text-slate-300">You deserve one system that just works — no plugins, no patches, no prayers.</p>
+                                    </div>
+                                </div>
+                            </FadeIn>
+                        </div>
+                    </Container>
+                </div>
+
                 {/* What You Get */}
                 <div className="border-y border-slate-300 bg-white/50">
                     <Container>
@@ -1429,18 +1496,6 @@
                     <main>{renderPage()}</main>
 
                     <footer className="bg-black text-white relative z-10">
-                        {/* Top CTA Band */}
-                        <div className="border-t border-b border-slate-800 bg-slate-950">
-                            <Container>
-                                <div className="py-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8">
-                                    <div>
-                                        <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-2">Ready to stop losing jobs?</h3>
-                                        <p className="text-slate-400 text-sm font-medium">One system. One price. Built for your business.</p>
-                                    </div>
-                                    <LinkButton href="#deal" variant="primary" className="shrink-0">Get Your System Built</LinkButton>
-                                </div>
-                            </Container>
-                        </div>
 
                         {/* Main Footer */}
                         <Container>
