@@ -216,7 +216,10 @@
             ChevronDown: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>,
             Loader: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin"><path d="M21 12a9 9 0 1 1-6.219-8.56" /></svg>,
             Plus: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>,
-            Minus: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/></svg>
+            Minus: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/></svg>,
+            Phone: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+            Shield: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>,
+            Clock: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         };
 
         // --- COMPONENTS ---
@@ -731,111 +734,200 @@
         );
 
         const DealPage = ({ navigate }) => (
-            <div className="bg-slate-950 min-h-screen text-white pt-32 pb-20">
-                <Container>
-                    <FadeIn>
-                        <div className="max-w-4xl mx-auto text-center mb-20">
-                            <div className="inline-flex items-center gap-3 px-4 py-2 border border-rose-500/30 bg-rose-950/30 text-rose-400 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm mb-8">
-                                Limited Availability
-                            </div>
-                            <h1 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                                Everything Your Business Needs. One Price. No Bullshit.
-                            </h1>
-                            <p className="text-xl text-rose-500 font-bold tracking-widest">
-                                One price. No surprises. It pays for itself.
-                            </p>
-                            <div className="mt-12 text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
-                                <p className="mb-4">$4,999 gets you the full system built — Website CMS, Content Editor, Traffic Plus, Business Process Tools, Smart Automation, The Power Dashboard, and a complete SEO Launch for your Google Business Profile and website. All custom. All yours.</p>
-                                <p>$249/mo keeps it running — hosting, security, updates, support, and every tool included. No extra subscriptions. No piecemeal pricing.</p>
-                            </div>
-                        </div>
+            <div className="min-h-screen text-white" style={{ background: 'linear-gradient(180deg, #020c1b 0%, #0a1628 30%, #0d1f3c 60%, #091a30 100%)' }}>
 
-                        <div className="grid lg:grid-cols-2 gap-16 mb-32">
-                            <div>
-                                <h3 className="text-xl font-black text-white mb-8">What You're Losing Without This</h3>
-                                <ul className="space-y-6">
-                                    {[
-                                        "Your website doesn't convert visitors into calls",
-                                        "You're invisible in local search results",
-                                        "Leads come in and nobody follows up",
-                                        "You can't update your own site without a developer",
-                                        "You have no idea which marketing dollars are working",
-                                        "Your competitors have a system. You're winging it."
-                                    ].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-4 text-slate-100">
-                                            <Icons.X className="w-6 h-6 text-rose-500 shrink-0" />
-                                            <span className="text-lg">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="mt-8 p-6 bg-slate-900 border-l-4 border-rose-500 text-slate-200 italic">
-                                    Fixing one piece doesn't fix the system. You need the whole thing.
+                {/* Hero — Immediate Impact */}
+                <div className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+                    {/* Subtle glow effect */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+                    <Container>
+                        <FadeIn>
+                            <div className="max-w-4xl mx-auto text-center relative z-10">
+                                <div className="inline-flex items-center gap-2 px-5 py-2.5 border border-blue-400/30 bg-blue-950/50 text-blue-300 text-[10px] font-bold uppercase tracking-[0.25em] backdrop-blur-sm mb-10">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                                    One Business Per Market — Limited Availability
+                                </div>
+                                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] mb-8">
+                                    Stop Losing Jobs<br />
+                                    <span className="text-blue-400">To The Company That</span><br />
+                                    Answers First.
+                                </h1>
+                                <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
+                                    You're great at what you do. But you're losing customers before they even talk to you. We build the system that fixes that — website, SEO, automation, everything — so you get found, respond first, and close more jobs.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                                    <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-10 py-5 text-sm font-bold uppercase tracking-widest bg-blue-600 border-2 border-blue-500 text-white hover:bg-blue-500 transition-all duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)]">
+                                        Get Your System Built
+                                        <Icons.ArrowRight className="ml-3 w-4 h-4" />
+                                    </button>
+                                    <a href="tel:+12026301645" className="inline-flex items-center gap-3 text-sm font-bold text-slate-300 hover:text-white transition-colors tracking-wide">
+                                        <Icons.Phone className="w-4 h-4 text-blue-400" />
+                                        (202) 630-1645
+                                    </a>
                                 </div>
                             </div>
-                            <div className="bg-slate-900 p-10 border border-slate-800">
-                                 <h3 className="text-xl font-black text-white mb-8">What You Get</h3>
-                                 <div className="space-y-8">
-                                    {[
-                                        { title: "Website CMS", price: "$2,000", desc: "Professional, fast, SEO-optimized. Built to rank and convert." },
-                                        { title: "Content Editor", price: "$500", desc: "Drag-and-drop. Update your site yourself, anytime." },
-                                        { title: "Traffic Plus", price: "$1,500", desc: "Local SEO engine. Location pages, Google Business sync, keyword tracking." },
-                                        { title: "Business Process Tools", price: "$1,200", desc: "Forms, messaging, CRM, live chat. Capture and track every lead." },
-                                        { title: "Smart Automation", price: "$1,000", desc: "Auto-respond, follow up, request reviews. Runs without you." },
-                                        { title: "The Power Dashboard", price: "$800", desc: "Leads, revenue, rankings, and AI recommendations. See everything." },
-                                        { title: "SEO Launch", price: "FREE", desc: "Full Google Business Profile optimization + on-page SEO for your entire website. Included with every build." },
-                                        {
-                                            title: "Ongoing Support",
-                                            price: "$249/mo",
-                                            desc: (
-                                                <ul className="list-disc pl-4 mt-2 space-y-1 opacity-80 leading-relaxed">
-                                                    <li>Hosting, security, and platform updates</li>
-                                                    <li>SEO strategy adjustments based on performance</li>
-                                                    <li>Website updates as your business changes</li>
-                                                    <li>Technical support when you need it</li>
-                                                </ul>
-                                            )
-                                        }
-                                    ].map((item, i) => (
-                                        <div key={i} className="flex justify-between items-start border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                                            <div>
-                                                <div className="font-bold text-white tracking-wide text-sm">{item.title}</div>
-                                                <div className="text-xs text-slate-300 mt-1">{item.desc}</div>
+                        </FadeIn>
+                    </Container>
+                </div>
+
+                {/* Social Proof Bar */}
+                <div className="border-y border-blue-900/40 bg-blue-950/20 backdrop-blur-sm">
+                    <Container>
+                        <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-blue-900/40">
+                            {[
+                                { stat: "7", label: "Integrated tools in one platform" },
+                                { stat: "1–2 Jobs", label: "To pay for the entire system" },
+                                { stat: "$0", label: "Extra subscriptions needed" }
+                            ].map((item, i) => (
+                                <div key={i} className="text-center px-4">
+                                    <div className="text-2xl md:text-3xl font-black text-white">{item.stat}</div>
+                                    <div className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">{item.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </Container>
+                </div>
+
+                {/* The Problem */}
+                <Container>
+                    <div className="py-24 md:py-32">
+                        <FadeIn>
+                            <div className="max-w-3xl mx-auto mb-16 text-center">
+                                <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-400">
+                                    <span className="w-12 h-[2px] bg-blue-400"></span>
+                                    The Problem
+                                    <span className="w-12 h-[2px] bg-blue-400"></span>
+                                </h2>
+                                <h3 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9]">
+                                    Right Now, You're Bleeding Money.
+                                </h3>
+                            </div>
+                        </FadeIn>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                            {[
+                                { icon: Icons.Globe, text: "Your website looks like it was built in 2015 — and Google knows it" },
+                                { icon: Icons.MapPin, text: "You're invisible in local search. Customers can't find you." },
+                                { icon: Icons.Clock, text: "A lead calls. You're on a job. They call your competitor instead." },
+                                { icon: Icons.TrendingUp, text: "You spend money on ads but can't tell what's working" },
+                                { icon: Icons.Wrench, text: "You're paying for 5 different tools that don't talk to each other" },
+                                { icon: Icons.Target, text: "Your competitors have a system. You're winging it." }
+                            ].map((item, i) => (
+                                <FadeIn key={i} delay={i * 100}>
+                                    <div className="p-6 border border-red-500/20 bg-red-950/10 hover:bg-red-950/20 transition-colors group">
+                                        <item.icon className="w-6 h-6 text-red-400 mb-4" />
+                                        <p className="text-slate-200 text-sm leading-relaxed font-medium">{item.text}</p>
+                                    </div>
+                                </FadeIn>
+                            ))}
+                        </div>
+                        <FadeIn>
+                            <div className="max-w-2xl mx-auto mt-12 p-8 border-l-4 border-blue-500 bg-blue-950/30 text-center">
+                                <p className="text-lg text-white font-bold">Fixing one piece doesn't fix the system.</p>
+                                <p className="text-slate-400 mt-2">You need the whole thing working together. That's what we build.</p>
+                            </div>
+                        </FadeIn>
+                    </div>
+                </Container>
+
+                {/* What You Get */}
+                <div className="border-y border-blue-900/30 bg-blue-950/20">
+                    <Container>
+                        <div className="py-24 md:py-32">
+                            <FadeIn>
+                                <div className="max-w-3xl mx-auto mb-16 text-center">
+                                    <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-400">
+                                        <span className="w-12 h-[2px] bg-blue-400"></span>
+                                        The Solution
+                                        <span className="w-12 h-[2px] bg-blue-400"></span>
+                                    </h2>
+                                    <h3 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9]">
+                                        Seven Tools. One System.<br />Built For You.
+                                    </h3>
+                                </div>
+                            </FadeIn>
+                            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                                {[
+                                    { title: "Website CMS", price: "$2,000", desc: "Professional, fast, SEO-optimized. Built to rank on Google and convert visitors into calls.", icon: Icons.Globe },
+                                    { title: "Content Editor", price: "$500", desc: "Drag-and-drop. Update your own site anytime without calling a developer.", icon: Icons.Package },
+                                    { title: "Traffic Plus", price: "$1,500", desc: "Local SEO engine. Location pages, Google Business sync, keyword tracking.", icon: Icons.TrendingUp },
+                                    { title: "Business Process Tools", price: "$1,200", desc: "Forms, messaging, CRM, live chat. Capture and track every single lead.", icon: Icons.Users },
+                                    { title: "Smart Automation", price: "$1,000", desc: "Auto-respond to leads, follow up, request reviews. Runs while you work.", icon: Icons.Zap },
+                                    { title: "The Power Dashboard", price: "$800", desc: "Leads, revenue, rankings, AI recommendations. See where your money comes from.", icon: Icons.Target },
+                                    { title: "SEO Launch", price: "FREE", desc: "Full Google Business Profile optimization + on-page SEO for your entire website. Included.", icon: Icons.MapPin },
+                                    { title: "Ongoing Support", price: "$249/mo", desc: "Hosting, security, updates, SEO adjustments, website changes, and technical support.", icon: Icons.Shield }
+                                ].map((item, i) => (
+                                    <FadeIn key={i} delay={i * 80}>
+                                        <div className="flex gap-5 p-6 border border-blue-900/40 bg-blue-950/30 hover:border-blue-500/40 transition-all group">
+                                            <div className="shrink-0 w-10 h-10 flex items-center justify-center border border-blue-800/50 bg-blue-900/30">
+                                                <item.icon className="w-5 h-5 text-blue-400" />
                                             </div>
-                                            <div className="text-slate-100 font-mono text-sm shrink-0 ml-4">{item.price}</div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <h4 className="font-bold text-white text-sm tracking-wide">{item.title}</h4>
+                                                    <span className="text-blue-300 font-mono text-xs font-bold ml-4">{item.price}</span>
+                                                </div>
+                                                <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                                            </div>
                                         </div>
-                                    ))}
-                                 </div>
+                                    </FadeIn>
+                                ))}
                             </div>
                         </div>
+                    </Container>
+                </div>
 
-                        <div className="max-w-3xl mx-auto bg-slate-900 border border-teal-500/30 p-12 text-center relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-rose-500"></div>
-                            <h3 className="text-lg font-bold text-slate-200 tracking-widest mb-2">Total If Bought Separately</h3>
-                            <div className="text-2xl font-black text-slate-300 line-through mb-12">$7,000</div>
+                {/* Pricing CTA */}
+                <Container>
+                    <div className="py-24 md:py-32">
+                        <FadeIn>
+                            <div className="max-w-3xl mx-auto text-center">
+                                <div className="text-slate-500 text-sm font-bold uppercase tracking-widest mb-2">If Purchased Separately</div>
+                                <div className="text-4xl font-black text-slate-500 line-through mb-12">$7,000+</div>
 
-                            <h3 className="text-xl font-bold text-white tracking-widest mb-4">The Full System</h3>
-                            <div className="text-5xl md:text-6xl font-black text-white mb-2">$4,999</div>
-                            <div className="text-teal-400 font-bold tracking-wide mb-8">+ $249/mo — hosting, tools, and support included</div>
+                                <div className="relative p-12 md:p-16 border-2 border-blue-500/40 bg-gradient-to-b from-blue-950/50 to-transparent overflow-hidden">
+                                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600"></div>
+                                    <div className="absolute inset-0 bg-blue-500/5 pointer-events-none"></div>
+                                    <div className="relative z-10">
+                                        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-6">The Complete System</h3>
+                                        <div className="text-6xl md:text-8xl font-black text-white mb-2 tracking-tight">$4,999</div>
+                                        <div className="text-blue-300 font-bold tracking-wide mb-10 text-lg">+ $249/mo — everything included</div>
 
-                            <p className="text-slate-200 mb-10 max-w-md mx-auto">All seven tools. Custom built for your business. No add-ons. No extra subscriptions. It pays for itself in 1-2 jobs.</p>
+                                        <p className="text-slate-300 mb-12 max-w-lg mx-auto leading-relaxed">All seven tools. Custom built for your business. No add-ons, no extra subscriptions, no hidden fees. It pays for itself in 1–2 jobs.</p>
 
-                            <Button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} variant="primary" className="w-full md:w-auto text-lg py-6">Get Your System Built</Button>
-                        </div>
+                                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                                            <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-12 py-6 text-sm font-bold uppercase tracking-widest bg-blue-600 border-2 border-blue-500 text-white hover:bg-blue-500 transition-all duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] w-full sm:w-auto text-lg">
+                                                Get Your System Built
+                                                <Icons.ArrowRight className="ml-3 w-5 h-5" />
+                                            </button>
+                                        </div>
+                                        <a href="tel:+12026301645" className="inline-flex items-center gap-2 mt-6 text-sm text-slate-400 hover:text-white transition-colors font-medium">
+                                            <Icons.Phone className="w-4 h-4" />
+                                            Or call (202) 630-1645
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </FadeIn>
+                    </div>
+                </Container>
 
-                        <div className="mt-20 text-center border-t border-slate-800 pt-16">
-                            <h3 className="text-lg font-bold text-white tracking-widest mb-8">Built For</h3>
+                {/* Built For */}
+                <div className="border-t border-blue-900/30 bg-blue-950/20">
+                    <Container>
+                        <div className="py-16 text-center">
+                            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8">Built For</h3>
                             <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                                {["Contractors who want more jobs", "Restaurants cutting out the middleman", "Any local service business ready to make more money"].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-slate-100">
-                                        <Icons.CheckCircle className="w-5 h-5 text-teal-500" />
+                                {["Contractors who want more jobs", "Restaurants cutting out the middleman", "Any local service business ready to grow"].map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-slate-200">
+                                        <Icons.CheckCircle className="w-5 h-5 text-blue-400" />
                                         <span className="uppercase text-sm font-bold">{item}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
+                    </Container>
+                </div>
 
-                    </FadeIn>
-                </Container>
             </div>
         );
 
@@ -1347,19 +1439,83 @@
 
                     <main>{renderPage()}</main>
 
-                    <footer className="bg-black text-white py-20 border-t border-slate-900 relative z-10">
+                    <footer className="bg-black text-white relative z-10">
+                        {/* Top CTA Band */}
+                        <div className="border-t border-b border-slate-800 bg-slate-950">
+                            <Container>
+                                <div className="py-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8">
+                                    <div>
+                                        <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-2">Ready to stop losing jobs?</h3>
+                                        <p className="text-slate-400 text-sm font-medium">One system. One price. Built for your business.</p>
+                                    </div>
+                                    <LinkButton href="#deal" variant="primary" className="shrink-0">Get Your System Built</LinkButton>
+                                </div>
+                            </Container>
+                        </div>
+
+                        {/* Main Footer */}
                         <Container>
-                           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-                              <div><h2 className="text-[8vw] leading-none font-black text-slate-800 select-none">TAGGLEFISH</h2></div>
-                              <div className="text-right">
-                                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">Contact</div>
-                                 <div className="text-xl font-bold">hello@tagglefish.com</div>
-                              </div>
-                           </div>
-                           <div className="mt-12 flex gap-8 text-sm text-slate-500 font-bold uppercase tracking-widest border-t border-slate-900 pt-8">
-                                <a href="#privacy" className="hover:text-rose-500">Privacy Policy</a>
-                                <a href="#terms" className="hover:text-rose-500">Terms of Service</a>
-                           </div>
+                            <div className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                                {/* Brand */}
+                                <div className="lg:col-span-1">
+                                    <h2 className="text-2xl font-black tracking-tight mb-4">TAGGLEFISH</h2>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-6">Revenue platform for local service businesses. We don't do marketing. We build systems that make you money.</p>
+                                </div>
+
+                                {/* Platform Links */}
+                                <div>
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-6">Platform</h4>
+                                    <ul className="space-y-3">
+                                        {[
+                                            { label: "How It Works", href: "#how-it-works" },
+                                            { label: "The Full System", href: "#services" },
+                                            { label: "Pricing", href: "#deal" },
+                                            { label: "About", href: "#about" }
+                                        ].map((link, i) => (
+                                            <li key={i}><a href={link.href} className="text-sm text-slate-300 hover:text-white transition-colors font-medium">{link.label}</a></li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* Industries */}
+                                <div>
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-6">Industries</h4>
+                                    <ul className="space-y-3">
+                                        {[
+                                            { label: "Contractors", href: "#contractors" },
+                                            { label: "HVAC", href: "#hvac-marketing" },
+                                            { label: "Plumbing", href: "#plumbing-marketing" },
+                                            { label: "Restaurants", href: "#restaurants" }
+                                        ].map((link, i) => (
+                                            <li key={i}><a href={link.href} className="text-sm text-slate-300 hover:text-white transition-colors font-medium">{link.label}</a></li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* Contact */}
+                                <div>
+                                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-6">Contact</h4>
+                                    <div className="space-y-4">
+                                        <a href="tel:+12026301645" className="flex items-center gap-3 text-white hover:text-rose-400 transition-colors group">
+                                            <Icons.Phone className="w-4 h-4 text-rose-500 group-hover:text-rose-400" />
+                                            <span className="text-sm font-bold">(202) 630-1645</span>
+                                        </a>
+                                        <a href="mailto:hello@tagglefish.com" className="flex items-center gap-3 text-white hover:text-rose-400 transition-colors group">
+                                            <Icons.Mail className="w-4 h-4 text-rose-500 group-hover:text-rose-400" />
+                                            <span className="text-sm font-bold">hello@tagglefish.com</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Bottom Bar */}
+                            <div className="border-t border-slate-800 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <div className="text-xs text-slate-500 font-medium">&copy; {new Date().getFullYear()} TaggleFish. All rights reserved.</div>
+                                <div className="flex gap-8 text-xs text-slate-500 font-bold uppercase tracking-widest">
+                                    <a href="#privacy" className="hover:text-rose-500 transition-colors">Privacy Policy</a>
+                                    <a href="#terms" className="hover:text-rose-500 transition-colors">Terms of Service</a>
+                                </div>
+                            </div>
                         </Container>
                     </footer>
                 </div>
