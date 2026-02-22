@@ -1557,7 +1557,7 @@
                                 <a href="#deal" className="hover:text-rose-500 transition-colors">DEAL</a>
                                 <button onClick={() => setIsContactOpen(true)} className="hover:text-rose-500 transition-colors">CONTACT</button>
                                 
-                                <a href={STRIPE_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 border bg-emerald-600 border-emerald-600 text-white hover:bg-emerald-700 hover:border-emerald-700 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]">Claim This Deal</a>
+                                <a href={STRIPE_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 border-0 text-white rounded-sm" style={{background: 'linear-gradient(135deg, #dc2626 0%, #e11d48 50%, #be123c 100%)', boxShadow: '0 0 15px rgba(225,29,72,0.4), inset 0 1px 0 rgba(255,255,255,0.15)'}}>Claim This Deal</a>
                             </div>
                             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden">{mobileMenuOpen ? <Icons.X /> : <Icons.Menu />}</button>
                         </div>
