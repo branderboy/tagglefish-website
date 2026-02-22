@@ -48,14 +48,13 @@
     <!-- NOSCRIPT SEO SUPPORT -->
     <noscript>
         <h1>TaggleFish | Revenue Platform for Local Service Businesses — Website, SEO, Automation & Dashboard</h1>
-        <p>Revenue platform for contractors, restaurants, and cannabis businesses. Website CMS, local SEO, business tools, smart automation, and AI-powered dashboard. $4,999 one-time build + $249/mo.</p>
+        <p>Revenue platform for contractors and restaurants. Website CMS, local SEO, business tools, smart automation, and AI-powered dashboard. $4,999 one-time build + $249/mo.</p>
         <p>
             <a href="#contractors">HVAC marketing company</a> |
             <a href="#drywall-marketing">drywall contractor marketing</a> |
             <a href="#painting-marketing">painting contractor marketing</a> |
             <a href="#flooring-marketing">flooring company marketing</a> |
             <a href="#landscaping-marketing">landscaping marketing agency</a> |
-            <a href="#cannabis">dispensary SEO</a> |
             <a href="#restaurants">restaurant marketing</a> |
             <a href="#deal">$4,999 — get your system built</a>
         </p>
@@ -81,7 +80,7 @@
         const SEO_DATA = {
             'home': {
                 title: "TaggleFish | Revenue Platform for Local Service Businesses — Website, SEO, Automation & Dashboard",
-                desc: "Revenue platform for contractors, restaurants, and cannabis businesses. Website CMS, local SEO, business tools, smart automation, and AI-powered dashboard. $4,999 one-time build + $249/mo.",
+                desc: "Revenue platform for contractors and restaurants. Website CMS, local SEO, business tools, smart automation, and AI-powered dashboard. $4,999 one-time build + $249/mo.",
                 url: "https://tagglefish.com/",
                 schema: {
                     "@context": "https://schema.org",
@@ -94,7 +93,7 @@
                     "priceRange": "$4,999 one-time",
                     "areaServed": "US",
                     "serviceType": ["Website CMS", "Content Editor", "Local SEO", "Business Process Tools", "Smart Automation", "Revenue Dashboard"],
-                    "knowsAbout": ["HVAC Marketing", "Plumbing Marketing", "Cannabis Marketing", "Restaurant Marketing", "Contractor SEO", "Drywall Contractor Marketing", "Painting Contractor Marketing", "Flooring Company Marketing", "Landscaping Marketing"]
+                    "knowsAbout": ["HVAC Marketing", "Plumbing Marketing", "Restaurant Marketing", "Contractor SEO", "Drywall Contractor Marketing", "Painting Contractor Marketing", "Flooring Company Marketing", "Landscaping Marketing"]
                 }
             },
             'contractors': {
@@ -138,12 +137,6 @@
                 desc: "Revenue platform for plumbers. Stop losing emergency calls to competitors. Website, SEO, instant text-back, automation. $4,999 one-time build.",
                 url: "https://tagglefish.com/plumbing-marketing/",
                 schema: { "@context": "https://schema.org", "@type": "Service", "name": "Plumbing Revenue Platform", "description": "Complete revenue system for plumbing contractors. Website, SEO, automation, and dashboard.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "USD", "description": "One-time build" } }
-            },
-            'cannabis': {
-                title: "Dispensary Revenue Platform | TaggleFish — Rank Without Ads, Sell Without Platforms",
-                desc: "Revenue platform for cannabis businesses. Can't run ads? We build the system that ranks your dispensary and converts search traffic into sales. $4,999 one-time build.",
-                url: "https://tagglefish.com/cannabis/",
-                schema: { "@context": "https://schema.org", "@type": "Service", "name": "Dispensary Revenue Platform", "description": "Complete revenue system for cannabis dispensaries. Website, SEO, automation, and dashboard. Organic-only growth.", "provider": { "@type": "ProfessionalService", "name": "TaggleFish", "url": "https://tagglefish.com" }, "areaServed": "US", "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "USD", "description": "One-time build" } }
             },
             'restaurants': {
                 title: "Restaurant Revenue Platform | TaggleFish — Direct Orders, No 30% Commissions",
@@ -386,10 +379,10 @@
                                         </span>
                                     </h1>
                                     <h2 className="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-rose-500 pl-6">
-                                        The full revenue platform for contractors, restaurants, and cannabis businesses.
+                                        The full revenue platform for contractors and restaurants.
                                     </h2>
                                     <p className="text-xl text-slate-100 max-w-xl leading-relaxed font-light mb-10">
-                                        TaggleFish is the revenue platform for local service businesses. Your website, your SEO, your lead capture, your follow-up, your automation, and a dashboard that tells you exactly what to do next — all in one system.
+                                        One custom-built platform. Your website, SEO, lead capture, follow-up, automation, and a dashboard that tells you exactly what to do next. $4,999 gets it built. $249/mo keeps it running.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-6">
                                         <LinkButton href="https://buy.stripe.com/5kQ1494rpcYR4s330Ndby00" variant="primary">Get Your System Built</LinkButton>
@@ -488,9 +481,8 @@
                 <Section bg="dark" className="py-20 border-y border-slate-900">
                     <Container>
                         <SectionHeader light subtitle="Select Market" title="CHOOSE YOUR INDUSTRY" align="center" />
-                        <div className="grid md:grid-cols-3 gap-0 border border-slate-800 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+                        <div className="grid md:grid-cols-2 gap-0 border border-slate-800 divide-y md:divide-y-0 md:divide-x divide-slate-800">
                             {[
-                                { id: '#cannabis', icon: Icons.Leaf, title: "Cannabis", desc: "You can't run ads. Organic search is your only growth channel. We own it for you.", hover: "group-hover:text-green-400" },
                                 { id: '#contractors', icon: Icons.Wrench, title: "Contractors", desc: "You're on the job site. Leads are calling right now. Our system answers before your competitor does.", hover: "group-hover:text-blue-400" },
                                 { id: '#restaurants', icon: Icons.Utensils, title: "Restaurants", desc: "Every order through a third-party platform costs you 30%. Get customers directly.", hover: "group-hover:text-orange-400" }
                             ].map((item, idx) => (
@@ -613,7 +605,7 @@
                             <div className="bg-slate-900 p-10 border-l-4 border-rose-500">
                                 <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-widest">Built For</h3>
                                 <div className="space-y-4">
-                                    {["Contractors who are too busy working to chase leads", "Restaurant owners tired of giving 30% to platforms", "Cannabis operators who can't run ads and need organic traffic", "Any local business that wants more customers, more money, less headache"].map((item, i) => (
+                                    {["Contractors who are too busy working to chase leads", "Restaurant owners tired of giving 30% to platforms", "Any local service business that wants more customers and less headache"].map((item, i) => (
                                         <div key={i} className="flex items-center gap-3 text-slate-300">
                                             <Icons.Users className="w-5 h-5 text-rose-500" /> {item}
                                         </div>
@@ -800,7 +792,7 @@
                         <div className="mt-20 text-center border-t border-slate-800 pt-16">
                             <h3 className="text-xl font-bold text-white uppercase tracking-widest mb-8">Built For</h3>
                             <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                                {["Contractors who want more jobs", "Restaurants cutting out the middleman", "Cannabis businesses that need organic traffic", "Any local business ready to make more money"].map((item, i) => (
+                                {["Contractors who want more jobs", "Restaurants cutting out the middleman", "Any local service business ready to make more money"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-2 text-slate-100">
                                         <Icons.CheckCircle className="w-5 h-5 text-teal-500" />
                                         <span className="uppercase text-sm font-bold">{item}</span>
@@ -1112,20 +1104,6 @@
             const renderPage = () => {
                 switch (page) {
                     case 'home': return <Homepage />;
-                    case 'cannabis': return (
-                        <IndustryPage
-                            title="Cannabis" icon={Icons.Leaf} color="text-green-400"
-                            heroTitle="No Ads Allowed. Organic Search Is Your Entire Business."
-                            heroDesc="Every platform blocks you. Google doesn't. The dispensaries that rank are the ones that sell."
-                            content={{ reality: "Someone within 5 miles of you just searched 'dispensary near me.' They clicked the top result. If that's not you, that sale went to your competitor. And it'll happen again tomorrow. And the next day.", solution: "We build your entire revenue system — website, local SEO, lead capture, automation, and a dashboard that shows you exactly where your customers are coming from. No ads required. Just the system that turns search traffic into sales." }}
-                            links={[
-                                { text: "see the full system", href: "#services" },
-                                { text: "$4,999 — get it built", href: "#deal" },
-                                { text: "how it works", href: "#how-it-works" },
-                                { text: "restaurant marketing", href: "#restaurants" }
-                            ]}
-                        />
-                    );
                     case 'contractors': return (
                         <IndustryPage
                             title="Local Contractors" icon={Icons.Wrench} color="text-blue-400"
@@ -1153,7 +1131,7 @@
                             links={[
                                 { text: "$4,999 — get it built", href: "#deal" },
                                 { text: "how the system works", href: "#how-it-works" },
-                                { text: "dispensary SEO", href: "#cannabis" },
+                                { text: "contractor marketing", href: "#contractors" },
                                 { text: "see the full system", href: "#services" }
                             ]}
                         />
@@ -1280,7 +1258,6 @@
                                     </button>
                                     <div className="absolute top-full left-0 w-56 bg-slate-900 border border-slate-800 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 flex flex-col">
                                         <a href="#services" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">OVERVIEW</a>
-                                        <a href="#cannabis" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">CANNABIS</a>
                                         <a href="#restaurants" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 border-b border-slate-800 transition-colors block">RESTAURANTS</a>
                                         <a href="#about" className="text-left px-6 py-4 hover:bg-slate-800 hover:text-rose-500 transition-colors block">ABOUT US</a>
                                     </div>
@@ -1316,7 +1293,6 @@
                            <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">HOME</a>
                            <div className="h-px w-12 bg-slate-800 my-2"></div>
                            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">SERVICES</a>
-                           <a href="#cannabis" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">CANNABIS</a>
                            <a href="#restaurants" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-slate-400 hover:text-rose-500">RESTAURANTS</a>
                            <div className="h-px w-12 bg-slate-800 my-2"></div>
                            <a href="#contractors" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black uppercase tracking-tight hover:text-rose-500">CONTRACTORS</a>
