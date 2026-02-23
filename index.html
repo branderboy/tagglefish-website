@@ -988,7 +988,7 @@
             <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #e8f0fb 0%, #dfe8f4 40%, #e8f0fb 100%)' }}>
 
                 {/* Hero */}
-                <div className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+                <div className="relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
                     <Container>
                         <FadeIn>
                             <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -1013,7 +1013,7 @@
                 {/* Social Proof Bar */}
                 <div className="border-y border-blue-200 bg-blue-50/60 backdrop-blur-sm">
                     <Container>
-                        <div className="py-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center">
+                        <div className="py-6 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center">
                             {[
                                 { emoji: "\uD83D\uDD27", text: "7 Tools" },
                                 { emoji: "\uD83D\uDCB0", text: "1-2 Jobs Payoff" },
@@ -1030,10 +1030,10 @@
                 {/* The Problem */}
                 <div className="bg-slate-900">
                 <Container>
-                    <div className="py-24 md:py-32">
+                    <div className="py-14 md:py-20">
                         <FadeIn>
-                            <div className="max-w-3xl mx-auto text-center mb-16">
-                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-red-500">
+                            <div className="max-w-3xl mx-auto text-center mb-10">
+                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-4 flex items-center gap-4 justify-center text-red-500">
                                     <span className="w-12 h-[2px] bg-red-500"></span>
                                     The Problem
                                     <span className="w-12 h-[2px] bg-red-500"></span>
@@ -1043,9 +1043,9 @@
                                 </h3>
                             </div>
                         </FadeIn>
-                        <div className="max-w-3xl mx-auto">
+                        <div className="max-w-3xl mx-auto text-center">
                             <FadeIn>
-                                <ul className="space-y-7">
+                                <ul className="inline-block space-y-3">
                                     {[
                                         "Website from 2015",
                                         "Invisible in local search",
@@ -1053,15 +1053,15 @@
                                         "Ads, no ROI proof",
                                         "5+ tools, zero integration"
                                     ].map((item, i) => (
-                                        <li key={i} className="flex items-start gap-4">
-                                            <Icons.X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
-                                            <span className="text-xl text-slate-100 font-semibold leading-snug">{item}</span>
+                                        <li key={i} className="flex items-center gap-3">
+                                            <Icons.X className="w-5 h-5 text-red-500 shrink-0" />
+                                            <span className="text-xl text-slate-100 font-semibold">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </FadeIn>
                             <FadeIn>
-                                <div className="mt-14 border-l-4 border-blue-500 pl-8">
+                                <div className="mt-10">
                                     <p className="text-2xl text-white font-bold">Fixing one piece doesn't fix the system.</p>
                                     <p className="text-lg text-slate-300 mt-2">You need the whole thing working together. That's what we build.</p>
                                 </div>
@@ -1074,10 +1074,10 @@
                 {/* The Real Problem, Disjointed Tools */}
                 <div className="bg-blue-50/70">
                 <Container>
-                    <div className="py-24 md:py-32">
+                    <div className="py-14 md:py-20">
                         <FadeIn>
-                            <div className="max-w-3xl mx-auto text-center mb-16">
-                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-red-600">
+                            <div className="max-w-3xl mx-auto text-center mb-10">
+                                <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-4 flex items-center gap-4 justify-center text-red-600">
                                     <span className="w-12 h-[2px] bg-red-600"></span>
                                     The Real Problem
                                     <span className="w-12 h-[2px] bg-red-600"></span>
@@ -1127,7 +1127,7 @@
                             </FadeIn>
                         </div>
                         <FadeIn>
-                            <div className="max-w-3xl mx-auto mt-20 border-l-4 border-blue-600 pl-8">
+                            <div className="max-w-3xl mx-auto mt-12 border-l-4 border-blue-600 pl-8">
                                 <p className="text-3xl md:text-4xl text-slate-900 font-black leading-tight mb-4">What if one platform ran a significant part of your business?</p>
                                 <p className="text-xl text-slate-700 leading-relaxed">Your website, your SEO, your lead capture, your follow-ups, your reviews, your dashboard. All in one place. Built for your industry. No plugins. No duct tape. Just a system that works.</p>
                             </div>
@@ -1139,10 +1139,10 @@
                 {/* What You Get */}
                 <div className="border-y border-blue-200 bg-blue-50/50">
                     <Container>
-                        <div className="py-24 md:py-32">
+                        <div className="py-14 md:py-20">
                             <FadeIn>
-                                <div className="max-w-3xl mx-auto mb-16 text-center">
-                                    <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4 justify-center text-blue-600">
+                                <div className="max-w-3xl mx-auto mb-10 text-center">
+                                    <h2 className="text-sm font-bold tracking-[0.3em] uppercase mb-4 flex items-center gap-4 justify-center text-blue-600">
                                         <span className="w-12 h-[2px] bg-blue-600"></span>
                                         The Solution
                                         <span className="w-12 h-[2px] bg-blue-600"></span>
@@ -1185,7 +1185,7 @@
 
                 {/* Pricing CTA */}
                 <Container>
-                    <div className="py-24 md:py-32">
+                    <div className="py-14 md:py-20">
                         <FadeIn>
                             <div className="max-w-3xl mx-auto text-center">
                                 <div className="text-slate-700 text-base font-bold uppercase tracking-widest mb-2">If Purchased Separately</div>
