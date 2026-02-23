@@ -1001,6 +1001,7 @@
                                     <span className="text-blue-600">Built For You.</span><br />
                                     Already Figured Out.
                                 </h1>
+                                <div className="text-sm font-bold uppercase tracking-[0.3em] text-red-600 mb-6">DMV Contractors Only</div>
                                 <p className="text-xl md:text-2xl text-slate-800 max-w-2xl mx-auto leading-relaxed">
                                     You're a contractor, not a marketer. So stop duct-taping WordPress plugins together and hoping for the best. We built the entire strategy for you. Website, SEO, lead capture, automation, follow-up, and a dashboard that shows you where your money comes from. One system. Pays for itself in a few jobs.
                                 </p>
@@ -1012,15 +1013,14 @@
                 {/* Social Proof Bar */}
                 <div className="border-y border-blue-200 bg-blue-50/60 backdrop-blur-sm">
                     <Container>
-                        <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-blue-200">
+                        <div className="py-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center">
                             {[
-                                { stat: "7", label: "Integrated tools in one platform" },
-                                { stat: "1–2 Jobs", label: "To pay for the entire system" },
-                                { stat: "$0", label: "Extra subscriptions needed" }
+                                { emoji: "\uD83D\uDD27", text: "7 Tools" },
+                                { emoji: "\uD83D\uDCB0", text: "1-2 Jobs Payoff" },
+                                { emoji: "\u274C", text: "$0 Extra Fees" }
                             ].map((item, i) => (
-                                <div key={i} className="text-center px-4">
-                                    <div className="text-3xl md:text-4xl font-black text-slate-900">{item.stat}</div>
-                                    <div className="text-sm text-slate-700 font-bold uppercase tracking-widest mt-2">{item.label}</div>
+                                <div key={i} className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
+                                    {item.emoji} {item.text}
                                 </div>
                             ))}
                         </div>
@@ -1047,12 +1047,11 @@
                             <FadeIn>
                                 <ul className="space-y-7">
                                     {[
-                                        "Your website looks like it was built in 2015 and Google knows it.",
-                                        "You're invisible in local search. Customers can't find you.",
-                                        "A lead calls. You're on a job. They call your competitor instead.",
-                                        "You spend money on ads but can't tell what's working.",
-                                        "You're paying for 5 different tools that don't talk to each other.",
-                                        "Your competitors have a system. You're winging it."
+                                        "Website from 2015",
+                                        "Invisible in local search",
+                                        "Missed calls \u2192 competitor wins",
+                                        "Ads, no ROI proof",
+                                        "5+ tools, zero integration"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4">
                                             <Icons.X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
@@ -1153,7 +1152,7 @@
                                     </h3>
                                 </div>
                             </FadeIn>
-                            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                            <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
                                 {[
                                     { title: "Website CMS", price: "$2,000", desc: "Professional, fast, SEO-optimized. Built to rank on Google and convert visitors into calls.", icon: Icons.Globe },
                                     { title: "Content Editor", price: "$500", desc: "Drag-and-drop. Update your own site anytime without calling a developer.", icon: Icons.Package },
@@ -1192,25 +1191,31 @@
                                 <div className="text-slate-700 text-base font-bold uppercase tracking-widest mb-2">If Purchased Separately</div>
                                 <div className="text-5xl font-black text-slate-400 line-through mb-12">$7,000+</div>
 
-                                <div className="relative p-12 md:p-16 border-2 border-blue-600 bg-slate-900 overflow-hidden text-white">
-                                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600"></div>
-                                    <div className="relative z-10">
-                                        <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-400 mb-6">The Complete System</h3>
-                                        <div className="text-7xl md:text-9xl font-black text-white mb-2 tracking-tight">$4,999</div>
-                                        <div className="text-blue-300 font-bold tracking-wide mb-10 text-xl">+ $249/mo, everything included</div>
+                                <div className="relative overflow-hidden">
+                                    {/* Red urgency banner */}
+                                    <div className="bg-red-600 text-white text-center py-4 px-6">
+                                        <span className="text-lg md:text-xl font-black uppercase tracking-widest">Only 1 Spot Per Market</span>
+                                    </div>
 
-                                        <p className="text-lg text-slate-200 mb-12 max-w-lg mx-auto leading-relaxed">All seven tools. Custom built for your business. No add-ons, no extra subscriptions, no hidden fees. It pays for itself in 1–2 jobs.</p>
+                                    <div className="p-12 md:p-16 border-2 border-red-600 border-t-0 bg-slate-900 text-white">
+                                        <div className="relative z-10">
+                                            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-400 mb-6">The Complete System</h3>
+                                            <div className="text-7xl md:text-9xl font-black text-white mb-2 tracking-tight">$4,999</div>
+                                            <div className="text-blue-300 font-bold tracking-wide mb-10 text-xl">+ $249/mo, everything included</div>
 
-                                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                            <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-12 py-6 text-base font-bold uppercase tracking-widest bg-emerald-600 border-2 border-emerald-500 text-white hover:bg-emerald-500 transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] w-full sm:w-auto text-lg">
-                                                Claim This Deal
-                                                <Icons.ArrowRight className="ml-3 w-5 h-5" />
-                                            </button>
+                                            <p className="text-lg text-slate-200 mb-12 max-w-lg mx-auto leading-relaxed">All seven tools. Custom built for your business. No add-ons, no extra subscriptions, no hidden fees. It pays for itself in 1–2 jobs.</p>
+
+                                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                                                <button onClick={() => window.open(STRIPE_PAYMENT_LINK, '_blank')} className="inline-flex items-center justify-center px-16 py-7 text-xl font-black uppercase tracking-widest bg-red-600 border-2 border-red-500 text-white hover:bg-red-500 transition-all duration-300 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:shadow-[0_0_50px_rgba(239,68,68,0.6)] w-full sm:w-auto">
+                                                    Lock Your Area
+                                                    <Icons.ArrowRight className="ml-3 w-6 h-6" />
+                                                </button>
+                                            </div>
+                                            <a href="tel:+12026301645" className="inline-flex items-center gap-2 mt-6 text-base text-slate-300 hover:text-white transition-colors font-bold">
+                                                <Icons.Phone className="w-5 h-5" />
+                                                Or call (202) 630-1645
+                                            </a>
                                         </div>
-                                        <a href="tel:+12026301645" className="inline-flex items-center gap-2 mt-6 text-base text-slate-300 hover:text-white transition-colors font-bold">
-                                            <Icons.Phone className="w-5 h-5" />
-                                            Or call (202) 630-1645
-                                        </a>
                                     </div>
                                 </div>
                             </div>
