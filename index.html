@@ -866,12 +866,14 @@
                             { step: "06", title: "You Close. The System Keeps Running.", text: "By the time you talk to a lead, they're already engaged. You're not chasing. You're closing. And the system keeps finding the next one." }
                         ].map((item, i) => (
                             <FadeIn key={i}>
-                                <div className={`grid md:grid-cols-12 gap-8 md:gap-12 py-10 transition-colors ${i > 0 ? 'border-t border-blue-100' : ''}`}>
-                                    <div className="md:col-span-2">
+                                <div className={`flex items-start gap-4 py-10 transition-colors ${i > 0 ? 'border-t border-blue-100' : ''}`}>
+                                    <div className="flex-shrink-0 mt-1">
                                         <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white text-lg font-black shadow-md">{item.step}</div>
                                     </div>
-                                    <div className="md:col-span-4"><h3 className="text-2xl font-black text-slate-900 tracking-tight">{item.title}</h3></div>
-                                    <div className="md:col-span-6"><p className="text-lg text-slate-700 leading-relaxed font-light">{item.text}</p></div>
+                                    <div className="flex-1 grid md:grid-cols-2 gap-4">
+                                        <h3 className="text-2xl font-black text-slate-900 tracking-tight">{item.title}</h3>
+                                        <p className="text-lg text-slate-700 leading-relaxed font-light">{item.text}</p>
+                                    </div>
                                 </div>
                             </FadeIn>
                         ))}
