@@ -50,7 +50,7 @@
             animation: fadeIn 0.3s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -59,108 +59,108 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-[#FCFBF9]/95 backdrop-blur-sm border-b border-[#E8E2D9] z-50">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center border border-rose-200">
-                    <i data-lucide="heart" class="w-4 h-4 text-rose-800" style="fill: #ffe4e6;"></i>
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-rose-50 flex items-center justify-center border border-rose-200">
+                    <i data-lucide="heart" class="w-5 h-5 text-rose-800" style="fill: #ffe4e6;"></i>
                 </div>
                 <div>
                     <div class="text-[#16110E] font-bold tracking-wider text-sm leading-none">GSHC_ACQUISITION_SYSTEM</div>
-                    <div class="text-sky-700 text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5 mt-0.5">
+                    <div class="text-sky-700 text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5 mt-1">
                         <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
                         Ready for Deployment
                     </div>
                 </div>
             </div>
-            <button onclick="document.getElementById('problem').scrollIntoView({ behavior: 'smooth' })" class="hidden md:flex items-center gap-2 text-xs font-bold text-[#4A3D34] hover:text-[#4A2C1A] transition-colors">
-                Review Strategy <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            <button onclick="document.getElementById('problem').scrollIntoView({ behavior: 'smooth' })" class="hidden md:flex items-center gap-2 text-sm font-bold text-[#4A3D34] hover:text-[#4A2C1A] transition-colors">
+                Review Strategy <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
         </div>
     </nav>
 
-    <main class="pt-20 pb-8 relative z-10 space-y-8">
+    <main class="pt-32 pb-16 relative z-10 space-y-16">
         
         <!-- HERO SECTION -->
-        <section class="max-w-4xl mx-auto px-6 pt-4 text-center">
-            <div class="inline-block px-4 py-1.5 rounded-lg bg-white border border-[#E8E2D9] text-[#4A2C1A] text-xs font-black tracking-widest uppercase mb-4 shadow-sm">
+        <section class="max-w-4xl mx-auto px-6 pt-12 text-center">
+            <div class="inline-block px-5 py-2 rounded-lg bg-white border border-[#E8E2D9] text-[#4A2C1A] text-xs font-black tracking-widest uppercase mb-8 shadow-sm">
                 Application: Your Next SEO & GEO Specialist
             </div>
             
-            <h1 class="text-4xl md:text-5xl font-extrabold text-[#16110E] tracking-tight leading-tight mb-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#16110E] tracking-tight leading-tight mb-6">
                 When People Ask About Surrogacy, <br class="hidden md:block" />
                 <span class="text-rose-800">
                     GSHC Should Be the Answer.
                 </span>
             </h1>
             
-            <p class="text-lg text-[#4A3D34] font-medium leading-snug max-w-3xl mx-auto mb-6">
+            <p class="text-xl text-[#4A3D34] font-medium leading-relaxed max-w-3xl mx-auto mb-10">
                 As your next SEO & GEO Specialist, I will build the exact system that makes your boutique agency visible not just on Google, but inside the AI platforms where intended parents and donors are making deeply personal decisions.
             </p>
             
             <div class="flex justify-center">
-                <button onclick="document.getElementById('problem').scrollIntoView({ behavior: 'smooth' })" class="group flex items-center justify-center gap-2 px-6 py-3 bg-[#4A2C1A] text-white font-bold rounded-lg hover:bg-[#381F10] transition-colors shadow-md">
-                    <span class="text-base">See The System I'll Build</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                <button onclick="document.getElementById('problem').scrollIntoView({ behavior: 'smooth' })" class="group flex items-center justify-center gap-3 px-8 py-4 bg-[#4A2C1A] text-white font-bold rounded-xl hover:bg-[#381F10] transition-colors shadow-lg">
+                    <span class="text-lg">See The System I'll Build</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                 </button>
             </div>
         </section>
 
         <!-- PROBLEM SECTION (CRITICAL) -->
-        <section id="problem" class="w-full bg-white border-y border-[#E8E2D9] py-8 scroll-mt-20">
+        <section id="problem" class="w-full bg-white border-y border-[#E8E2D9] py-20 scroll-mt-24">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <div class="flex items-center gap-2 mb-4">
-                            <i data-lucide="shield-alert" class="w-5 h-5 text-rose-800"></i>
+                        <div class="flex items-center gap-3 mb-6">
+                            <i data-lucide="shield-alert" class="w-6 h-6 text-rose-800"></i>
                             <h2 class="text-sm font-bold text-rose-900 tracking-widest uppercase">The Critical Risk</h2>
                         </div>
-                        <h3 class="text-2xl font-extrabold text-[#16110E] mb-4 leading-tight">
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-[#16110E] mb-8 leading-tight">
                             Where You’re Losing Visibility Today
                         </h3>
                         
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <div class="w-5 h-5 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-sky-500"></div>
+                        <ul class="space-y-5">
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-1">
+                                    <div class="w-2 h-2 rounded-full bg-sky-500"></div>
                                 </div>
-                                <p class="text-[#362C25] font-semibold text-base leading-snug">Users are getting answers from AI before they reach your site.</p>
+                                <p class="text-[#362C25] font-semibold text-lg leading-snug">Users are getting answers from AI before they reach your site.</p>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-5 h-5 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-sky-500"></div>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-1">
+                                    <div class="w-2 h-2 rounded-full bg-sky-500"></div>
                                 </div>
-                                <p class="text-[#362C25] font-semibold text-base leading-snug">Your content is not structured for extraction or citation.</p>
+                                <p class="text-[#362C25] font-semibold text-lg leading-snug">Your content is not structured for extraction or citation.</p>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-5 h-5 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-sky-500"></div>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-1">
+                                    <div class="w-2 h-2 rounded-full bg-sky-500"></div>
                                 </div>
-                                <p class="text-[#362C25] font-semibold text-base leading-snug">High-intent questions are not owned at the answer level.</p>
+                                <p class="text-[#362C25] font-semibold text-lg leading-snug">High-intent questions are not owned at the answer level.</p>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-5 h-5 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-sky-500"></div>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-1">
+                                    <div class="w-2 h-2 rounded-full bg-sky-500"></div>
                                 </div>
-                                <p class="text-[#362C25] font-semibold text-base leading-snug">Authority exists, but it’s not clearly structured for AI systems.</p>
+                                <p class="text-[#362C25] font-semibold text-lg leading-snug">Authority exists, but it’s not clearly structured for AI systems.</p>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-5 h-5 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-sky-500"></div>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 bg-sky-100 rounded-full flex items-center justify-center shrink-0 mt-1">
+                                    <div class="w-2 h-2 rounded-full bg-sky-500"></div>
                                 </div>
-                                <p class="text-[#362C25] font-semibold text-base leading-snug">Informational traffic is not being converted into applications.</p>
+                                <p class="text-[#362C25] font-semibold text-lg leading-snug">Informational traffic is not being converted into applications.</p>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="bg-[#FCFBF9] rounded-xl p-6 border border-[#E8E2D9] flex flex-col justify-center h-full shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-full blur-2xl -z-10 transform translate-x-1/4 -translate-y-1/4"></div>
-                        <i data-lucide="brain-circuit" class="w-8 h-8 text-sky-600 mb-4"></i>
-                        <p class="text-xl font-bold text-[#16110E] leading-snug">
+                    <div class="bg-[#FCFBF9] rounded-2xl p-10 border border-[#E8E2D9] flex flex-col justify-center h-full shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-sky-50 rounded-full blur-3xl -z-10 transform translate-x-1/4 -translate-y-1/4"></div>
+                        <i data-lucide="brain-circuit" class="w-10 h-10 text-sky-600 mb-6"></i>
+                        <p class="text-2xl font-bold text-[#16110E] leading-relaxed">
                             You don’t just need rankings. <br />
                             <span class="text-sky-700">You need to become the trusted answer.</span>
                         </p>
-                        <div class="w-8 h-1 bg-sky-200 my-4"></div>
-                        <p class="text-[#4A3D34] font-medium leading-snug text-sm">
+                        <div class="w-12 h-1 bg-sky-200 my-6"></div>
+                        <p class="text-[#4A3D34] font-medium leading-relaxed text-base">
                             If an intended parent asks ChatGPT "how to choose an agency," and GSHC isn't cited, the journey ends before it begins.
                         </p>
                     </div>
@@ -169,80 +169,80 @@
         </section>
 
         <!-- SYSTEM SECTION (AGENT FRAMEWORK DIAGRAM) -->
-        <section class="max-w-7xl mx-auto px-6">
-            <div class="mb-6 max-w-3xl">
-                <h2 class="text-sm font-bold text-teal-900 tracking-widest uppercase mb-2">My Blueprint</h2>
-                <p class="text-2xl font-extrabold text-[#16110E] mb-2">The System I Will Build For You</p>
-                <p class="text-base text-[#4A3D34] font-medium leading-snug">If hired, this is the exact architecture I will deploy to capture visibility before the click.</p>
+        <section class="max-w-7xl mx-auto px-6 py-12">
+            <div class="mb-12 max-w-3xl">
+                <h2 class="text-sm font-bold text-teal-900 tracking-widest uppercase mb-3">My Blueprint</h2>
+                <p class="text-3xl md:text-4xl font-extrabold text-[#16110E] mb-4">The System I Will Build For You</p>
+                <p class="text-lg text-[#4A3D34] font-medium leading-relaxed">If hired, this is the exact architecture I will deploy to capture visibility before the click.</p>
             </div>
 
             <!-- FRAMEWORK DIAGRAM -->
-            <div class="relative max-w-5xl mx-auto bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-md overflow-hidden">
+            <div class="relative max-w-5xl mx-auto bg-white p-10 rounded-3xl border border-[#E8E2D9] shadow-lg overflow-hidden">
                 <!-- Background Pattern -->
-                <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#16110E 1px, transparent 1px); background-size: 16px 16px;"></div>
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#16110E 1.5px, transparent 1.5px); background-size: 20px 20px;"></div>
                 
-                <div class="relative z-10 flex flex-col items-center gap-4">
+                <div class="relative z-10 flex flex-col items-center gap-8">
                     
                     <!-- LAYER 1: Parallel Inputs -->
-                    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                        <div class="w-full sm:w-1/2 bg-[#FCFBF9] border border-[#DCD1C6] p-4 rounded-xl shadow-sm text-center relative hover:shadow-md transition-shadow">
-                            <div class="absolute -top-2 -left-2 bg-[#4A2C1A] text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest shadow-sm">Input</div>
-                            <div class="w-10 h-10 mx-auto bg-[#4A2C1A] text-white rounded-lg flex items-center justify-center mb-2 border border-[#381F10] shadow-sm">
-                                <i data-lucide="search" class="w-5 h-5" stroke-width="2.5"></i>
+                    <div class="flex flex-col sm:flex-row gap-8 w-full justify-center">
+                        <div class="w-full sm:w-1/2 bg-[#FCFBF9] border border-[#DCD1C6] p-6 rounded-xl shadow-sm text-center relative hover:shadow-md transition-shadow">
+                            <div class="absolute -top-3 -left-3 bg-[#4A2C1A] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Input</div>
+                            <div class="w-12 h-12 mx-auto bg-[#4A2C1A] text-white rounded-xl flex items-center justify-center mb-4 border border-[#381F10] shadow-sm">
+                                <i data-lucide="search" class="w-6 h-6" stroke-width="2.5"></i>
                             </div>
-                            <h4 class="font-black text-[#16110E] mb-1 text-base">Market Agent</h4>
-                            <p class="text-xs font-bold text-[#4A3D34] leading-snug">Finds exactly what intended parents, surrogates, and donors ask AI platforms.</p>
+                            <h4 class="font-black text-[#16110E] mb-2 text-lg">Market Agent</h4>
+                            <p class="text-sm font-bold text-[#4A3D34] leading-relaxed">Finds exactly what intended parents, surrogates, and donors ask AI platforms.</p>
                         </div>
-                        <div class="w-full sm:w-1/2 bg-[#FCFBF9] border border-[#DCD1C6] p-4 rounded-xl shadow-sm text-center relative hover:shadow-md transition-shadow">
-                            <div class="absolute -top-2 -left-2 bg-[#4A2C1A] text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest shadow-sm">Input</div>
-                            <div class="w-10 h-10 mx-auto bg-[#4A2C1A] text-white rounded-lg flex items-center justify-center mb-2 border border-[#381F10] shadow-sm">
-                                <i data-lucide="database" class="w-5 h-5" stroke-width="2.5"></i>
+                        <div class="w-full sm:w-1/2 bg-[#FCFBF9] border border-[#DCD1C6] p-6 rounded-xl shadow-sm text-center relative hover:shadow-md transition-shadow">
+                            <div class="absolute -top-3 -left-3 bg-[#4A2C1A] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Input</div>
+                            <div class="w-12 h-12 mx-auto bg-[#4A2C1A] text-white rounded-xl flex items-center justify-center mb-4 border border-[#381F10] shadow-sm">
+                                <i data-lucide="database" class="w-6 h-6" stroke-width="2.5"></i>
                             </div>
-                            <h4 class="font-black text-[#16110E] mb-1 text-base">Internal Data Agent</h4>
-                            <p class="text-xs font-bold text-[#4A3D34] leading-snug">Identifies underperforming, unclear, or leaking GSHC traffic opportunities.</p>
+                            <h4 class="font-black text-[#16110E] mb-2 text-lg">Internal Data Agent</h4>
+                            <p class="text-sm font-bold text-[#4A3D34] leading-relaxed">Identifies underperforming, unclear, or leaking GSHC traffic opportunities.</p>
                         </div>
                     </div>
 
                     <div class="text-rose-800">
-                        <i data-lucide="arrow-down-to-dot" class="w-6 h-6" stroke-width="2.5"></i>
+                        <i data-lucide="arrow-down-to-dot" class="w-8 h-8" stroke-width="2.5"></i>
                     </div>
 
                     <!-- LAYER 2: Evaluator / Router -->
-                    <div class="w-full sm:w-2/3 bg-white border-2 border-rose-800 p-4 rounded-xl shadow-md text-center relative">
-                        <div class="absolute -top-3 -right-3 bg-rose-800 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest shadow-sm">Evaluator</div>
-                        <div class="w-10 h-10 mx-auto bg-rose-800 text-white rounded-lg flex items-center justify-center mb-2 shadow-sm border border-rose-900">
-                            <i data-lucide="target" class="w-5 h-5" stroke-width="2.5"></i>
+                    <div class="w-full sm:w-2/3 bg-white border-2 border-rose-800 p-6 rounded-2xl shadow-md text-center relative">
+                        <div class="absolute -top-4 -right-4 bg-rose-800 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Evaluator</div>
+                        <div class="w-12 h-12 mx-auto bg-rose-800 text-white rounded-xl flex items-center justify-center mb-4 shadow-sm border border-rose-900">
+                            <i data-lucide="target" class="w-6 h-6" stroke-width="2.5"></i>
                         </div>
-                        <h4 class="font-black text-[#16110E] mb-1 text-lg">Opportunity Agent</h4>
-                        <p class="text-xs font-bold text-[#4A3D34] leading-snug">Ranks what to fix based purely on trust metrics, traffic potential, and conversion.</p>
+                        <h4 class="font-black text-[#16110E] mb-2 text-xl">Opportunity Agent</h4>
+                        <p class="text-base font-bold text-[#4A3D34] leading-relaxed">Ranks what to fix based purely on trust metrics, traffic potential, and conversion.</p>
                     </div>
 
                     <div class="text-rose-800">
-                        <i data-lucide="arrow-down" class="w-6 h-6" stroke-width="2.5"></i>
+                        <i data-lucide="arrow-down" class="w-8 h-8" stroke-width="2.5"></i>
                     </div>
 
                     <!-- LAYER 3: Optimizer -->
-                    <div class="w-full sm:w-2/3 bg-[#FCFBF9] border border-[#DCD1C6] p-4 rounded-xl shadow-sm text-center relative hover:shadow-md transition-shadow">
-                        <div class="absolute -top-3 -right-3 bg-[#4A2C1A] text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest shadow-sm">Optimizer</div>
-                        <div class="w-10 h-10 mx-auto bg-[#4A2C1A] text-white rounded-lg flex items-center justify-center mb-2 border border-[#381F10] shadow-sm">
-                            <i data-lucide="zap" class="w-5 h-5" stroke-width="2.5"></i>
+                    <div class="w-full sm:w-2/3 bg-[#FCFBF9] border border-[#DCD1C6] p-6 rounded-2xl shadow-sm text-center relative hover:shadow-md transition-shadow">
+                        <div class="absolute -top-4 -right-4 bg-[#4A2C1A] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Optimizer</div>
+                        <div class="w-12 h-12 mx-auto bg-[#4A2C1A] text-white rounded-xl flex items-center justify-center mb-4 border border-[#381F10] shadow-sm">
+                            <i data-lucide="zap" class="w-6 h-6" stroke-width="2.5"></i>
                         </div>
-                        <h4 class="font-black text-[#16110E] mb-1 text-lg">Action Agent</h4>
-                        <p class="text-xs font-bold text-[#4A3D34] leading-snug">Builds answer-first pages, refines structure, and injects clear authority signals.</p>
+                        <h4 class="font-black text-[#16110E] mb-2 text-xl">Action Agent</h4>
+                        <p class="text-base font-bold text-[#4A3D34] leading-relaxed">Builds answer-first pages, refines structure, and injects clear authority signals.</p>
                     </div>
 
                     <div class="text-teal-900 relative">
-                        <i data-lucide="arrow-down" class="w-6 h-6" stroke-width="2.5"></i>
+                        <i data-lucide="arrow-down" class="w-8 h-8" stroke-width="2.5"></i>
                     </div>
 
                     <!-- LAYER 4: Output / Validation -->
-                    <div class="w-full sm:w-2/3 bg-teal-950 border-2 border-teal-900 p-4 rounded-xl shadow-md text-center relative">
-                        <div class="absolute -bottom-3 -left-3 bg-teal-400 text-teal-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest shadow-sm">Validator</div>
-                        <div class="w-10 h-10 mx-auto bg-white text-teal-950 rounded-lg flex items-center justify-center mb-2 shadow-sm">
-                            <i data-lucide="line-chart" class="w-5 h-5" stroke-width="2.5"></i>
+                    <div class="w-full sm:w-2/3 bg-teal-950 border-2 border-teal-900 p-6 rounded-2xl shadow-lg text-center relative">
+                        <div class="absolute -bottom-4 -left-4 bg-teal-400 text-teal-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Validator</div>
+                        <div class="w-12 h-12 mx-auto bg-white text-teal-950 rounded-xl flex items-center justify-center mb-4 shadow-sm">
+                            <i data-lucide="line-chart" class="w-6 h-6" stroke-width="2.5"></i>
                         </div>
-                        <h4 class="font-black text-white mb-1 text-lg">Measurement Agent</h4>
-                        <p class="text-xs font-bold text-teal-100/90 leading-snug">Tracks rankings, lead velocity, and LLM citations in a closed-loop system.</p>
+                        <h4 class="font-black text-white mb-2 text-xl">Measurement Agent</h4>
+                        <p class="text-base font-bold text-teal-100/90 leading-relaxed">Tracks rankings, lead velocity, and LLM citations in a closed-loop system.</p>
                     </div>
 
                 </div>
@@ -250,94 +250,94 @@
         </section>
 
         <!-- UI MOCK SECTION -->
-        <section class="max-w-7xl mx-auto px-6">
-            <div class="mb-6 max-w-3xl">
-                <h2 class="text-sm font-bold text-teal-900 tracking-widest uppercase mb-2">Live Environment</h2>
-                <p class="text-2xl font-extrabold text-[#16110E] mb-2">Dashboard Execution</p>
-                <p class="text-[#4A3D34] font-medium text-base leading-snug">This isn't theory. This is the exact pipeline using real GSHC data.</p>
+        <section class="max-w-7xl mx-auto px-6 py-12">
+            <div class="mb-10 max-w-3xl">
+                <h2 class="text-sm font-bold text-teal-900 tracking-widest uppercase mb-3">Live Environment</h2>
+                <p class="text-3xl md:text-4xl font-extrabold text-[#16110E] mb-4">Dashboard Execution</p>
+                <p class="text-[#4A3D34] font-medium text-lg leading-relaxed">This isn't theory. This is the exact pipeline using real GSHC data.</p>
             </div>
 
             <!-- INTERACTIVE DASHBOARD CONTAINER -->
-            <div class="border border-[#DCD1C6] rounded-xl p-2 bg-[#F4F0E6] shadow-md">
-                <div class="bg-white rounded-lg overflow-hidden flex flex-col md:flex-row min-h-[400px] border border-[#E8E2D9] shadow-sm">
+            <div class="border border-[#DCD1C6] rounded-2xl p-3 bg-[#F4F0E6] shadow-lg">
+                <div class="bg-white rounded-xl overflow-hidden flex flex-col md:flex-row min-h-[600px] border border-[#E8E2D9] shadow-sm">
                     
                     <!-- Sidebar Navigation -->
-                    <div class="w-full md:w-64 bg-[#F4F0E6] border-r border-[#E8E2D9] flex flex-row md:flex-col p-4 overflow-x-auto md:overflow-visible no-scrollbar shrink-0">
-                        <div class="text-xs font-black text-[#16110E] uppercase tracking-widest mb-4 px-2 hidden md:block">System Modules</div>
-                        <div class="flex flex-row md:flex-col gap-1.5" id="tab-buttons">
+                    <div class="w-full md:w-72 bg-[#F4F0E6] border-r border-[#E8E2D9] flex flex-row md:flex-col p-6 overflow-x-auto md:overflow-visible no-scrollbar shrink-0">
+                        <div class="text-sm font-black text-[#16110E] uppercase tracking-widest mb-6 px-2 hidden md:block">System Modules</div>
+                        <div class="flex flex-row md:flex-col gap-2" id="tab-buttons">
                             <!-- Tab Buttons -->
-                            <button data-tab="market" class="tab-btn flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
-                                <i data-lucide="globe" class="w-4 h-4"></i>
+                            <button data-tab="market" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-lg text-base transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
+                                <i data-lucide="globe" class="w-5 h-5"></i>
                                 <span>Market Intelligence</span>
                             </button>
-                            <button data-tab="internal" class="tab-btn active flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
-                                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                            <button data-tab="internal" class="tab-btn active flex items-center gap-3 px-4 py-3 rounded-lg text-base transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
+                                <i data-lucide="alert-circle" class="w-5 h-5"></i>
                                 <span>Internal Gaps</span>
                             </button>
-                            <button data-tab="opportunities" class="tab-btn flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
-                                <i data-lucide="target" class="w-4 h-4"></i>
+                            <button data-tab="opportunities" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-lg text-base transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
+                                <i data-lucide="target" class="w-5 h-5"></i>
                                 <span>Opportunities</span>
                             </button>
-                            <button data-tab="action" class="tab-btn flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
-                                <i data-lucide="layout-template" class="w-4 h-4"></i>
+                            <button data-tab="action" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-lg text-base transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
+                                <i data-lucide="layout-template" class="w-5 h-5"></i>
                                 <span>Action Plan</span>
                             </button>
-                            <button data-tab="measurement" class="tab-btn flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
-                                <i data-lucide="line-chart" class="w-4 h-4"></i>
+                            <button data-tab="measurement" class="tab-btn flex items-center gap-3 px-4 py-3 rounded-lg text-base transition-all duration-200 w-full text-left font-black tracking-wide border border-transparent">
+                                <i data-lucide="line-chart" class="w-5 h-5"></i>
                                 <span>Measurement</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- Main Content Area -->
-                    <div class="flex-1 bg-white p-6 overflow-y-auto relative" id="tab-contents">
+                    <div class="flex-1 bg-white p-8 overflow-y-auto relative" id="tab-contents">
                         
                         <!-- TAB: MARKET INTELLIGENCE -->
-                        <div id="content-market" class="tab-content hidden fade-in space-y-4">
-                            <div class="mb-4">
-                                <h3 class="text-xl font-black text-[#16110E] mb-1">Market Search vs. AI Reality</h3>
-                                <p class="text-[#362C25] font-bold text-sm">Tracking how high-intent questions are answered across the web.</p>
+                        <div id="content-market" class="tab-content hidden fade-in space-y-6">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-black text-[#16110E] mb-2">Market Search vs. AI Reality</h3>
+                                <p class="text-[#362C25] font-bold text-base">Tracking how high-intent questions are answered across the web.</p>
                             </div>
-                            <div class="border border-[#4A2C1A] rounded-lg overflow-hidden shadow-sm">
-                                <table class="w-full text-xs text-left">
+                            <div class="border-2 border-[#4A2C1A] rounded-xl overflow-hidden shadow-md">
+                                <table class="w-full text-sm text-left">
                                     <thead class="bg-[#4A2C1A] text-white">
                                         <tr>
-                                            <th class="px-4 py-2 font-bold uppercase tracking-wider">Real Query</th>
-                                            <th class="px-4 py-2 font-bold uppercase tracking-wider">Competitor Dominance</th>
-                                            <th class="px-4 py-2 font-bold uppercase tracking-wider">AI-Cited Sources</th>
-                                            <th class="px-4 py-2 font-bold uppercase tracking-wider">Missing Authority Area</th>
+                                            <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Real Query</th>
+                                            <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Competitor Dominance</th>
+                                            <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">AI-Cited Sources</th>
+                                            <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Missing Authority Area</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="divide-y divide-[#E8E2D9] bg-white text-xs">
+                                    <tbody class="divide-y-2 divide-[#E8E2D9] bg-white text-sm">
                                         <tr class="hover:bg-[#F4F0E6] transition-colors">
-                                            <td class="px-4 py-3 font-black text-[#16110E]">how does surrogacy work</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">High (Agency X, Y)</td>
-                                            <td class="px-4 py-3 font-black text-teal-800">WebMD, Mayo Clinic</td>
-                                            <td class="px-4 py-3 font-black text-rose-700">Medical Step-by-Step</td>
+                                            <td class="px-6 py-4 font-black text-[#16110E]">how does surrogacy work</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">High (Agency X, Y)</td>
+                                            <td class="px-6 py-4 font-black text-teal-800">WebMD, Mayo Clinic</td>
+                                            <td class="px-6 py-4 font-black text-rose-700">Medical Step-by-Step</td>
                                         </tr>
                                         <tr class="hover:bg-[#F4F0E6] transition-colors">
-                                            <td class="px-4 py-3 font-black text-[#16110E]">surrogacy cost usa</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">Medium</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">Forbes, NerdWallet</td>
-                                            <td class="px-4 py-3 font-black text-rose-700">Structured Pricing Tables</td>
+                                            <td class="px-6 py-4 font-black text-[#16110E]">surrogacy cost usa</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">Medium</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">Forbes, NerdWallet</td>
+                                            <td class="px-6 py-4 font-black text-rose-700">Structured Pricing Tables</td>
                                         </tr>
                                         <tr class="hover:bg-[#F4F0E6] transition-colors">
-                                            <td class="px-4 py-3 font-black text-[#16110E]">surrogate requirements</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">Low (Fragmented)</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">ASRM Guidelines</td>
-                                            <td class="px-4 py-3 font-black text-rose-700">Direct Q&A Formatting</td>
+                                            <td class="px-6 py-4 font-black text-[#16110E]">surrogate requirements</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">Low (Fragmented)</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">ASRM Guidelines</td>
+                                            <td class="px-6 py-4 font-black text-rose-700">Direct Q&A Formatting</td>
                                         </tr>
                                         <tr class="hover:bg-[#F4F0E6] transition-colors">
-                                            <td class="px-4 py-3 font-black text-[#16110E]">egg donor process</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">High (Clinic Z)</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">Healthline</td>
-                                            <td class="px-4 py-3 font-black text-rose-700">Timeline Extraction</td>
+                                            <td class="px-6 py-4 font-black text-[#16110E]">egg donor process</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">High (Clinic Z)</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">Healthline</td>
+                                            <td class="px-6 py-4 font-black text-rose-700">Timeline Extraction</td>
                                         </tr>
                                         <tr class="hover:bg-[#F4F0E6] transition-colors">
-                                            <td class="px-4 py-3 font-black text-[#16110E]">best surrogacy agency california</td>
-                                            <td class="px-4 py-3 font-bold text-[#4A3D34]">Medium</td>
-                                            <td class="px-4 py-3 font-black text-teal-800">Reddit, Aggregators</td>
-                                            <td class="px-4 py-3 font-black text-rose-700">Trust & Review Schema</td>
+                                            <td class="px-6 py-4 font-black text-[#16110E]">best surrogacy agency california</td>
+                                            <td class="px-6 py-4 font-bold text-[#4A3D34]">Medium</td>
+                                            <td class="px-6 py-4 font-black text-teal-800">Reddit, Aggregators</td>
+                                            <td class="px-6 py-4 font-black text-rose-700">Trust & Review Schema</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -345,157 +345,157 @@
                         </div>
 
                         <!-- TAB: INTERNAL GAPS (Default Active) -->
-                        <div id="content-internal" class="tab-content fade-in space-y-4">
-                            <div class="mb-4">
-                                <h3 class="text-xl font-black text-[#16110E] mb-1">Internal Site Diagnosis</h3>
-                                <p class="text-[#362C25] font-bold text-sm">Identifying friction points holding back current GSHC assets.</p>
+                        <div id="content-internal" class="tab-content fade-in space-y-6">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-black text-[#16110E] mb-2">Internal Site Diagnosis</h3>
+                                <p class="text-[#362C25] font-bold text-base">Identifying friction points holding back current GSHC assets.</p>
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg flex items-start gap-4 shadow-sm">
-                                    <div class="bg-rose-100 border border-rose-200 p-2 rounded-md shrink-0">
-                                        <i data-lucide="alert-circle" class="w-5 h-5 text-rose-800" stroke-width="2.5"></i>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl flex items-start gap-4 shadow-sm">
+                                    <div class="bg-rose-100 border border-rose-200 p-3 rounded-lg shrink-0">
+                                        <i data-lucide="alert-circle" class="w-6 h-6 text-rose-800" stroke-width="2.5"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-black text-[#16110E] mb-1 text-sm">/intended-parents/surrogacy-costs</h4>
-                                        <p class="text-[#362C25] font-bold leading-snug text-xs">Currently hitting a 301 redirect. AI spiders (GPTBot) drop the crawl at redirects. Needs direct indexable resolution.</p>
+                                        <h4 class="font-black text-[#16110E] mb-2 text-base">/intended-parents/surrogacy-costs</h4>
+                                        <p class="text-[#362C25] font-bold leading-relaxed text-sm">Currently hitting a 301 redirect. AI spiders (GPTBot) drop the crawl at redirects. Needs direct indexable resolution.</p>
                                     </div>
                                 </div>
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg flex items-start gap-4 shadow-sm">
-                                    <div class="bg-rose-100 border border-rose-200 p-2 rounded-md shrink-0">
-                                        <i data-lucide="alert-circle" class="w-5 h-5 text-rose-800" stroke-width="2.5"></i>
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl flex items-start gap-4 shadow-sm">
+                                    <div class="bg-rose-100 border border-rose-200 p-3 rounded-lg shrink-0">
+                                        <i data-lucide="alert-circle" class="w-6 h-6 text-rose-800" stroke-width="2.5"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-black text-[#16110E] mb-1 text-sm">Surrogacy School Content</h4>
-                                        <p class="text-[#362C25] font-bold leading-snug text-xs">Great proprietary content, but lacks FAQPage schema. AI cannot easily extract these chapters into direct answers.</p>
+                                        <h4 class="font-black text-[#16110E] mb-2 text-base">Surrogacy School Content</h4>
+                                        <p class="text-[#362C25] font-bold leading-relaxed text-sm">Great proprietary content, but lacks FAQPage schema. AI cannot easily extract these chapters into direct answers.</p>
                                     </div>
                                 </div>
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg flex items-start gap-4 shadow-sm">
-                                    <div class="bg-rose-100 border border-rose-200 p-2 rounded-md shrink-0">
-                                        <i data-lucide="alert-circle" class="w-5 h-5 text-rose-800" stroke-width="2.5"></i>
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl flex items-start gap-4 shadow-sm">
+                                    <div class="bg-rose-100 border border-rose-200 p-3 rounded-lg shrink-0">
+                                        <i data-lucide="alert-circle" class="w-6 h-6 text-rose-800" stroke-width="2.5"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-black text-[#16110E] mb-1 text-sm">Local Presence Pages (Irvine)</h4>
-                                        <p class="text-[#362C25] font-bold leading-snug text-xs">Missing semantic entities connecting local proximity to 'LGBTQ+ friendly surrogacy' for 'near me' AI prompts.</p>
+                                        <h4 class="font-black text-[#16110E] mb-2 text-base">Local Presence Pages (Irvine)</h4>
+                                        <p class="text-[#362C25] font-bold leading-relaxed text-sm">Missing semantic entities connecting local proximity to 'LGBTQ+ friendly surrogacy' for 'near me' AI prompts.</p>
                                     </div>
                                 </div>
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg flex items-start gap-4 shadow-sm">
-                                    <div class="bg-rose-100 border border-rose-200 p-2 rounded-md shrink-0">
-                                        <i data-lucide="alert-circle" class="w-5 h-5 text-rose-800" stroke-width="2.5"></i>
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl flex items-start gap-4 shadow-sm">
+                                    <div class="bg-rose-100 border border-rose-200 p-3 rounded-lg shrink-0">
+                                        <i data-lucide="alert-circle" class="w-6 h-6 text-rose-800" stroke-width="2.5"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-black text-[#16110E] mb-1 text-sm">Weak Authority Signals</h4>
-                                        <p class="text-[#362C25] font-bold leading-snug text-xs">High-level content reads well, but lacks visible, schema-marked author credentials and medical reviews.</p>
+                                        <h4 class="font-black text-[#16110E] mb-2 text-base">Weak Authority Signals</h4>
+                                        <p class="text-[#362C25] font-bold leading-relaxed text-sm">High-level content reads well, but lacks visible, schema-marked author credentials and medical reviews.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- TAB: OPPORTUNITIES -->
-                        <div id="content-opportunities" class="tab-content hidden fade-in space-y-4">
-                            <div class="mb-4">
-                                <h3 class="text-xl font-black text-[#16110E] mb-1">Execution Pipeline</h3>
-                                <p class="text-[#362C25] font-bold text-sm">Prioritized by impact on bottom-line visibility and trust.</p>
+                        <div id="content-opportunities" class="tab-content hidden fade-in space-y-6">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-black text-[#16110E] mb-2">Execution Pipeline</h3>
+                                <p class="text-[#362C25] font-bold text-base">Prioritized by impact on bottom-line visibility and trust.</p>
                             </div>
-                            <div class="space-y-3">
-                                <div class="bg-white border border-[#E8E2D9] p-3 rounded-lg flex flex-col xl:flex-row xl:items-center justify-between gap-3 shadow-sm">
-                                    <h4 class="font-black text-[#16110E] text-xs flex-1">Resolve 'Surrogacy Costs' redirect and inject markdown pricing table</h4>
-                                    <div class="flex flex-wrap gap-2 text-[10px] font-black uppercase tracking-wider">
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Traffic: High</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Trust: High</span>
-                                        <span class="bg-rose-800 text-white px-2 py-1 rounded shadow-sm">AI Vis: Critical</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Conv: High</span>
+                            <div class="space-y-4">
+                                <div class="bg-white border border-[#E8E2D9] p-5 rounded-xl flex flex-col xl:flex-row xl:items-center justify-between gap-4 shadow-sm">
+                                    <h4 class="font-black text-[#16110E] text-sm flex-1">Resolve 'Surrogacy Costs' redirect and inject markdown pricing table</h4>
+                                    <div class="flex flex-wrap gap-2 text-[11px] font-black uppercase tracking-wider">
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Traffic: High</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Trust: High</span>
+                                        <span class="bg-rose-800 text-white px-3 py-1.5 rounded-md shadow-sm">AI Vis: Critical</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Conv: High</span>
                                     </div>
                                 </div>
-                                <div class="bg-white border border-[#E8E2D9] p-3 rounded-lg flex flex-col xl:flex-row xl:items-center justify-between gap-3 shadow-sm">
-                                    <h4 class="font-black text-[#16110E] text-xs flex-1">Format 'Surrogacy School' chapters for direct Perplexity extraction</h4>
-                                    <div class="flex flex-wrap gap-2 text-[10px] font-black uppercase tracking-wider">
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Traffic: Med</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Trust: Critical</span>
-                                        <span class="bg-rose-800 text-white px-2 py-1 rounded shadow-sm">AI Vis: High</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Conv: High</span>
+                                <div class="bg-white border border-[#E8E2D9] p-5 rounded-xl flex flex-col xl:flex-row xl:items-center justify-between gap-4 shadow-sm">
+                                    <h4 class="font-black text-[#16110E] text-sm flex-1">Format 'Surrogacy School' chapters for direct Perplexity extraction</h4>
+                                    <div class="flex flex-wrap gap-2 text-[11px] font-black uppercase tracking-wider">
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Traffic: Med</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Trust: Critical</span>
+                                        <span class="bg-rose-800 text-white px-3 py-1.5 rounded-md shadow-sm">AI Vis: High</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Conv: High</span>
                                     </div>
                                 </div>
-                                <div class="bg-white border border-[#E8E2D9] p-3 rounded-lg flex flex-col xl:flex-row xl:items-center justify-between gap-3 shadow-sm">
-                                    <h4 class="font-black text-[#16110E] text-xs flex-1">Expand LGBTQ+ family building guides with E-E-A-T signals</h4>
-                                    <div class="flex flex-wrap gap-2 text-[10px] font-black uppercase tracking-wider">
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Traffic: High</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Trust: High</span>
-                                        <span class="bg-rose-800 text-white px-2 py-1 rounded shadow-sm">AI Vis: High</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Conv: Med</span>
+                                <div class="bg-white border border-[#E8E2D9] p-5 rounded-xl flex flex-col xl:flex-row xl:items-center justify-between gap-4 shadow-sm">
+                                    <h4 class="font-black text-[#16110E] text-sm flex-1">Expand LGBTQ+ family building guides with E-E-A-T signals</h4>
+                                    <div class="flex flex-wrap gap-2 text-[11px] font-black uppercase tracking-wider">
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Traffic: High</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Trust: High</span>
+                                        <span class="bg-rose-800 text-white px-3 py-1.5 rounded-md shadow-sm">AI Vis: High</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Conv: Med</span>
                                     </div>
                                 </div>
-                                <div class="bg-white border border-[#E8E2D9] p-3 rounded-lg flex flex-col xl:flex-row xl:items-center justify-between gap-3 shadow-sm">
-                                    <h4 class="font-black text-[#16110E] text-xs flex-1">Restructure California local hubs for AI proximity</h4>
-                                    <div class="flex flex-wrap gap-2 text-[10px] font-black uppercase tracking-wider">
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Traffic: Med</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Trust: Med</span>
-                                        <span class="bg-rose-800 text-white px-2 py-1 rounded shadow-sm">AI Vis: High</span>
-                                        <span class="bg-[#4A2C1A] text-white px-2 py-1 rounded shadow-sm">Conv: High</span>
+                                <div class="bg-white border border-[#E8E2D9] p-5 rounded-xl flex flex-col xl:flex-row xl:items-center justify-between gap-4 shadow-sm">
+                                    <h4 class="font-black text-[#16110E] text-sm flex-1">Restructure California local hubs for AI proximity</h4>
+                                    <div class="flex flex-wrap gap-2 text-[11px] font-black uppercase tracking-wider">
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Traffic: Med</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Trust: Med</span>
+                                        <span class="bg-rose-800 text-white px-3 py-1.5 rounded-md shadow-sm">AI Vis: High</span>
+                                        <span class="bg-[#4A2C1A] text-white px-3 py-1.5 rounded-md shadow-sm">Conv: High</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- TAB: ACTION PLAN -->
-                        <div id="content-action" class="tab-content hidden fade-in space-y-4">
-                            <div class="mb-4">
-                                <h3 class="text-xl font-black text-[#16110E] mb-1">Page Architecture Standards</h3>
-                                <p class="text-[#362C25] font-bold text-sm">How we structure every asset to guarantee extraction and authority.</p>
+                        <div id="content-action" class="tab-content hidden fade-in space-y-6">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-black text-[#16110E] mb-2">Page Architecture Standards</h3>
+                                <p class="text-[#362C25] font-bold text-base">How we structure every asset to guarantee extraction and authority.</p>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="bg-white border border-[#E8E2D9] rounded-lg p-4 shadow-sm">
-                                    <i data-lucide="layout-template" class="w-6 h-6 text-[#4A2C1A] mb-3" stroke-width="2.5"></i>
-                                    <h4 class="font-black text-[#16110E] mb-1 text-sm">Content Structure</h4>
-                                    <p class="text-[#362C25] font-bold leading-snug text-xs">Inverted pyramid. The objective answer must appear in the first 100 words.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="bg-white border border-[#E8E2D9] rounded-xl p-6 shadow-sm">
+                                    <i data-lucide="layout-template" class="w-8 h-8 text-[#4A2C1A] mb-4" stroke-width="2.5"></i>
+                                    <h4 class="font-black text-[#16110E] mb-2 text-base">Content Structure</h4>
+                                    <p class="text-[#362C25] font-bold leading-relaxed text-sm">Inverted pyramid. The objective answer must appear in the first 100 words.</p>
                                 </div>
-                                <div class="bg-white border border-[#E8E2D9] rounded-lg p-4 shadow-sm">
-                                    <i data-lucide="file-text" class="w-6 h-6 text-[#4A2C1A] mb-3" stroke-width="2.5"></i>
-                                    <h4 class="font-black text-[#16110E] mb-1 text-sm">FAQ Blocks</h4>
-                                    <p class="text-[#362C25] font-bold leading-snug text-xs">Direct matching to "People Also Ask" and LLM prompt variations.</p>
+                                <div class="bg-white border border-[#E8E2D9] rounded-xl p-6 shadow-sm">
+                                    <i data-lucide="file-text" class="w-8 h-8 text-[#4A2C1A] mb-4" stroke-width="2.5"></i>
+                                    <h4 class="font-black text-[#16110E] mb-2 text-base">FAQ Blocks</h4>
+                                    <p class="text-[#362C25] font-bold leading-relaxed text-sm">Direct matching to "People Also Ask" and LLM prompt variations.</p>
                                 </div>
-                                <div class="bg-white border border-[#E8E2D9] rounded-lg p-4 shadow-sm">
-                                    <i data-lucide="database" class="w-6 h-6 text-[#4A2C1A] mb-3" stroke-width="2.5"></i>
-                                    <h4 class="font-black text-[#16110E] mb-1 text-sm">Schema & Data</h4>
-                                    <p class="text-[#362C25] font-bold leading-snug text-xs">FAQPage schema, ItemList schema, and Markdown tables for pricing/timelines.</p>
+                                <div class="bg-white border border-[#E8E2D9] rounded-xl p-6 shadow-sm">
+                                    <i data-lucide="database" class="w-8 h-8 text-[#4A2C1A] mb-4" stroke-width="2.5"></i>
+                                    <h4 class="font-black text-[#16110E] mb-2 text-base">Schema & Data</h4>
+                                    <p class="text-[#362C25] font-bold leading-relaxed text-sm">FAQPage schema, ItemList schema, and Markdown tables for pricing/timelines.</p>
                                 </div>
-                                <div class="bg-white border border-[#E8E2D9] rounded-lg p-4 shadow-sm">
-                                    <i data-lucide="link" class="w-6 h-6 text-[#4A2C1A] mb-3" stroke-width="2.5"></i>
-                                    <h4 class="font-black text-[#16110E] mb-1 text-sm">Internal Linking</h4>
-                                    <p class="text-[#362C25] font-bold leading-snug text-xs">Semantic clustering to pass authority from high-traffic hubs to conversion pages.</p>
+                                <div class="bg-white border border-[#E8E2D9] rounded-xl p-6 shadow-sm">
+                                    <i data-lucide="link" class="w-8 h-8 text-[#4A2C1A] mb-4" stroke-width="2.5"></i>
+                                    <h4 class="font-black text-[#16110E] mb-2 text-base">Internal Linking</h4>
+                                    <p class="text-[#362C25] font-bold leading-relaxed text-sm">Semantic clustering to pass authority from high-traffic hubs to conversion pages.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-[#4A2C1A] rounded-lg border border-[#381F10] flex items-center gap-3 shadow-md">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-rose-400 shrink-0" stroke-width="3"></i>
-                                <span class="font-black text-white text-sm tracking-wide">Answer-first formatting applied to all deliverables.</span>
+                            <div class="mt-6 p-5 bg-[#4A2C1A] rounded-xl border border-[#381F10] flex items-center gap-4 shadow-md">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-rose-400 shrink-0" stroke-width="3"></i>
+                                <span class="font-black text-white text-base tracking-wide">Answer-first formatting applied to all deliverables.</span>
                             </div>
                         </div>
 
                         <!-- TAB: MEASUREMENT -->
-                        <div id="content-measurement" class="tab-content hidden fade-in space-y-4">
-                            <div class="mb-4">
-                                <h3 class="text-xl font-black text-[#16110E] mb-1">Success Telemetry</h3>
-                                <p class="text-[#362C25] font-bold text-sm">Moving beyond simple traffic to track real business impact.</p>
+                        <div id="content-measurement" class="tab-content hidden fade-in space-y-6">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-black text-[#16110E] mb-2">Success Telemetry</h3>
+                                <p class="text-[#362C25] font-bold text-base">Moving beyond simple traffic to track real business impact.</p>
                             </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg shadow-sm">
-                                    <div class="text-[10px] font-black text-[#4A3D34] uppercase tracking-widest mb-1">Organic Traffic</div>
-                                    <div class="text-2xl font-black text-[#16110E] mb-1">Targeting</div>
-                                    <div class="font-bold text-[#362C25] text-xs">High-intent informational</div>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl shadow-sm">
+                                    <div class="text-[11px] font-black text-[#4A3D34] uppercase tracking-widest mb-2">Organic Traffic</div>
+                                    <div class="text-3xl font-black text-[#16110E] mb-2">Targeting</div>
+                                    <div class="font-bold text-[#362C25] text-sm">High-intent informational</div>
                                 </div>
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg shadow-sm">
-                                    <div class="text-[10px] font-black text-[#4A3D34] uppercase tracking-widest mb-1">Lead Forms</div>
-                                    <div class="text-2xl font-black text-[#16110E] mb-1">Tracking</div>
-                                    <div class="font-bold text-[#362C25] text-xs">Consultation requests</div>
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl shadow-sm">
+                                    <div class="text-[11px] font-black text-[#4A3D34] uppercase tracking-widest mb-2">Lead Forms</div>
+                                    <div class="text-3xl font-black text-[#16110E] mb-2">Tracking</div>
+                                    <div class="font-bold text-[#362C25] text-sm">Consultation requests</div>
                                 </div>
-                                <div class="bg-white border border-[#DCD1C6] p-4 rounded-lg shadow-sm">
-                                    <div class="text-[10px] font-black text-[#4A3D34] uppercase tracking-widest mb-1">Applications</div>
-                                    <div class="text-2xl font-black text-[#16110E] mb-1">Conversion</div>
-                                    <div class="font-bold text-[#362C25] text-xs">Surrogate/Donor intake (90% Match)</div>
+                                <div class="bg-white border border-[#DCD1C6] p-6 rounded-xl shadow-sm">
+                                    <div class="text-[11px] font-black text-[#4A3D34] uppercase tracking-widest mb-2">Applications</div>
+                                    <div class="text-3xl font-black text-[#16110E] mb-2">Conversion</div>
+                                    <div class="font-bold text-[#362C25] text-sm">Surrogate/Donor intake (90% Match)</div>
                                 </div>
-                                <div class="bg-rose-50 border border-rose-300 p-4 rounded-lg shadow-sm">
-                                    <div class="text-[10px] font-black text-rose-900 uppercase tracking-widest mb-1">AI Mentions</div>
-                                    <div class="text-2xl font-black text-rose-900 mb-1">Visibility</div>
-                                    <div class="font-bold text-rose-900 text-xs">ChatGPT, Perplexity, AIO</div>
+                                <div class="bg-rose-50 border border-rose-300 p-6 rounded-xl shadow-sm">
+                                    <div class="text-[11px] font-black text-rose-900 uppercase tracking-widest mb-2">AI Mentions</div>
+                                    <div class="text-3xl font-black text-rose-900 mb-2">Visibility</div>
+                                    <div class="font-bold text-rose-900 text-sm">ChatGPT, Perplexity, AIO</div>
                                 </div>
                             </div>
                         </div>
@@ -506,42 +506,42 @@
         </section>
 
         <!-- STRATEGY SECTION -->
-        <section class="max-w-7xl mx-auto px-6 py-8">
-            <div class="grid md:grid-cols-2 gap-8 items-start">
+        <section class="max-w-7xl mx-auto px-6 py-20">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-2xl font-extrabold text-[#16110E] mb-6 leading-tight">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-[#16110E] mb-8 leading-tight">
                         How We Will Win <br />This Market Now
                     </h2>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-[#4A2C1A] pl-4">
-                            <h4 class="text-base font-bold text-[#16110E] mb-1">Own the question before the click</h4>
-                            <p class="text-[#4A3D34] font-medium leading-snug text-sm">Be the result AI pulls, not just a blue link buried below the AI overview.</p>
+                    <div class="space-y-8">
+                        <div class="border-l-4 border-[#4A2C1A] pl-5">
+                            <h4 class="text-lg font-bold text-[#16110E] mb-2">Own the question before the click</h4>
+                            <p class="text-[#4A3D34] font-medium leading-relaxed text-base">Be the result AI pulls, not just a blue link buried below the AI overview.</p>
                         </div>
-                        <div class="border-l-4 border-[#DCD1C6] pl-4">
-                            <h4 class="text-base font-bold text-[#16110E] mb-1">Be the source AI trusts</h4>
-                            <p class="text-[#4A3D34] font-medium leading-snug text-sm">Provide clear answers, expert-backed medical reviews, and structured data extraction.</p>
+                        <div class="border-l-4 border-[#DCD1C6] pl-5">
+                            <h4 class="text-lg font-bold text-[#16110E] mb-2">Be the source AI trusts</h4>
+                            <p class="text-[#4A3D34] font-medium leading-relaxed text-base">Provide clear answers, expert-backed medical reviews, and structured data extraction.</p>
                         </div>
-                        <div class="border-l-4 border-[#DCD1C6] pl-4">
-                            <h4 class="text-base font-bold text-[#16110E] mb-1">Build authority across the journey</h4>
-                            <p class="text-[#4A3D34] font-medium leading-snug text-sm">Covering the complete lifecycle for intended parents, surrogates, donors, and international audiences.</p>
+                        <div class="border-l-4 border-[#DCD1C6] pl-5">
+                            <h4 class="text-lg font-bold text-[#16110E] mb-2">Build authority across the journey</h4>
+                            <p class="text-[#4A3D34] font-medium leading-relaxed text-base">Covering the complete lifecycle for intended parents, surrogates, donors, and international audiences.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-[#F4F0E6] rounded-xl p-6 border border-[#E8E2D9]">
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-lg border border-[#E8E2D9]">
-                            <span class="text-[10px] font-black tracking-widest text-[#4A2C1A] uppercase">Legacy Model</span>
-                            <p class="text-lg font-black text-[#16110E] mt-1">SEO = Rankings</p>
+                <div class="bg-[#F4F0E6] rounded-2xl p-10 border border-[#E8E2D9]">
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-xl border border-[#E8E2D9]">
+                            <span class="text-[11px] font-black tracking-widest text-[#4A2C1A] uppercase">Legacy Model</span>
+                            <p class="text-2xl font-black text-[#16110E] mt-2">SEO = Rankings</p>
                         </div>
                         
-                        <div class="flex justify-center py-1">
-                            <i data-lucide="arrow-right" class="w-6 h-6 text-[#A89F91] rotate-90"></i>
+                        <div class="flex justify-center py-2">
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-[#A89F91] rotate-90"></i>
                         </div>
                         
-                        <div class="bg-[#4A2C1A] p-4 rounded-lg border border-[#381F10] shadow-sm">
-                            <span class="text-[10px] font-bold tracking-widest text-white/70 uppercase">Current Model</span>
-                            <p class="text-lg font-black text-white mt-1">GEO = References Inside AI</p>
+                        <div class="bg-[#4A2C1A] p-6 rounded-xl border border-[#381F10] shadow-sm">
+                            <span class="text-[11px] font-bold tracking-widest text-white/70 uppercase">Current Model</span>
+                            <p class="text-2xl font-black text-white mt-2">GEO = References Inside AI</p>
                         </div>
                     </div>
                 </div>
@@ -549,43 +549,43 @@
         </section>
 
         <!-- PROOF SECTION -->
-        <section class="max-w-7xl mx-auto px-6 py-8 bg-[#EBE3D5] rounded-xl border border-[#DCD1C6]">
-            <div class="text-center mb-8">
-                <h2 class="text-xs font-bold text-[#4A2C1A] tracking-widest uppercase mb-2">Validation</h2>
-                <p class="text-2xl font-extrabold text-[#16110E]">My Track Record of Impact</p>
+        <section class="max-w-7xl mx-auto px-6 py-16 bg-[#EBE3D5] rounded-2xl border border-[#DCD1C6]">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-bold text-[#4A2C1A] tracking-widest uppercase mb-3">Validation</h2>
+                <p class="text-3xl font-extrabold text-[#16110E]">My Track Record of Impact</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
                 <div class="text-center">
-                    <div class="text-2xl font-black text-[#4A2C1A] mb-2">1.4M → 3.1M</div>
-                    <div class="w-6 h-0.5 bg-[#DCD1C6] mx-auto mb-2"></div>
-                    <div class="text-xs font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Monthly Traffic Scaled</div>
+                    <div class="text-3xl font-black text-[#4A2C1A] mb-3">1.4M → 3.1M</div>
+                    <div class="w-8 h-1 bg-[#DCD1C6] mx-auto mb-3"></div>
+                    <div class="text-sm font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Monthly Traffic Scaled</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-2xl font-black text-[#4A2C1A] mb-2">3M+</div>
-                    <div class="w-6 h-0.5 bg-[#DCD1C6] mx-auto mb-2"></div>
-                    <div class="text-xs font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Monthly Users Managed</div>
+                    <div class="text-3xl font-black text-[#4A2C1A] mb-3">3M+</div>
+                    <div class="w-8 h-1 bg-[#DCD1C6] mx-auto mb-3"></div>
+                    <div class="text-sm font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Monthly Users Managed</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-2xl font-black text-[#4A2C1A] mb-2">Intake Forms</div>
-                    <div class="w-6 h-0.5 bg-[#DCD1C6] mx-auto mb-2"></div>
-                    <div class="text-xs font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Built to Drive Leads, Not Just Traffic</div>
+                    <div class="text-3xl font-black text-[#4A2C1A] mb-3">Intake Forms</div>
+                    <div class="w-8 h-1 bg-[#DCD1C6] mx-auto mb-3"></div>
+                    <div class="text-sm font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Built to Drive Leads, Not Just Traffic</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-2xl font-black text-[#4A2C1A] mb-2">Revenue</div>
-                    <div class="w-6 h-0.5 bg-[#DCD1C6] mx-auto mb-2"></div>
-                    <div class="text-xs font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Focused on Bottom-Line Impact</div>
+                    <div class="text-3xl font-black text-[#4A2C1A] mb-3">Revenue</div>
+                    <div class="w-8 h-1 bg-[#DCD1C6] mx-auto mb-3"></div>
+                    <div class="text-sm font-black text-[#4A3D34] uppercase tracking-wide leading-snug">Focused on Bottom-Line Impact</div>
                 </div>
             </div>
         </section>
 
         <!-- CLOSE / CTA -->
-        <section class="max-w-4xl mx-auto px-6 py-12 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#16110E] mb-6 leading-tight">
+        <section class="max-w-4xl mx-auto px-6 py-24 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#16110E] mb-10 leading-tight">
                 I’m Not Just Applying for a Job. <br />
                 <span class="text-rose-800">I’m Applying to Build Your Search Advantage.</span>
             </h2>
-            <button class="px-8 py-4 bg-sky-800 text-white text-base font-bold rounded-lg hover:bg-sky-900 transition-colors shadow-sm">
+            <button class="px-10 py-5 bg-sky-800 text-white text-lg font-bold rounded-xl hover:bg-sky-900 transition-colors shadow-md">
                 Let’s Talk Architecture
             </button>
         </section>
