@@ -1,0 +1,569 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Surrogacy Quiz: Become Surrogate, Donor or Parent | GSHC Matchmaker</title>
+    <meta name="description" content="Take our free surrogacy quiz to check eligibility as surrogate or egg donor. Fast match for intended parents. 98% success rate.">
+    <meta name="keywords" content="surrogacy quiz, become surrogate quiz, egg donor quiz, surrogate eligibility test, find surrogate match, surrogacy California, egg donation requirements">
+    <meta name="author" content="GSHC Surrogacy Agency">
+    <link rel="canonical" href="https://gshcsurrogacy.com/quiz">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gshcsurrogacy.com/quiz">
+    <meta property="og:title" content="Surrogacy Quiz: Become Surrogate, Donor or Parent | GSHC Matchmaker">
+    <meta property="og:description" content="Take our free surrogacy quiz to check eligibility as surrogate or egg donor. Fast match for intended parents. 98% success rate.">
+    <meta property="og:image" content="https://gshcsurrogacy.com/images/og-surrogacy-quiz.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gshcsurrogacy.com/quiz">
+    <meta property="twitter:title" content="Surrogacy Quiz: Become Surrogate, Donor or Parent | GSHC Matchmaker">
+    <meta property="twitter:description" content="Take our free surrogacy quiz to check eligibility as surrogate or egg donor. Fast match for intended parents. 98% success rate.">
+    <meta property="twitter:image" content="https://gshcsurrogacy.com/images/og-surrogacy-quiz.jpg">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "name": "GSHC Surrogacy Matchmaker Quiz",
+          "provider": {
+            "@type": "MedicalOrganization",
+            "name": "GSHC Surrogacy Agency",
+            "url": "https://gshcsurrogacy.com",
+            "logo": "https://gshcsurrogacy.com/logo.png"
+          },
+          "areaServed": ["California", "United States", "International"],
+          "description": "Free surrogate eligibility test and matching service for surrogates, egg donors, and intended parents."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are the requirements for the surrogate eligibility test?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To pass the surrogate eligibility test, women must generally be between 21-39 years old, have had at least one healthy pregnancy, maintain a healthy BMI, and live in a surrogate-friendly state like California."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the egg donation requirements in California?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Egg donor requirements in California typically include being a healthy woman between 21-29 years old, having regular menstrual cycles, proportional BMI, and a clean family medical history."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the surrogacy quiz match intended parents?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our surrogacy quiz uses a 60-second matching algorithm to understand your family-building goals, timeline, and preferences to connect you with eligible surrogates or donors in our network."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the become a surrogate quiz free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our become a surrogate quiz is 100% free. It takes less than a minute to complete and provides instant feedback on your surrogate eligibility."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to find a surrogate match?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GSHC boasts a 90% match rate. Depending on your specific criteria and location, finding a surrogate match can take anywhere from a few weeks to several months."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gshcLight: '#E0F7F2',
+                        gshcTeal: '#4DB6AC',
+                        gshcGreen: '#00A676',
+                        gshcDark: '#007A57',
+                        btnBg: '#E8F8F5'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(0, 166, 118, 0.3)',
+                        'glow-hover': '0 0 30px rgba(0, 166, 118, 0.6)',
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.1)'
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .modal-overlay { transition: opacity 0.3s ease-in-out; }
+        .modal-content { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-in-out; }
+        
+        .role-btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .role-btn:hover { transform: translateY(-3px); }
+
+        /* Accordion transition */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-content {
+            max-height: 200px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[90vh] bg-gradient-to-b from-[#E0F7F2] to-[#00A676] flex flex-col justify-center items-center px-4 py-16 overflow-hidden">
+            
+            <!-- Decorative Background Elements -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-10 left-10 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl mix-blend-overlay"></div>
+                <div class="absolute bottom-10 right-10 w-96 h-96 bg-gshcTeal opacity-30 rounded-full blur-3xl mix-blend-overlay"></div>
+            </div>
+
+            <div class="relative z-10 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Hero Content (SEO H1/H2) -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left animate-fade-in-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-white/30 text-gshcDark font-bold text-sm mb-4 border border-white/50 backdrop-blur-sm">
+                        Free Eligibility Tool
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.15] mb-6 tracking-tight">
+                        Surrogacy Quiz: Find Your Role in 60 Seconds <br class="hidden lg:block"/>
+                        <span class="text-gray-900 text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-md">Surrogate, Donor or Parent?</span>
+                    </h1>
+                    
+                    <h2 class="text-lg md:text-xl text-gray-800 mb-8 font-medium max-w-xl mx-auto lg:mx-0">
+                        Free surrogacy eligibility quiz for California & US. See if you qualify now and get matched instantly.
+                    </h2>
+
+                    <!-- Stats (SEO H3 equivalent text) -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-6 text-gray-900 font-bold text-sm md:text-base mb-10">
+                        <div class="flex items-center bg-white/40 px-4 py-2 rounded-lg backdrop-blur-sm border border-gray-900/20 shadow-sm">
+                            <span class="text-yellow-600 text-xl mr-2">★</span>
+                            <h3>98% Success Rate</h3>
+                        </div>
+                        <div class="flex items-center bg-white/40 px-4 py-2 rounded-lg backdrop-blur-sm border border-gray-900/20 shadow-sm">
+                            <span class="text-red-500 text-xl mr-2">♥</span>
+                            <h3>90% Match Rate</h3>
+                        </div>
+                        <div class="flex items-center bg-white/40 px-4 py-2 rounded-lg backdrop-blur-sm border border-gray-900/20 shadow-sm">
+                            <span class="text-xl mr-2">👶</span>
+                            <h3>800+ Babies Born</h3>
+                        </div>
+                    </div>
+
+                    <div class="hidden lg:block">
+                        <button onclick="openQuizModal('general')" class="inline-flex items-center bg-white text-gshcGreen font-black text-xl px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            Start Surrogacy Quiz Free
+                            <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Mockup -->
+                <div class="w-full lg:w-1/2 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <!-- SEO Hidden Image for Image Search -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" 
+                         alt="GSHC surrogacy quiz mockup buttons" 
+                         loading="lazy" 
+                         class="sr-only">
+                         
+                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-soft border border-white/40 backdrop-blur-md relative animate-float group" role="img" aria-label="GSHC surrogacy quiz mockup buttons">
+                        
+                        <div class="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 font-bold text-sm py-1 px-4 rounded-full shadow-md transform rotate-12 z-20">
+                            Takes 60 Seconds!
+                        </div>
+
+                        <div class="text-center mb-6">
+                            <p class="text-gray-500 font-bold uppercase tracking-wider text-sm mb-1">Step 1 of 5</p>
+                            <p class="text-2xl font-bold text-gray-800">What is your journey?</p>
+                        </div>
+
+                        <!-- 4 Exact Mockup Buttons -->
+                        <div class="space-y-4">
+                            <button onclick="openQuizModal('donor')" class="role-btn w-full bg-btnBg hover:bg-teal-100 border-2 border-gray-900 text-gray-900 font-bold text-xl py-4 px-6 rounded-[20px] shadow-sm hover:shadow-glow flex justify-center items-center">
+                                Become a Donor
+                            </button>
+                            
+                            <button onclick="openQuizModal('surrogate')" class="role-btn w-full bg-btnBg hover:bg-teal-100 border-2 border-gray-900 text-gray-900 font-bold text-xl py-4 px-6 rounded-[20px] shadow-sm hover:shadow-glow flex justify-center items-center">
+                                Become a Surrogate
+                            </button>
+                            
+                            <button onclick="openQuizModal('find-donor')" class="role-btn w-full bg-btnBg hover:bg-teal-100 border-2 border-gray-900 text-gray-900 font-bold text-xl py-4 px-6 rounded-[20px] shadow-sm hover:shadow-glow flex justify-center items-center">
+                                Find a Donor
+                            </button>
+                            
+                            <button onclick="openQuizModal('find-surrogate')" class="role-btn w-full bg-btnBg hover:bg-teal-100 border-2 border-gray-900 text-gray-900 font-bold text-xl py-4 px-6 rounded-[20px] shadow-sm hover:shadow-glow flex justify-center items-center">
+                                Find a Surrogate
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile CTA (Visible only on small screens) -->
+                    <div class="mt-8 text-center lg:hidden">
+                        <button onclick="openQuizModal('general')" class="inline-flex items-center bg-white text-gshcDark font-black text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all w-full justify-center border-2 border-white/50">
+                            Start Surrogacy Quiz Free
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section id="how-it-works" class="py-24 px-4 bg-white relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How the Surrogacy Matchmaker Quiz Works</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-lg">Our seamless process connects you with the right path, whether you are checking your surrogate eligibility or looking to find a surrogate match.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    <!-- Connector Line (Desktop) -->
+                    <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-gshcLight z-0"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <div class="w-24 h-24 bg-white border-4 border-gshcTeal text-gshcTeal rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg bg-btnBg">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">1. Pick Role: Surrogate Quiz or Donor Quiz</h3>
+                        <p class="text-gray-600">Select your intended journey. Are you here to help a family grow, or are you an intended parent?</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative z-10 flex flex-col items-center text-center mt-8 md:mt-0">
+                        <div class="w-24 h-24 bg-white border-4 border-gshcGreen text-gshcGreen rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg bg-btnBg">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">2. Answer 5 Questions: Age, Health, Location</h3>
+                        <p class="text-gray-600">Provide basic details to check your egg donation requirements or surrogate eligibility test criteria.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative z-10 flex flex-col items-center text-center mt-8 md:mt-0">
+                        <div class="w-24 h-24 bg-gshcGreen border-4 border-gshcDark text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg shadow-glow">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">3. Get Match: Direct to Application</h3>
+                        <p class="text-gray-600">Receive instant, personalized results and a priority link to start your official GSHC application.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY TRUST SECTION -->
+        <section id="why-trust" class="py-24 px-4 bg-gray-50 border-t border-gray-200">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Trust GSHC for Your Surrogacy Journey</h2>
+                    <p class="text-lg text-gray-600 mb-8">Whether you are taking the become surrogate quiz or searching for a donor, GSHC is California's premier agency, dedicated to ethical, supportive journeys.</p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-btnBg text-gshcGreen flex items-center justify-center font-bold mt-1">✓</div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-900">Top Surrogacy Agency in California</h3>
+                                <p class="text-gray-600 mt-1">Leading success rates and unparalleled regional expertise.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-btnBg text-gshcGreen flex items-center justify-center font-bold mt-1">✓</div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-900">LGBTQ+ & International Friendly</h3>
+                                <p class="text-gray-600 mt-1">Proudly inclusive family-building for all intended parents globally.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-btnBg text-gshcGreen flex items-center justify-center font-bold mt-1">✓</div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-900">Expert Medical & Legal Support</h3>
+                                <p class="text-gray-600 mt-1">Comprehensive guidance through every legal and medical requirement.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Testimonial Carousel (Static Mockup for speed/SEO) -->
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-soft border border-gshcLight relative">
+                        <svg class="absolute top-6 left-6 w-16 h-16 text-gshcLight" fill="currentColor" viewBox="0 0 32 32"><path d="M10.041 12.062c-2.312 0-4.187 1.875-4.187 4.188s1.875 4.188 4.187 4.188c2.313 0 4.188-1.875 4.188-4.188s-1.875-4.188-4.188-4.188zm0 6.5c-1.276 0-2.312-1.036-2.312-2.312s1.036-2.312 2.312-2.312 2.313 1.036 2.313 2.312-1.037 2.312-2.313 2.312zm11.833-6.5c-2.312 0-4.188 1.875-4.188 4.188s1.876 4.188 4.188 4.188c2.312 0 4.188-1.875 4.188-4.188s-1.876-4.188-4.188-4.188zm0 6.5c-1.276 0-2.312-1.036-2.312-2.312s1.036-2.312 2.312-2.312 2.312 1.036 2.312 2.312-1.036 2.312-2.312 2.312zM9.417 8.354l-1.604 1.104C9.5 11.854 10.458 14.854 10.458 18.5h-1.875C8.583 14.333 7.333 11 5.375 8.854L6.98 7.75c2.25 2.5 3.812 6.167 4.083 10.125h1.875c-0.292-4.229-1.396-7.5-3.521-9.521zm11.833 0l-1.604 1.104C21.333 11.854 22.292 14.854 22.292 18.5h-1.875c0-4.167-1.25-7.5-3.208-9.646L18.812 7.75c2.25 2.5 3.812 6.167 4.083 10.125h1.875c-0.291-4.229-1.396-7.5-3.52-9.521z"></path></svg>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-4 text-yellow-400">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                            <p class="text-xl md:text-2xl font-medium text-gray-800 italic leading-relaxed mb-6">"Taking the surrogacy quiz was so easy. It confirmed I met the egg donation requirements, and GSHC guided me every step of the way. 90% of surrogates return to them for a reason!"</p>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gshcTeal rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">S</div>
+                                <div>
+                                    <p class="font-bold text-gray-900">Sarah M.</p>
+                                    <p class="text-sm text-gray-500">2x Surrogate from California</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION (SEO Optimized & Schema Mapped) -->
+        <section id="faq" class="py-24 px-4 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions (Surrogate Eligibility & Egg Donation)</h2>
+                    <p class="text-gray-600 text-lg">Find quick answers about our surrogacy quiz and requirements.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item border border-gray-200 rounded-2xl bg-gray-50 overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <h3 class="text-lg font-bold text-gray-900 pr-8">What are the requirements for the surrogate eligibility test?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gshcGreen transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 bg-white text-gray-600">
+                            To pass the surrogate eligibility test, women must generally be between 21-39 years old, have had at least one healthy pregnancy, maintain a healthy BMI, and live in a surrogate-friendly state like California.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item border border-gray-200 rounded-2xl bg-gray-50 overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <h3 class="text-lg font-bold text-gray-900 pr-8">What are the egg donation requirements in California?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gshcGreen transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 bg-white text-gray-600">
+                            Egg donor requirements in California typically include being a healthy woman between 21-29 years old, having regular menstrual cycles, proportional BMI, and a clean family medical history.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item border border-gray-200 rounded-2xl bg-gray-50 overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <h3 class="text-lg font-bold text-gray-900 pr-8">How does the surrogacy quiz match intended parents?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gshcGreen transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 bg-white text-gray-600">
+                            Our surrogacy quiz uses a 60-second matching algorithm to understand your family-building goals, timeline, and preferences to connect you with eligible surrogates or donors in our network.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item border border-gray-200 rounded-2xl bg-gray-50 overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <h3 class="text-lg font-bold text-gray-900 pr-8">Is the become a surrogate quiz free?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gshcGreen transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 bg-white text-gray-600">
+                            Yes, our become a surrogate quiz is 100% free. It takes less than a minute to complete and provides instant feedback on your surrogate eligibility.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item border border-gray-200 rounded-2xl bg-gray-50 overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <h3 class="text-lg font-bold text-gray-900 pr-8">How long does it take to find a surrogate match?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gshcGreen transform transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 bg-white text-gray-600">
+                            GSHC boasts a 90% match rate. Depending on your specific criteria and location, finding a surrogate match can take anywhere from a few weeks to several months.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button onclick="openQuizModal('general')" class="bg-gshcGreen text-white font-bold text-xl px-10 py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-gshcDark transition-all duration-300">
+                        Take the Free Quiz Now
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-16 px-4 text-center md:text-left text-sm border-t-4 border-gshcTeal">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center md:items-start">
+            
+            <div class="flex flex-col items-center md:items-start">
+                <span class="font-black text-white text-2xl tracking-tight mb-4">GSHC Surrogacy</span>
+                <p class="max-w-xs text-gray-500 mb-6">Connecting hearts, building families. Take our free surrogacy quiz to begin your journey today.</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-start space-y-3">
+                <h4 class="text-white font-bold text-lg mb-2">Quick Links</h4>
+                <a href="https://gshcsurrogacy.com/?utm_source=quiztool" target="_blank" class="hover:text-gshcTeal transition-colors">Main Website</a>
+                <a href="https://gshcsurrogacy.com/privacy-policy/?utm_source=quiztool" target="_blank" class="hover:text-gshcTeal transition-colors">Privacy Policy</a>
+                <a href="https://gshcsurrogacy.com/contact/?utm_source=quiztool" target="_blank" class="hover:text-gshcTeal transition-colors">Contact Support</a>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-white font-bold text-lg mb-4">Ready to Start?</h4>
+                <button onclick="openQuizModal('footer')" class="border-2 border-gshcTeal text-gshcLight px-6 py-2 rounded-full hover:bg-gshcTeal hover:text-white transition-colors font-bold">
+                    Launch Matchmaker
+                </button>
+            </div>
+            
+        </div>
+        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center">
+            &copy; <span id="year">2026</span> GSHC Surrogacy Agency. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- QUIZ MODAL OVERLAY (Iframe Embed Placeholder) -->
+    <div id="quiz-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 hidden modal-overlay" aria-modal="true" role="dialog">
+        <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeQuizModal()"></div>
+        
+        <div class="bg-white w-full max-w-3xl h-[85vh] md:h-[700px] rounded-[2rem] shadow-2xl relative z-10 flex flex-col overflow-hidden modal-content scale-95 opacity-0" id="modal-inner">
+            
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 border-b border-gray-100 bg-gray-50">
+                <div class="font-bold text-gshcDark flex items-center gap-2">
+                    <svg class="w-6 h-6 text-gshcTeal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>GSHC Secure Matchmaker</span>
+                </div>
+                <button onclick="closeQuizModal()" class="text-gray-400 hover:text-gray-800 bg-white border border-gray-200 rounded-full p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-gshcTeal" aria-label="Close Quiz">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Modal Body (Iframe space) -->
+            <div class="flex-grow bg-gray-100 relative w-full h-full">
+                
+                <!-- Instruction text for dev -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-0">
+                    <svg class="w-16 h-16 text-gray-300 mb-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <h3 class="text-2xl font-bold text-gray-400 mb-2">Quiz Loading...</h3>
+                    <p class="text-gray-400 max-w-sm">Replace this section with your Typeform or custom logic iframe embed code.</p>
+                    <p id="modal-role-display" class="mt-4 px-4 py-1 bg-gshcLight text-gshcDark font-bold rounded-full text-sm"></p>
+                </div>
+
+                <!-- iframe placeholder -->
+                <!-- <iframe id="quiz-iframe" src="YOUR_FORM_URL" class="absolute inset-0 w-full h-full z-10 bg-transparent border-0"></iframe> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Update year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // FAQ Accordion Logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isCurrentlyActive = item.classList.contains('active');
+            
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+            });
+
+            // Open clicked if it wasn't already open
+            if (!isCurrentlyActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('quiz-modal');
+        const modalInner = document.getElementById('modal-inner');
+        const roleDisplay = document.getElementById('modal-role-display');
+
+        function openQuizModal(role) {
+            // Optional: Pass the selected role via URL parameter to your iframe
+            // const iframe = document.getElementById('quiz-iframe');
+            // iframe.src = `YOUR_FORM_URL?role=${role}&utm_source=quiztool`;
+            
+            roleDisplay.textContent = `Selected Path: ${role}`;
+            
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity/transform
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modalInner.classList.remove('scale-95', 'opacity-0');
+                modalInner.classList.add('scale-100', 'opacity-100');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }, 10);
+        }
+
+        function closeQuizModal() {
+            modal.style.opacity = '0';
+            modalInner.classList.remove('scale-100', 'opacity-100');
+            modalInner.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300);
+        }
+        
+        // Escape key to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeQuizModal();
+            }
+        });
+    </script>
+</body>
+</html>
